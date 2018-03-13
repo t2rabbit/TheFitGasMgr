@@ -1,0 +1,1065 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="yd_esmsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="yd_esmsModelStoreContainer">
+    <EntitySet Name="activity" EntityType="yd_esmsModel.Store.activity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="benchmarking" EntityType="yd_esmsModel.Store.benchmarking" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="building" EntityType="yd_esmsModel.Store.building" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="buildingenergynodeids" EntityType="yd_esmsModel.Store.buildingenergynodeids" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="classroomarrange" EntityType="yd_esmsModel.Store.classroomarrange" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="classtime" EntityType="yd_esmsModel.Store.classtime" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="command" EntityType="yd_esmsModel.Store.command" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="communicationlog" EntityType="yd_esmsModel.Store.communicationlog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="communicationobject" EntityType="yd_esmsModel.Store.communicationobject" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="courseschedule" EntityType="yd_esmsModel.Store.courseschedule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="datagateway" EntityType="yd_esmsModel.Store.datagateway" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="dayhistoryrecorditem" EntityType="yd_esmsModel.Store.dayhistoryrecorditem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="department" EntityType="yd_esmsModel.Store.department" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="deptenergynodeids" EntityType="yd_esmsModel.Store.deptenergynodeids" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="dev" EntityType="yd_esmsModel.Store.dev" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DevStatistical" EntityType="yd_esmsModel.Store.DevStatistical" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="electrovalency" EntityType="yd_esmsModel.Store.electrovalency" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="employee" EntityType="yd_esmsModel.Store.employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EngQuota" EntityType="yd_esmsModel.Store.EngQuota" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="holiday" EntityType="yd_esmsModel.Store.holiday" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="hourhistoryrecorditem" EntityType="yd_esmsModel.Store.hourhistoryrecorditem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="hsenergyevaluation" EntityType="yd_esmsModel.Store.hsenergyevaluation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="idmanager" EntityType="yd_esmsModel.Store.idmanager" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="kpi" EntityType="yd_esmsModel.Store.kpi" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="log" EntityType="yd_esmsModel.Store.log" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="mainenergyequipment" EntityType="yd_esmsModel.Store.mainenergyequipment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="manpickinfo" EntityType="yd_esmsModel.Store.manpickinfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="module" EntityType="yd_esmsModel.Store.module" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="moduledailyplan" EntityType="yd_esmsModel.Store.moduledailyplan" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="moduledailyplanmonthitem" EntityType="yd_esmsModel.Store.moduledailyplanmonthitem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="moduledailyplanmonthitembyact" EntityType="yd_esmsModel.Store.moduledailyplanmonthitembyact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="moduledailyplanmonthitembyclass" EntityType="yd_esmsModel.Store.moduledailyplanmonthitembyclass" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="moduledailyplanmonthitembysch" EntityType="yd_esmsModel.Store.moduledailyplanmonthitembysch" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="monthhistoryrecorditem" EntityType="yd_esmsModel.Store.monthhistoryrecorditem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="node" EntityType="yd_esmsModel.Store.node" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="nodelastval" EntityType="yd_esmsModel.Store.nodelastval" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="realtimeitem" EntityType="yd_esmsModel.Store.realtimeitem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="recorditem" EntityType="yd_esmsModel.Store.recorditem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="reportmgr" EntityType="yd_esmsModel.Store.reportmgr" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="room" EntityType="yd_esmsModel.Store.room" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="roomdevmodelnodes" EntityType="yd_esmsModel.Store.roomdevmodelnodes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="roomenergynodeids" EntityType="yd_esmsModel.Store.roomenergynodeids" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="seasonhistoryrecorditem" EntityType="yd_esmsModel.Store.seasonhistoryrecorditem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="strategy" EntityType="yd_esmsModel.Store.strategy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="systemuser" EntityType="yd_esmsModel.Store.systemuser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="teacher" EntityType="yd_esmsModel.Store.teacher" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="terminfo" EntityType="yd_esmsModel.Store.terminfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="test" EntityType="yd_esmsModel.Store.test" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="weekhistoryrecorditem" EntityType="yd_esmsModel.Store.weekhistoryrecorditem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="workschedule" EntityType="yd_esmsModel.Store.workschedule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="yearhistoryrecorditem" EntityType="yd_esmsModel.Store.yearhistoryrecorditem" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="activity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+    <Property Name="StartAt" Type="datetime2" Precision="0" />
+    <Property Name="ForMinutes" Type="bigint" />
+    <Property Name="RestTimes" Type="nvarchar" MaxLength="500" />
+    <Property Name="EffectDevs" Type="nvarchar" MaxLength="500" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="benchmarking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="MarkingType" Type="bigint" Nullable="false" />
+    <Property Name="Vlaue" Type="float" Nullable="false" />
+    <Property Name="ValueForDate" Type="datetime2" Nullable="false" Precision="0" />
+    <Property Name="Comment" Type="nvarchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="building">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="BuildingType" Type="varchar" MaxLength="50" />
+    <Property Name="FloorCount" Type="bigint" />
+    <Property Name="BuildingFunction" Type="nvarchar" MaxLength="50" />
+    <Property Name="BuildingArea" Type="bigint" />
+    <Property Name="AirArea" Type="bigint" />
+    <Property Name="EconomyIndicator" Type="nvarchar" MaxLength="1024" />
+    <Property Name="BuildingExtInfoJson" Type="nvarchar" MaxLength="1024" />
+    <Property Name="BuildingYear" Type="nvarchar" MaxLength="45" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptID" Type="bigint" />
+    <Property Name="ManagerID" Type="bigint" />
+    <Property Name="EleVID" Type="bigint" />
+    <Property Name="WaterVID" Type="bigint" />
+    <Property Name="GasVID" Type="bigint" />
+    <Property Name="CentersHeatingVID" Type="bigint" />
+    <Property Name="CentersColdVID" Type="bigint" />
+    <Property Name="CoalVID" Type="bigint" />
+    <Property Name="LPGVID" Type="bigint" />
+    <Property Name="ManufacturedGasVID" Type="bigint" />
+    <Property Name="PetrolVID" Type="bigint" />
+    <Property Name="Kerosene" Type="bigint" />
+    <Property Name="Diesel" Type="bigint" />
+    <Property Name="RenewableEgVID" Type="bigint" />
+    <Property Name="OtherEgVID" Type="bigint" />
+    <Property Name="Ele_LightSockVID" Type="bigint" />
+    <Property Name="Ele_AirConditionVID" Type="bigint" />
+    <Property Name="Ele_PowerVID" Type="bigint" />
+    <Property Name="Ele_SpecialVID" Type="bigint" />
+    <Property Name="Ele_LS_NormalVID" Type="bigint" />
+    <Property Name="Ele_LS_CorridorVID" Type="bigint" />
+    <Property Name="Ele_LS_LandscapeVID" Type="bigint" />
+    <Property Name="Ele_AC_CenterVID" Type="bigint" />
+    <Property Name="Ele_AC_EndPointVID" Type="bigint" />
+    <Property Name="Ele_Power_ElevatorVID" Type="bigint" />
+    <Property Name="Ele_Power_PumpVID" Type="bigint" />
+    <Property Name="Ele_Power_AirinessVID" Type="bigint" />
+    <Property Name="Ele_Spec_ITCenterVID" Type="bigint" />
+    <Property Name="Ele_Spec_CookroomVID" Type="bigint" />
+    <Property Name="Ele_Spec_NatatoriumVID" Type="bigint" />
+    <Property Name="Ele_Spec_LabVID" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="T_FloorCount" Type="bigint" />
+    <Property Name="T_RoomsForFloor" Type="nvarchar" MaxLength="45" />
+    <Property Name="T_RoomsHadAirCond" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="buildingenergynodeids">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="BuildingID" Type="bigint" Nullable="false" />
+    <Property Name="NodeID" Type="bigint" Nullable="false" />
+    <Property Name="EnergeCata1" Type="bigint" />
+    <Property Name="EnergyCata2" Type="bigint" />
+    <Property Name="CataType" Type="bigint" />
+  </EntityType>
+  <EntityType Name="classroomarrange">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="BuildingID" Type="bigint" />
+    <Property Name="RoomID" Type="bigint" />
+    <Property Name="Classes" Type="nvarchar" MaxLength="45" />
+    <Property Name="StartAt" Type="datetime2" Precision="0" />
+    <Property Name="LastFroMinutes" Type="bigint" />
+    <Property Name="IndexOfDay" Type="nvarchar" MaxLength="45" />
+    <Property Name="CourseID" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="classtime">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="IndexInDay" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+    <Property Name="StartDT" Type="datetime2" Precision="0" />
+    <Property Name="EndDT" Type="datetime2" Precision="0" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="command">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Cmd" Type="nvarchar" MaxLength="500" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="UpdateDT" Type="datetime2" Precision="0" />
+    <Property Name="ResultFlag" Type="bigint" />
+    <Property Name="ResultMsg" Type="nvarchar" MaxLength="200" />
+    <Property Name="CmdType" Type="nvarchar" MaxLength="45" />
+    <Property Name="ResultForID" Type="bigint" />
+    <Property Name="HandleBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="communicationlog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectID" Type="bigint" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime2" Precision="0" />
+    <Property Name="UpdateMsg" Type="nvarchar" MaxLength="45" />
+    <Property Name="UpdateStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="communicationobject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="Cata1" Type="nvarchar" MaxLength="45" />
+    <Property Name="Cata2" Type="nvarchar" MaxLength="45" />
+    <Property Name="Cata3" Type="nvarchar" MaxLength="45" />
+    <Property Name="GwID" Type="bigint" />
+    <Property Name="DevID" Type="bigint" />
+    <Property Name="ModuleID" Type="bigint" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateMsg" Type="nvarchar" MaxLength="45" />
+    <Property Name="UpdateStatus" Type="nvarchar" MaxLength="45" />
+    <Property Name="Timeout" Type="bigint" />
+  </EntityType>
+  <EntityType Name="courseschedule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="CourseNO" Type="nvarchar" MaxLength="45" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="45" />
+    <Property Name="ClassID" Type="nvarchar" MaxLength="45" />
+    <Property Name="Credit" Type="real" />
+    <Property Name="Teacher" Type="nvarchar" MaxLength="45" />
+    <Property Name="Campus" Type="nvarchar" MaxLength="45" />
+    <Property Name="CourseOfWeek" Type="bigint" />
+    <Property Name="Weeks1" Type="nvarchar" MaxLength="45" />
+    <Property Name="DayOfWeek1" Type="bigint" />
+    <Property Name="ClassIndex1" Type="nvarchar" MaxLength="45" />
+    <Property Name="Teacher1" Type="bigint" />
+    <Property Name="Building1" Type="bigint" />
+    <Property Name="Room1" Type="bigint" />
+    <Property Name="Weeks2" Type="nvarchar" MaxLength="45" />
+    <Property Name="DayOfWeek2" Type="bigint" />
+    <Property Name="ClassIndex2" Type="nvarchar" MaxLength="45" />
+    <Property Name="Teacher2" Type="bigint" />
+    <Property Name="Building2" Type="bigint" />
+    <Property Name="Room2" Type="bigint" />
+    <Property Name="Weeks3" Type="nvarchar" MaxLength="45" />
+    <Property Name="DayOfWeek3" Type="bigint" />
+    <Property Name="ClassIndex3" Type="nvarchar" MaxLength="45" />
+    <Property Name="Teacher3" Type="bigint" />
+    <Property Name="Building3" Type="bigint" />
+    <Property Name="Room3" Type="bigint" />
+    <Property Name="TimeAddressOfLarge" Type="nvarchar" MaxLength="500" />
+    <Property Name="bLargeClass" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="datagateway">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="InstallInBuildingID" Type="bigint" />
+    <Property Name="InstallInRoomID" Type="bigint" />
+    <Property Name="InstallPos" Type="nvarchar" MaxLength="150" />
+    <Property Name="IP" Type="nvarchar" MaxLength="45" />
+    <Property Name="DataCenterIPs" Type="nvarchar" MaxLength="45" />
+    <Property Name="DataCenterPorts" Type="nvarchar" MaxLength="45" />
+    <Property Name="Cfg" Type="nvarchar" MaxLength="45" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="BEnable" Type="bigint" />
+    <Property Name="Type" Type="nvarchar" MaxLength="45" />
+    <Property Name="version" Type="bigint" />
+  </EntityType>
+  <EntityType Name="dayhistoryrecorditem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="MaxValue_" Type="float" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="AvgValue" Type="float" />
+    <Property Name="ValueFlag" Type="bigint" />
+    <Property Name="RecordType" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="DataCount" Type="bigint" />
+    <Property Name="Increment" Type="float" />
+    <Property Name="VTopVal" Type="float" />
+    <Property Name="TopVal" Type="float" />
+    <Property Name="NormalVal" Type="float" />
+    <Property Name="LowVal" Type="float" />
+    <Property Name="VLowVal" Type="float" />
+    <Property Name="ChargeVal" Type="float" />
+    <Property Name="IncVTopVal" Type="float" />
+    <Property Name="IncTopVal" Type="float" />
+    <Property Name="IncNormalVal" Type="float" />
+    <Property Name="IncLowVal" Type="float" />
+    <Property Name="IncVLowVal" Type="float" />
+    <Property Name="IncChargeVal" Type="float" />
+  </EntityType>
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="DeptSN" Type="nvarchar" MaxLength="45" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="Level" Type="bigint" />
+    <Property Name="ParentDeptID" Type="bigint" Nullable="false" />
+    <Property Name="ManagerID" Type="bigint" />
+    <Property Name="EleVID" Type="bigint" />
+    <Property Name="WaterVID" Type="bigint" />
+    <Property Name="GasVID" Type="bigint" />
+    <Property Name="CentersHeatingVID" Type="bigint" />
+    <Property Name="CentersColdVID" Type="bigint" />
+    <Property Name="CoalVID" Type="bigint" />
+    <Property Name="LPGVID" Type="bigint" />
+    <Property Name="ManufacturedGasVID" Type="bigint" />
+    <Property Name="PetrolVID" Type="bigint" />
+    <Property Name="Kerosene" Type="bigint" />
+    <Property Name="Diesel" Type="bigint" />
+    <Property Name="RenewableEgVID" Type="bigint" />
+    <Property Name="OtherEgVID" Type="bigint" />
+    <Property Name="Ele_LightSockVID" Type="bigint" />
+    <Property Name="Ele_AirConditionVID" Type="bigint" />
+    <Property Name="Ele_PowerVID" Type="bigint" />
+    <Property Name="Ele_SpecialVID" Type="bigint" />
+    <Property Name="Ele_LS_NormalVID" Type="bigint" />
+    <Property Name="Ele_LS_CorridorVID" Type="bigint" />
+    <Property Name="Ele_LS_LandscapeVID" Type="bigint" />
+    <Property Name="Ele_AC_CenterVID" Type="bigint" />
+    <Property Name="Ele_AC_EndPointVID" Type="bigint" />
+    <Property Name="Ele_Power_ElevatorVID" Type="bigint" />
+    <Property Name="Ele_Power_PumpVID" Type="bigint" />
+    <Property Name="Ele_Power_AirinessVID" Type="bigint" />
+    <Property Name="Ele_Spec_ITCenterVID" Type="bigint" />
+    <Property Name="Ele_Spec_CookroomVID" Type="bigint" />
+    <Property Name="Ele_Spec_NatatoriumVID" Type="bigint" />
+    <Property Name="Ele_Spec_LabVID" Type="bigint" />
+    <Property Name="BuildingArea" Type="bigint" />
+    <Property Name="AirArea" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="ManCount" Type="bigint" />
+  </EntityType>
+  <EntityType Name="deptenergynodeids">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="DeptID" Type="bigint" Nullable="false" />
+    <Property Name="NodeID" Type="bigint" Nullable="false" />
+    <Property Name="EnergyCata1" Type="bigint" />
+    <Property Name="EnergyCata2" Type="bigint" />
+    <Property Name="EnergyType" Type="bigint" />
+  </EntityType>
+  <EntityType Name="dev">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="InstallInBuildID" Type="bigint" />
+    <Property Name="InstallInRoomID" Type="bigint" />
+    <Property Name="InstallPos" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataGatewayID" Type="bigint" />
+    <Property Name="CommType" Type="nvarchar" MaxLength="45" />
+    <Property Name="TransferType" Type="bigint" />
+    <Property Name="CommPort" Type="nvarchar" MaxLength="45" />
+    <Property Name="Baud" Type="bigint" />
+    <Property Name="DataBit" Type="bigint" />
+    <Property Name="Parity" Type="bigint" />
+    <Property Name="StopBit" Type="bigint" />
+    <Property Name="IP" Type="nvarchar" MaxLength="45" />
+    <Property Name="TCPPort" Type="bigint" />
+    <Property Name="TimeOut" Type="bigint" />
+    <Property Name="ExtCfgs" Type="nvarchar" MaxLength="500" />
+    <Property Name="Rtu" Type="bigint" />
+    <Property Name="BEnable" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="DevStatistical">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="DevID" Type="bigint" />
+    <Property Name="ModuleID" Type="bigint" />
+    <Property Name="CurStatus" Type="varchar" MaxLength="50" />
+    <Property Name="OnByToday" Type="float" />
+    <Property Name="OnByWeek" Type="float" />
+    <Property Name="OnByMonth" Type="float" />
+    <Property Name="OnByYear" Type="float" />
+    <Property Name="EngStatus" Type="varchar" MaxLength="50" />
+    <Property Name="CurTmpe" Type="float" />
+    <Property Name="CurLight" Type="float" />
+    <Property Name="UpdateDt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="electrovalency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="Type_1" Type="nvarchar" MaxLength="45" />
+    <Property Name="Type_2" Type="nvarchar" MaxLength="45" />
+    <Property Name="Type_3" Type="nvarchar" MaxLength="45" />
+    <Property Name="Type_4" Type="nvarchar" MaxLength="45" />
+    <Property Name="Type_5" Type="nvarchar" MaxLength="45" />
+    <Property Name="Type_6" Type="nvarchar" MaxLength="45" />
+    <Property Name="e_value" Type="float" />
+    <Property Name="EnableDT" Type="datetime2" Precision="0" />
+    <Property Name="ExtCfg" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="SSID" Type="nvarchar" MaxLength="45" />
+    <Property Name="DeptID" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="45" />
+    <Property Name="MPhone" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="EngQuota">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="QuatoFor" Type="int" />
+    <Property Name="EnergyType" Type="nvarchar" MaxLength="50" />
+    <Property Name="UseQuatoType" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenMinuteQuato" Type="float" />
+    <Property Name="HourQuato" Type="float" />
+    <Property Name="DayQuato" Type="float" />
+    <Property Name="WeekQuato" Type="float" />
+    <Property Name="MonthQuato" Type="float" />
+    <Property Name="ThreeMonthQuato" Type="float" />
+    <Property Name="HalfYearQuato" Type="float" />
+    <Property Name="YearQuato" Type="float" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartID" Type="bigint" />
+    <Property Name="RoomID" Type="bigint" />
+    <Property Name="Starteff" Type="datetime" />
+    <Property Name="Endeff" Type="datetime" />
+  </EntityType>
+  <EntityType Name="holiday">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+    <Property Name="StartAt" Type="datetime2" Precision="0" />
+    <Property Name="LastForDay" Type="bigint" />
+    <Property Name="LastForHour" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="hourhistoryrecorditem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="MaxValue_" Type="float" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="AvgValue" Type="float" />
+    <Property Name="ValueFlag" Type="bigint" />
+    <Property Name="RecordType" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="DataCount" Type="bigint" />
+    <Property Name="Increment" Type="float" />
+    <Property Name="VTopVal" Type="float" />
+    <Property Name="TopVal" Type="float" />
+    <Property Name="NormalVal" Type="float" />
+    <Property Name="LowVal" Type="float" />
+    <Property Name="ChargeVal" Type="float" />
+    <Property Name="IncVTopVal" Type="float" />
+    <Property Name="IncTopVal" Type="float" />
+    <Property Name="IncNormalVal" Type="float" />
+    <Property Name="IncLowVal" Type="float" />
+    <Property Name="IncChargeVal" Type="float" />
+  </EntityType>
+  <EntityType Name="hsenergyevaluation">
+    <Key>
+      <PropertyRef Name="BuildingType" />
+    </Key>
+    <Property Name="BuildingType" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="BuildingCount" Type="bigint" />
+    <Property Name="BuildingArea" Type="float" />
+    <Property Name="TeacherCount" Type="bigint" />
+    <Property Name="StudentCount" Type="bigint" />
+    <Property Name="EleVID" Type="bigint" />
+    <Property Name="WaterVID" Type="bigint" />
+    <Property Name="GasVID" Type="bigint" />
+    <Property Name="CentersHeatingVID" Type="bigint" />
+    <Property Name="CentersColdVID" Type="bigint" />
+    <Property Name="CoalVID" Type="bigint" />
+    <Property Name="LPGVID" Type="bigint" />
+    <Property Name="ManufacturedGasVID" Type="bigint" />
+    <Property Name="PetrolVID" Type="bigint" />
+    <Property Name="Kerosene" Type="bigint" />
+    <Property Name="Diesel" Type="bigint" />
+    <Property Name="RenewableEgVID" Type="bigint" />
+    <Property Name="OtherEgVID" Type="bigint" />
+    <Property Name="Ele_LightSockVID" Type="bigint" />
+    <Property Name="Ele_AirConditionVID" Type="bigint" />
+    <Property Name="Ele_PowerVID" Type="bigint" />
+    <Property Name="Ele_SpecialVID" Type="bigint" />
+    <Property Name="Ele_LS_NormalVID" Type="bigint" />
+    <Property Name="Ele_LS_CorridorVID" Type="bigint" />
+    <Property Name="Ele_LS_LandscapeVID" Type="bigint" />
+    <Property Name="Ele_AC_CenterVID" Type="bigint" />
+    <Property Name="Ele_AC_EndPointVID" Type="bigint" />
+    <Property Name="Ele_Power_ElevatorVID" Type="bigint" />
+    <Property Name="Ele_Power_PumpVID" Type="bigint" />
+    <Property Name="Ele_Power_AirinessVID" Type="bigint" />
+    <Property Name="Ele_Spec_ITCenterVID" Type="bigint" />
+    <Property Name="Ele_Spec_CookroomVID" Type="bigint" />
+    <Property Name="Ele_Spec_NatatoriumVID" Type="bigint" />
+    <Property Name="Ele_Spec_LabVID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="idmanager">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TableName" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="LastID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kpi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="DeptOrBuilding" Type="bigint" />
+    <Property Name="DeptID" Type="bigint" />
+    <Property Name="BuildingID" Type="bigint" />
+    <Property Name="RoomID" Type="bigint" />
+    <Property Name="ValueID" Type="bigint" />
+    <Property Name="YearMax" Type="float" />
+    <Property Name="MonthMax" Type="float" />
+    <Property Name="DayMax" Type="float" />
+    <Property Name="ValueType" Type="nvarchar" MaxLength="45" />
+    <Property Name="ValueUnit" Type="nvarchar" MaxLength="45" />
+    <Property Name="ExpressionForRMB" Type="nvarchar" MaxLength="45" />
+    <Property Name="AlarmJson" Type="nvarchar" MaxLength="45" />
+    <Property Name="ExamineJson" Type="nvarchar" MaxLength="2000" />
+    <Property Name="ControlJson" Type="nvarchar" MaxLength="45" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="WeekMax" Type="float" />
+  </EntityType>
+  <EntityType Name="log">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Msg" Type="nvarchar" MaxLength="450" />
+    <Property Name="LogType" Type="bigint" />
+    <Property Name="LogModule" Type="nvarchar" MaxLength="45" />
+    <Property Name="LogLevel" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="SrcLogID" Type="bigint" />
+    <Property Name="GateID" Type="bigint" />
+    <Property Name="DevID" Type="bigint" />
+    <Property Name="ModuleID" Type="bigint" />
+    <Property Name="CommObjID" Type="bigint" />
+    <Property Name="QuatoID" Type="bigint" />
+    <Property Name="ExtInt1" Type="bigint" />
+    <Property Name="ExtInt2" Type="bigint" />
+    <Property Name="ExtStr1" Type="nvarchar" MaxLength="45" />
+    <Property Name="ExtStr2" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="mainenergyequipment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="RoomID" Type="bigint" Nullable="false" />
+    <Property Name="ValueID" Type="bigint" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="EleOtherValueNodes" Type="nvarchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="manpickinfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="SNCODE" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="BuildingInfo" Type="nvarchar" MaxLength="100" />
+    <Property Name="DepartmentInfo" Type="nvarchar" MaxLength="100" />
+    <Property Name="DeviceInfo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="module">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="InstallBuildingID" Type="bigint" />
+    <Property Name="InstallInRoomID" Type="bigint" />
+    <Property Name="InstallPos" Type="varchar" MaxLength="50" />
+    <Property Name="ModuleType" Type="nvarchar" MaxLength="45" />
+    <Property Name="ModuleModel" Type="nvarchar" MaxLength="45" />
+    <Property Name="CfgJson" Type="nvarchar" MaxLength="45" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="DevID" Type="bigint" Nullable="false" />
+    <Property Name="Addr" Type="bigint" />
+    <Property Name="BEnable" Type="bigint" />
+    <Property Name="StrategyID" Type="bigint" />
+    <Property Name="StrategyVer" Type="bigint" />
+    <Property Name="UpdateStrategyDT" Type="datetime2" Precision="0" />
+    <Property Name="PlanCommToGW" Type="datetime2" Precision="0" />
+    <Property Name="PlanSyncGW" Type="datetime2" Precision="0" />
+    <Property Name="PlanCommToMod" Type="datetime2" Precision="0" />
+    <Property Name="PlanSyncToMod" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="moduledailyplan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="ModuleID" Type="bigint" />
+    <Property Name="Version" Type="bigint" />
+    <Property Name="PlanInfo" Type="nvarchar" />
+    <Property Name="SendedTime" Type="datetime2" Precision="0" />
+    <Property Name="Status" Type="bigint" />
+    <Property Name="ForDay" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="moduledailyplanmonthitem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="ModuleID" Type="bigint" />
+    <Property Name="Versions31Days" Type="nvarchar(max)" />
+    <Property Name="PlanInfo31Days" Type="nvarchar(max)" />
+    <Property Name="SendedTime31Days" Type="nvarchar(max)" />
+    <Property Name="Status31Days" Type="nvarchar(max)" />
+    <Property Name="Updatetime" Type="datetime2" Precision="0" />
+    <Property Name="Version" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="MdyByUserID" Type="bigint" />
+    <Property Name="ForMonth" Type="datetime2" Precision="0" />
+    <Property Name="SendetToGatewayDt" Type="datetime2" Precision="0" />
+    <Property Name="StatusForGateway" Type="bigint" />
+  </EntityType>
+  <EntityType Name="moduledailyplanmonthitembyact">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="ModuleID" Type="bigint" />
+    <Property Name="Versions31Days" Type="nvarchar(max)" />
+    <Property Name="PlanInfo31Days" Type="nvarchar(max)" />
+    <Property Name="SendedTime31Days" Type="nvarchar(max)" />
+    <Property Name="Status31Days" Type="nvarchar(max)" />
+    <Property Name="Updatetime" Type="datetime2" Precision="0" />
+    <Property Name="Version" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="MdyByUserID" Type="bigint" />
+    <Property Name="ForMonth" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="moduledailyplanmonthitembyclass">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="ModuleID" Type="bigint" />
+    <Property Name="Versions31Days" Type="nvarchar(max)" />
+    <Property Name="PlanInfo31Days" Type="nvarchar(max)" />
+    <Property Name="SendedTime31Days" Type="nvarchar(max)" />
+    <Property Name="Status31Days" Type="nvarchar(max)" />
+    <Property Name="Updatetime" Type="datetime2" Precision="0" />
+    <Property Name="Version" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="MdyByUserID" Type="bigint" />
+    <Property Name="ForMonth" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="moduledailyplanmonthitembysch">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="ModuleID" Type="bigint" />
+    <Property Name="Versions31Days" Type="nvarchar(max)" />
+    <Property Name="PlanInfo31Days" Type="nvarchar(max)" />
+    <Property Name="SendedTime31Days" Type="nvarchar(max)" />
+    <Property Name="Status31Days" Type="nvarchar(max)" />
+    <Property Name="Updatetime" Type="datetime2" Precision="0" />
+    <Property Name="Version" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="MdyByUserID" Type="bigint" />
+    <Property Name="ForMonth" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="monthhistoryrecorditem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="MaxValue_" Type="float" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="AvgValue" Type="float" />
+    <Property Name="ValueFlag" Type="bigint" />
+    <Property Name="RecordType" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="DataCount" Type="bigint" />
+    <Property Name="Increment" Type="float" />
+    <Property Name="VTopVal" Type="float" />
+    <Property Name="TopVal" Type="float" />
+    <Property Name="NormalVal" Type="float" />
+    <Property Name="LowVal" Type="float" />
+    <Property Name="ChargeVal" Type="float" />
+    <Property Name="IncVTopVal" Type="float" />
+    <Property Name="IncTopVal" Type="float" />
+    <Property Name="IncNormalVal" Type="float" />
+    <Property Name="IncLowVal" Type="float" />
+    <Property Name="IncChargeVal" Type="float" />
+  </EntityType>
+  <EntityType Name="node">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="Cfg" Type="nvarchar" MaxLength="500" />
+    <Property Name="NodeType" Type="bigint" />
+    <Property Name="IsAutoRead" Type="bigint" />
+    <Property Name="P2CExpression" Type="nvarchar" MaxLength="500" />
+    <Property Name="AdjustValue" Type="float" />
+    <Property Name="RatioOfTransfer" Type="float" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="UpdateDT" Type="datetime2" Precision="0" />
+    <Property Name="CurValueFlag" Type="bigint" />
+    <Property Name="ModuleID" Type="bigint" />
+    <Property Name="C2PExpression" Type="nvarchar" MaxLength="500" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="FuncCode" Type="bigint" />
+    <Property Name="Addr" Type="bigint" />
+    <Property Name="BEnable" Type="bigint" />
+    <Property Name="T_BaseValue" Type="float" />
+    <Property Name="T_ValueFor24Hour" Type="nvarchar" MaxLength="200" />
+    <Property Name="T_RandValue" Type="nvarchar" MaxLength="45" />
+    <Property Name="T_BEnableInsert" Type="bigint" />
+    <Property Name="T_ValueForWeek" Type="nvarchar" MaxLength="45" />
+    <Property Name="T_ValueFor12Month" Type="nvarchar" MaxLength="45" />
+    <Property Name="T_IncBase" Type="real" />
+    <Property Name="IncVal" Type="float" />
+    <Property Name="VTopVal" Type="float" />
+    <Property Name="TopVal" Type="float" />
+    <Property Name="NormalVal" Type="float" />
+    <Property Name="LowVal" Type="float" />
+    <Property Name="IncVTopVal" Type="float" />
+    <Property Name="IncTopVal" Type="float" />
+    <Property Name="IncNormalVal" Type="float" />
+    <Property Name="IncLowVal" Type="float" />
+    <Property Name="IncChargeVal" Type="float" />
+    <Property Name="ChargeVal" Type="float" />
+    <Property Name="LastDumpDT" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="nodelastval">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="MaxValue_" Type="float" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="AvgValue" Type="float" />
+    <Property Name="ValueFlag" Type="bigint" />
+    <Property Name="RecordType" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="DataCount" Type="bigint" />
+    <Property Name="Increment" Type="float" />
+    <Property Name="VTopVal" Type="float" />
+    <Property Name="TopVal" Type="float" />
+    <Property Name="NormalVal" Type="float" />
+    <Property Name="LowVal" Type="float" />
+    <Property Name="ChargeVal" Type="float" />
+    <Property Name="IncVTopVal" Type="float" />
+    <Property Name="IncTopVal" Type="float" />
+    <Property Name="IncNormalVal" Type="float" />
+    <Property Name="IncLowVal" Type="float" />
+    <Property Name="IncChargeVal" Type="float" />
+  </EntityType>
+  <EntityType Name="realtimeitem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="RMaxValue" Type="float" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="AvgValue" Type="float" />
+    <Property Name="ValueFlag" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="RecordType" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="DataCount" Type="bigint" />
+    <Property Name="Increment" Type="float" />
+  </EntityType>
+  <EntityType Name="recorditem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="MaxValue_" Type="float" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="AvgValue" Type="float" />
+    <Property Name="ValueFlag" Type="bigint" />
+    <Property Name="RecordType" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="DataCount" Type="bigint" />
+    <Property Name="Increment" Type="float" />
+    <Property Name="VTopVal" Type="float" />
+    <Property Name="TopVal" Type="float" />
+    <Property Name="NormalVal" Type="float" />
+    <Property Name="LowVal" Type="float" />
+    <Property Name="ChargeVal" Type="float" />
+    <Property Name="IncVTopVal" Type="float" />
+    <Property Name="IncTopVal" Type="float" />
+    <Property Name="IncNormalVal" Type="float" />
+    <Property Name="IncLowVal" Type="float" />
+    <Property Name="IncChargeVal" Type="float" />
+  </EntityType>
+  <EntityType Name="reportmgr">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ReportName" Type="nvarchar" MaxLength="50" />
+    <Property Name="fileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime2" Precision="0" />
+    <Property Name="periodType" Type="nvarchar" MaxLength="50" />
+    <Property Name="entity" Type="nvarchar" MaxLength="20" />
+    <Property Name="entityDetail" Type="nvarchar" MaxLength="20" />
+    <Property Name="energyType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Content" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="room">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="DeptID" Type="bigint" />
+    <Property Name="BuildingID" Type="bigint" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Floor" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="45" />
+    <Property Name="RoomNO" Type="nvarchar" MaxLength="45" />
+    <Property Name="ManagerID" Type="bigint" />
+    <Property Name="EleVID" Type="bigint" />
+    <Property Name="WaterVID" Type="bigint" />
+    <Property Name="GasVID" Type="bigint" />
+    <Property Name="CentersHeatingVID" Type="bigint" />
+    <Property Name="CentersColdVID" Type="bigint" />
+    <Property Name="CoalVID" Type="bigint" />
+    <Property Name="LPGVID" Type="bigint" />
+    <Property Name="ManufacturedGasVID" Type="bigint" />
+    <Property Name="PetrolVID" Type="bigint" />
+    <Property Name="Kerosene" Type="bigint" />
+    <Property Name="Diesel" Type="bigint" />
+    <Property Name="RenewableEgVID" Type="bigint" />
+    <Property Name="OtherEgVID" Type="bigint" />
+    <Property Name="Ele_LightSockVID" Type="bigint" />
+    <Property Name="Ele_AirConditionVID" Type="bigint" />
+    <Property Name="Ele_PowerVID" Type="bigint" />
+    <Property Name="Ele_SpecialVID" Type="bigint" />
+    <Property Name="Ele_LS_NormalVID" Type="bigint" />
+    <Property Name="Ele_LS_CorridorVID" Type="bigint" />
+    <Property Name="Ele_LS_LandscapeVID" Type="bigint" />
+    <Property Name="Ele_AC_CenterVID" Type="bigint" />
+    <Property Name="Ele_AC_EndPointVID" Type="bigint" />
+    <Property Name="Ele_Power_ElevatorVID" Type="bigint" />
+    <Property Name="Ele_Power_PumpVID" Type="bigint" />
+    <Property Name="Ele_Power_AirinessVID" Type="bigint" />
+    <Property Name="Ele_Spec_ITCenterVID" Type="bigint" />
+    <Property Name="Ele_Spec_CookroomVID" Type="bigint" />
+    <Property Name="Ele_Spec_NatatoriumVID" Type="bigint" />
+    <Property Name="Ele_Spec_LabVID" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="roomdevmodelnodes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="RoomID" Type="bigint" />
+    <Property Name="DevID" Type="bigint" />
+    <Property Name="ModelID" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="NodeType" Type="bigint" />
+  </EntityType>
+  <EntityType Name="roomenergynodeids">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="RoomID" Type="bigint" Nullable="false" />
+    <Property Name="NodeID" Type="bigint" Nullable="false" />
+    <Property Name="EnergyCata1" Type="bigint" />
+    <Property Name="EnergyCata2" Type="bigint" />
+    <Property Name="EnergyType" Type="bigint" />
+  </EntityType>
+  <EntityType Name="seasonhistoryrecorditem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="MaxValue_" Type="float" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="AvgValue" Type="float" />
+    <Property Name="ValueFlag" Type="bigint" />
+    <Property Name="RecordType" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="DataCount" Type="bigint" />
+    <Property Name="Increment" Type="float" />
+    <Property Name="VTopVal" Type="float" />
+    <Property Name="TopVal" Type="float" />
+    <Property Name="NormalVal" Type="float" />
+    <Property Name="LowVal" Type="float" />
+    <Property Name="ChargeVal" Type="float" />
+    <Property Name="IncVTopVal" Type="float" />
+    <Property Name="IncTopVal" Type="float" />
+    <Property Name="IncNormalVal" Type="float" />
+    <Property Name="IncLowVal" Type="float" />
+    <Property Name="IncChargeVal" Type="float" />
+  </EntityType>
+  <EntityType Name="strategy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="EffClass" Type="bigint" />
+    <Property Name="EffToWorkSchedule" Type="bigint" />
+    <Property Name="EffTemputer" Type="nvarchar" MaxLength="45" />
+    <Property Name="EffLightenss" Type="nvarchar" MaxLength="45" />
+    <Property Name="OnType" Type="nvarchar" MaxLength="45" />
+    <Property Name="OffType" Type="nvarchar" MaxLength="45" />
+    <Property Name="TipType" Type="nvarchar" MaxLength="45" />
+    <Property Name="AlarmType" Type="nvarchar" MaxLength="45" />
+    <Property Name="ReOpenType" Type="nvarchar" MaxLength="45" />
+    <Property Name="Extstr1" Type="nvarchar" MaxLength="45" />
+    <Property Name="ExtStr2" Type="nvarchar" MaxLength="45" />
+    <Property Name="ExtInt1" Type="bigint" />
+    <Property Name="ExtInt2" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="systemuser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="Password" Type="nvarchar" MaxLength="45" />
+    <Property Name="DeptID" Type="bigint" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="Authority" Type="bigint" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="SSID" Type="nvarchar" MaxLength="45" />
+    <Property Name="TeacherID" Type="nvarchar" MaxLength="45" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+    <Property Name="MobilePhone" Type="nvarchar" MaxLength="45" />
+    <Property Name="OfficePhone" Type="nvarchar" MaxLength="45" />
+    <Property Name="Email" Type="nvarchar" MaxLength="45" />
+    <Property Name="OtherInfo" Type="nvarchar" MaxLength="450" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="terminfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="ForYear" Type="datetime2" Precision="0" />
+    <Property Name="AutumnTermStart" Type="datetime2" Precision="0" />
+    <Property Name="AutumnTermEnd" Type="datetime2" Precision="0" />
+    <Property Name="SpringTermStart" Type="datetime2" Precision="0" />
+    <Property Name="SpringTermEnd" Type="datetime2" Precision="0" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="test">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="key" Type="nvarchar" MaxLength="11" />
+    <Property Name="value" Type="nvarchar" MaxLength="255" />
+    <Property Name="Maxvalue" Type="int" />
+  </EntityType>
+  <EntityType Name="weekhistoryrecorditem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="MaxValue_" Type="float" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="AvgValue" Type="float" />
+    <Property Name="ValueFlag" Type="bigint" />
+    <Property Name="RecordType" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="DataCount" Type="bigint" />
+    <Property Name="Increment" Type="float" />
+    <Property Name="VTopVal" Type="float" />
+    <Property Name="TopVal" Type="float" />
+    <Property Name="NormalVal" Type="float" />
+    <Property Name="LowVal" Type="float" />
+    <Property Name="ChargeVal" Type="float" />
+    <Property Name="IncVTopVal" Type="float" />
+    <Property Name="IncTopVal" Type="float" />
+    <Property Name="IncNormalVal" Type="float" />
+    <Property Name="IncLowVal" Type="float" />
+    <Property Name="IncChargeVal" Type="float" />
+  </EntityType>
+  <EntityType Name="workschedule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+    <Property Name="Sections_1" Type="nvarchar" MaxLength="500" />
+    <Property Name="Sections_2" Type="nvarchar" MaxLength="500" />
+    <Property Name="Sections_3" Type="nvarchar" MaxLength="500" />
+    <Property Name="Sections_4" Type="nvarchar" MaxLength="500" />
+    <Property Name="Sections_5" Type="nvarchar" MaxLength="500" />
+    <Property Name="Sections_6" Type="nvarchar" MaxLength="500" />
+    <Property Name="Sections_7" Type="nvarchar" MaxLength="500" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="45" />
+    <Property Name="UpdateTime" Type="datetime2" Precision="0" />
+    <Property Name="EffectTime" Type="datetime2" Precision="0" />
+    <Property Name="EndTime" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="yearhistoryrecorditem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="float" />
+    <Property Name="MaxValue_" Type="float" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="AvgValue" Type="float" />
+    <Property Name="ValueFlag" Type="bigint" />
+    <Property Name="RecordType" Type="bigint" />
+    <Property Name="NodeID" Type="bigint" />
+    <Property Name="LogDT" Type="datetime2" Precision="0" />
+    <Property Name="DataCount" Type="bigint" />
+    <Property Name="Increment" Type="float" />
+    <Property Name="VTopVal" Type="float" />
+    <Property Name="TopVal" Type="float" />
+    <Property Name="NormalVal" Type="float" />
+    <Property Name="LowVal" Type="float" />
+    <Property Name="ChargeVal" Type="float" />
+    <Property Name="IncVTopVal" Type="float" />
+    <Property Name="IncTopVal" Type="float" />
+    <Property Name="IncNormalVal" Type="float" />
+    <Property Name="IncLowVal" Type="float" />
+    <Property Name="IncChargeVal" Type="float" />
+  </EntityType>
+</Schema>

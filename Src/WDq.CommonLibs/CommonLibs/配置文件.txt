@@ -1,0 +1,25 @@
+﻿需要拷贝到
+APP.CONFIG或web.app的文件
+
+<add key="yd_esms_insert_log" value="Data Source=HEDAINFOTEST001;Initial Catalog=yd_esms;User ID=hedainfo;Password=hedainfo"/>
+    
+	
+	
+    LogMgr.InitFileTraceLog();
+    if (ConfigHlper.GetConfig("isuseudplog") == "1")
+    {
+        UdpLog udpLog = new UdpLog();
+        List<SocketServerInfo> lstSocketInfos = new List<SocketServerInfo>()
+        {
+            new SocketServerInfo()
+            {
+                Ip = ConfigHlper.GetConfig("udplogip"),
+                Port = ConfigHlper.GetConfig_Int("udplogport", 9310)
+            }
+        };
+        udpLog.Init(lstSocketInfos);
+        LogMgr.AppUdpLog(udpLog);
+    }
+	<add key="isuseudplog" value="1" />
+    <add key="udplogip" value="127.0.0.1" />
+    <add key="udplogport" value="9310" />

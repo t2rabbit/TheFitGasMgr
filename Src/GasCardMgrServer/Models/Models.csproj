@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F992F48E-9FBB-464A-8B6E-31B90CD31263}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConstEnumDefine.cs" />
+    <Compile Include="ModelForLnglat.cs" />
+    <Compile Include="ModelForMapList.cs" />
+    <Compile Include="ModelForOffset.cs" />
+    <Compile Include="MonitorInfoOfBoxModel.cs" />
+    <Compile Include="ProjectOrGroupCountModel.cs" />
+    <Compile Include="RealControl.cs" />
+    <Compile Include="DevInfoModel.cs" />
+    <Compile Include="GatewayModel.cs" />
+    <Compile Include="JsonResutlModel.cs" />
+    <Compile Include="LoginModel.cs" />
+    <Compile Include="MonitorInfoOfAProject.cs" />
+    <Compile Include="MonitorInfoOfGatewayModle.cs" />
+    <Compile Include="NodeInfoModel.cs" />
+    <Compile Include="OrganizationModel.cs" />
+    <Compile Include="ProjectGroupModel.cs" />
+    <Compile Include="ProjectModel.cs" />
+    <Compile Include="ProjectRangeModel.cs" />
+    <Compile Include="ProjectUserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MonitorInfoOfDevModel.cs" />
+    <Compile Include="RequestModel.cs" />
+    <Compile Include="RequestModes\DevQueryModles.cs" />
+    <Compile Include="SessionModel.cs" />
+    <Compile Include="SessionConstDefine.cs" />
+    <Compile Include="SqlQueryExtinoModel.cs" />
+    <Compile Include="SysUserInfoModel.cs" />
+    <Compile Include="UDPMsgBus\MsgBusDefine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WDq.CommonLibs\CommonLibs\PiEms.Public.CommonLibs.csproj">
+      <Project>{9C0D9BAD-C3FC-4DE0-9BB0-A571B3D36248}</Project>
+      <Name>PiEms.Public.CommonLibs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

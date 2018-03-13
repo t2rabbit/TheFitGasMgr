@@ -1,0 +1,10 @@
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\bin\Debug\NetLabelClientMgr.exe.config
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\bin\Debug\NetLabelClientMgr.exe
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\bin\Debug\NetLabelClientMgr.pdb
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\obj\x86\Debug\NetLabelClientMgr.FLogin.resources
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\obj\x86\Debug\NetLabelClientMgr.Properties.Resources.resources
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\obj\x86\Debug\NetLabelClientMgr.exe
+D:\TheFits\格莱光\Src\GasCardMgrServer\NetLabelClientMgr\obj\x86\Debug\NetLabelClientMgr.pdb

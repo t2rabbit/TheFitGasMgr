@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CellLedLabelMgrDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CellLedLabelMgrDBModelStoreContainer">
+    <EntitySet Name="CentralOrganizationUser" EntityType="CellLedLabelMgrDBModel.Store.CentralOrganizationUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CentralOrgnization" EntityType="CellLedLabelMgrDBModel.Store.CentralOrgnization" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DevInfo" EntityType="CellLedLabelMgrDBModel.Store.DevInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DevStatus" EntityType="CellLedLabelMgrDBModel.Store.DevStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GatewayInfo" EntityType="CellLedLabelMgrDBModel.Store.GatewayInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GatewayStatus" EntityType="CellLedLabelMgrDBModel.Store.GatewayStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HisNodeValue" EntityType="CellLedLabelMgrDBModel.Store.HisNodeValue" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ManagerInfo" EntityType="CellLedLabelMgrDBModel.Store.ManagerInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NodeInfo" EntityType="CellLedLabelMgrDBModel.Store.NodeInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NodeLastValue" EntityType="CellLedLabelMgrDBModel.Store.NodeLastValue" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NodeTypeIfo" EntityType="CellLedLabelMgrDBModel.Store.NodeTypeIfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Organization" EntityType="CellLedLabelMgrDBModel.Store.Organization" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrganizationUser" EntityType="CellLedLabelMgrDBModel.Store.OrganizationUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Project" EntityType="CellLedLabelMgrDBModel.Store.Project" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectGroup" EntityType="CellLedLabelMgrDBModel.Store.ProjectGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectGroupUser" EntityType="CellLedLabelMgrDBModel.Store.ProjectGroupUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectUser" EntityType="CellLedLabelMgrDBModel.Store.ProjectUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RealControl" EntityType="CellLedLabelMgrDBModel.Store.RealControl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RealControlLog" EntityType="CellLedLabelMgrDBModel.Store.RealControlLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RealtimeValueTable" EntityType="CellLedLabelMgrDBModel.Store.RealtimeValueTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RegionOfProject" EntityType="CellLedLabelMgrDBModel.Store.RegionOfProject" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubProject" EntityType="CellLedLabelMgrDBModel.Store.SubProject" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="CellLedLabelMgrDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CentralOrganizationUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="LevelIndex" Type="int" />
+    <Property Name="OrganizationID" Type="int" />
+    <Property Name="Athority" Type="int" />
+  </EntityType>
+  <EntityType Name="CentralOrgnization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_Province" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_Distict" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_GPS" Type="nvarchar" MaxLength="50" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="50" />
+    <Property Name="SecondManager" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DevInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="DevType" Type="nvarchar" MaxLength="10" />
+    <Property Name="DevAddr" Type="nvarchar" MaxLength="50" />
+    <Property Name="LineIndex" Type="int" />
+    <Property Name="LineName" Type="nvarchar" MaxLength="50" />
+    <Property Name="GatewayId" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="Address_GPS" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrgId" Type="int" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="RangeId" Type="int" />
+    <Property Name="PosInfo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PngPath" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="DevStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DevId" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LogDt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="GatewayInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Communication_Type" Type="nvarchar" MaxLength="20" />
+    <Property Name="Protocol_Type" Type="nvarchar" MaxLength="20" />
+    <Property Name="Protocol_SN" Type="nvarchar" MaxLength="50" />
+    <Property Name="Protocol_SIM" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="GatewayStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="GatewayId" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LogDt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HisNodeValue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NodeId" Type="int" />
+    <Property Name="LogDt" Type="datetime" />
+    <Property Name="Value" Type="float" />
+    <Property Name="Flag" Type="int" />
+  </EntityType>
+  <EntityType Name="ManagerInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="SSID" Type="nvarchar" MaxLength="50" />
+    <Property Name="GenderIdentity" Type="int" />
+    <Property Name="DateOfBirth" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NodeInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="DevId" Type="int" />
+    <Property Name="FunCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="ResAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="ValueCatalog1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ValueCatalog2" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NodeLastValue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NodeId" Type="int" Nullable="false" />
+    <Property Name="LogDt" Type="datetime" />
+    <Property Name="LastValue" Type="decimal" Scale="2" />
+    <Property Name="ValueFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="NodeTypeIfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TypeId" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeDescription" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="LevelIndex" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_Province" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_Distict" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_GPS" Type="nvarchar" MaxLength="50" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="50" />
+    <Property Name="SecondManager" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrganizationUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="LevelIndex" Type="int" />
+    <Property Name="OrganizationID" Type="int" />
+    <Property Name="Athority" Type="int" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrganizationId" Type="int" />
+    <Property Name="ProjectGroupId" Type="int" />
+    <Property Name="LevelIndex" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_Province" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_Distict" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_GPS" Type="nvarchar" MaxLength="50" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="50" />
+    <Property Name="SecondManager" Type="nvarchar" MaxLength="50" />
+    <Property Name="PngPath" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProjectGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrganizationId" Type="int" />
+    <Property Name="LevelIndex" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_Province" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_Distict" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_GPS" Type="nvarchar" MaxLength="50" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="50" />
+    <Property Name="SecondManager" Type="nvarchar" MaxLength="50" />
+    <Property Name="PngPath" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProjectGroupUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="LevelIndex" Type="int" />
+    <Property Name="OrganizationId" Type="int" />
+    <Property Name="ProjectGroupID" Type="int" />
+    <Property Name="Athority" Type="int" />
+  </EntityType>
+  <EntityType Name="ProjectUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="LevelIndex" Type="int" />
+    <Property Name="OrganizationId" Type="int" />
+    <Property Name="ProjectGroupId" Type="int" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="Athority" Type="int" />
+  </EntityType>
+  <EntityType Name="RealControl">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CmdType" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeProjGateDevGroup" Type="int" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="GatewayId" Type="int" />
+    <Property Name="DevId" Type="int" />
+    <Property Name="DevAddr" Type="int" />
+    <Property Name="DevLineIndex" Type="int" />
+    <Property Name="GroupAddr" Type="int" />
+    <Property Name="Cmd" Type="nvarchar" MaxLength="500" />
+    <Property Name="LogDt" Type="datetime" />
+    <Property Name="AddByUserId" Type="int" />
+    <Property Name="ControlUserId" Type="int" />
+    <Property Name="CmdFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="RealControlLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ForCmdId" Type="int" />
+    <Property Name="HandledByUserInfo" Type="nvarchar" MaxLength="50" />
+    <Property Name="HandledResult" Type="int" />
+    <Property Name="HandledInfo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RealtimeValueTable">
+    <Key>
+      <PropertyRef Name="NodeId" />
+    </Key>
+    <Property Name="NodeId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" />
+    <Property Name="LogDt" Type="datetime" />
+    <Property Name="ValueFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="RegionOfProject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SubProject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+</Schema>

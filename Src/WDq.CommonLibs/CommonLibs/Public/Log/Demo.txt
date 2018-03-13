@@ -1,0 +1,15 @@
+﻿             LogMgr.InitFileTraceLog();
+                if (ConfigHlper.GetConfig("isuseudplog") == "1")
+                {
+                    UdpLog udpLog = new UdpLog();
+                    List<SocketServerInfo> lstSocketInfos = new List<SocketServerInfo>()
+                    {
+                        new SocketServerInfo()
+                        {
+                            Ip = ConfigHlper.GetConfig("udplogip"),
+                            Port = ConfigHlper.GetConfig_Int("udplogport", 9310)
+                        }
+                    };
+                    udpLog.Init(lstSocketInfos);
+                    LogMgr.AppUdpLog(udpLog);
+                }

@@ -1,0 +1,6 @@
+E:\Work\PPWorks\CellNet\LED广告灯箱系统\SVNSrc\Server\NetLabelMgr\NetLabelEfDbDll\bin\Release\NetLabelEfDbDll.dll.config
+E:\Work\PPWorks\CellNet\LED广告灯箱系统\SVNSrc\Server\NetLabelMgr\NetLabelEfDbDll\bin\Release\NetLabelEfDbDll.dll
+E:\Work\PPWorks\CellNet\LED广告灯箱系统\SVNSrc\Server\NetLabelMgr\NetLabelEfDbDll\bin\Release\NetLabelEfDbDll.pdb
+E:\Work\PPWorks\CellNet\LED广告灯箱系统\SVNSrc\Server\NetLabelMgr\NetLabelEfDbDll\obj\Release\NetLabelEfDbDll.dll
+E:\Work\PPWorks\CellNet\LED广告灯箱系统\SVNSrc\Server\NetLabelMgr\NetLabelEfDbDll\obj\Release\NetLabelEfDbDll.pdb
+E:\Work\PPWorks\CellNet\LED广告灯箱系统\SVNSrc\Server\NetLabelMgr\NetLabelEfDbDll\obj\Release\NetLabelEfDbDll.csprojResolveAssemblyReference.cache
