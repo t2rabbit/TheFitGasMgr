@@ -45,6 +45,7 @@ namespace PiPublic.Log
 
         // 日志处理对象的集合              
         static List<ILog> lstLogHandler = new List<ILog>();
+        static bool IsInit = false;
 
         /// <summary>
         /// 通过外部定义的日志处理类接口挂接到日志处理，比如：
@@ -60,6 +61,8 @@ namespace PiPublic.Log
             {
                 lstLogHandler.Clear();
                 lstLogHandler.AddRange(lstLogs);
+
+                IsInit = true;
             }
         }
         
@@ -77,6 +80,9 @@ namespace PiPublic.Log
                     TraceLog traceLog = new TraceLog();
                     lstLogHandler.Add(fileLog);
                     lstLogHandler.Add(traceLog);
+
+
+                    IsInit = true;
                 }
             }
         }
@@ -84,6 +90,8 @@ namespace PiPublic.Log
         public static void AppUdpLog(ILog aUdpLogObj)
         {
             lstLogHandler.Add(aUdpLogObj);
+
+            IsInit = true;
         }
 
 
@@ -139,6 +147,11 @@ namespace PiPublic.Log
                                     string ext1="",
                                     string ext2="")
         {
+            if (IsInit)
+            {
+                InitFileTraceLog();
+            }
+
             InsertLogToMem(new LogInfo()
                     {
                         LogDt = DateTime.Now,

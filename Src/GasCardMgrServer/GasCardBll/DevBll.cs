@@ -1,30 +1,9 @@
-﻿///<summary>
-///Copyright (c) 2015, 珠海派诺科技股份有限公司
-///Product: PiEMS
-///
-///文件名称: DevBll.cs
-///开发环境: Microsoft Visual Studio 2010
-///描    述：
-///
-///当前版本: V1.0
-///作    者: Wudq
-///完成日期: 2016-03-24 7:36:22
-///
-///修改记录 
-/// 作者   时间    版本      修改描述
-///
-///</summary>
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Models;
-
-#if SQL_SERVER
-using NetLabelEfDbDll.SqlServer;
-using Models;
-#endif
+using GlareLedSysEfDb;
+using PiPublic.Log;
 
 
 namespace NetLabelBll
@@ -32,51 +11,28 @@ namespace NetLabelBll
     /// <summary>
     /// 设备管理,增删改查
     /// </summary>
-    public class DevBll
+    public class CommDevBll
     {
-        /// <summary>
-        /// 获取所有的设备
-        /// </summary>        
-        /// <returns></returns>
-        public static List<DevInfoModel> GetAllDev()
+        public static List<CommDevInfo> GetAllCommDev()
         {
-            List<DevInfoModel> lstMods = new List<DevInfoModel>();
-            using (CellLedLabelMgrDBEntities ent = new CellLedLabelMgrDBEntities())
+            try
             {
-                List<DevInfo> devs = (from c in ent.DevInfo
-                                      select c).ToList<DevInfo>();
-                foreach (DevInfo dev in devs)
+                using (GLedDbEntities ent = new GLedDbEntities())
                 {
-                    DevInfoModel mod = new DevInfoModel()
-                    {
-                        Adress = dev.Address,
-                        Address_GPS = dev.Address_GPS,
-                        DevAddr = dev.DevAddr,
-                        DevType = dev.DevType,
-                        GatewayId = (int)dev.GatewayId,
-                        GroupId = (int)dev.GroupId,
-                        ID = dev.ID,
-                        Name = dev.Name,
-                        OrgId = (int)dev.OrgId,
-                        PosInfo = dev.PosInfo,
-                        ProjectId = (int)dev.ProjectId,
-                        RangeId = (int)dev.RangeId,
-                        DevLineIndex = (int)dev.LineIndex,
-                        Status = (int)dev.Status
-                    };
-                    lstMods.Add(mod);
+                    List<CommDevInfo> devs = (from c in ent.CommDevInfo
+                                              select c).ToList<CommDevInfo>();
+
+                    return devs;
                 }
             }
-
-            return lstMods;
+            catch (Exception ex)
+            {
+                LogMgr.WriteErrorDefSys("GetAllCommDev error " + ex.Message);
+                throw;
+            }
         }
-
-        /// <summary>
-        /// 通过网关ID获取设备
-        /// </summary>
-        /// <param name="iGwId"></param>
-        /// <returns></returns>
-        public static List<DevInfoModel> GetDevByGwId(int iGwId)
+        
+        public static List<CommDevInfo> GetDevByGwId(int iGwId)
         {
             List<DevInfoModel> lstMods = new List<DevInfoModel>();
             using (CellLedLabelMgrDBEntities ent = new CellLedLabelMgrDBEntities())

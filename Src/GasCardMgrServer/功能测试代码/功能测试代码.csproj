@@ -92,10 +92,6 @@
       <Project>{9C0D9BAD-C3FC-4DE0-9BB0-A571B3D36248}</Project>
       <Name>PiEms.Public.CommonLibs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{F992F48E-9FBB-464A-8B6E-31B90CD31263}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
