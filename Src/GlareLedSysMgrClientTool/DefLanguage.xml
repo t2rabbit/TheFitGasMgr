@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Setting>
+  <Language>
+    <Item text="ch" val="zh"></Item>
+    <Item text="en" val="en"></Item>
+  </Language>
+  <Def>en</Def>
+</Setting>

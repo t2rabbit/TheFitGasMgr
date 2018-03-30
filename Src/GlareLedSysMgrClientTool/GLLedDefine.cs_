@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Property
+{
+    public class GLLedDefine
+    {
+        public const int btCmdStart = 0xfe; // 起始字符        
+        public const int btSendCmdStart = 0xff; // 发送数据的起始字符
+        public const int btRecCmdStart = 0xaf; // 发送数据的起始字符
+        public const int btCmdEnd = 0xef; // 字符结束
+
+        public const byte btCmdSetID = 0x05; // 设置id
+        public const byte btCmdGetID = 0x06; // 查询id
+        public const byte btCmdGetCfg = 0x02; // 获取设备信息
+        public const byte btCmdSetCfg =  0x00; // 设置配置参数
+        public const byte btCmdSetOilVal = 0x01; // 发送数据内容（价格）
+        public const byte btCmdGetOilVal = 0x03; // 读取价格
+        public const byte btCmdSetPoint = 0x04; // 设置小数点
+        public const byte btCmdGetPoint = 0x07; // 读取小数点
+
+        public const byte btRecBytesLenSetID = 8;           // 返回的长度-设置id
+        public const byte btRecBytesLenGetID = 8;           // 返回的长度-查询id
+        public const byte btRecBytesLenGetCfg = 7 + btCfgLen;       // 返回的长度-获取设备信息
+        public const byte btRecBytesLenSetCfg =  8;      // 返回的长度-设置配置参数
+        public const byte btRecBytesLenSetOilVal = 8;    // 返回的长度-发送数据内容（价格）
+        public const byte btRecBytesLenGetOilVal = 7+OilValMaxLen;    // 返回的长度-读取价格
+        public const byte btRecBytesLenSetPoint = 8;     // 返回的长度-设置小数点
+        public const byte btRecBytesLenGetPoint = 7+MaxScreen;     // 返回的长度-读取小数点
+
+
+        // 类别
+        public const byte LedTypeOil = 1; // 油价牌
+        public const byte LedTypeTempDt = 2; // 温度时间
+        // 型号为类别下面的型号如GS8888.GS88899等
+
+        /// <summary>
+        /// 长度字节域所在的字节下标
+        /// </summary>
+        public const int iCmdOffsetOfLenSection = 2; 
+        /// <summary>
+        /// 命令码所在的字节下标
+        /// </summary>
+        public const int iCmdOffsetOfTypeSection = 3;
+
+        /// <summary>
+        /// 一个油价牌的字节数量
+        /// </summary>
+        public const byte iScreenByteLen = 3;
+
+        /// <summary>
+        /// 价格内容最大字节数量
+        /// </summary>
+        public const byte OilValMaxLen = MaxScreen * iScreenByteLen;
+
+        /// <summary>
+        /// 最大屏幕数量
+        /// </summary>
+        public const byte MaxScreen = 12;
+
+
+        /// <summary>
+        /// 配置参数的字节长度
+        /// </summary>
+        public const byte btCfgLen = 7;
+        public class CardCfg
+        {
+            public int iCardType = 0;
+            public int iID = 0;
+
+            public int iHardVer = 0;
+            public int iFirmVer = 0;
+            public bool bDobule = false;
+            public int iScreenCount;
+            public int iCardDigCount; // 每块牌有几个字
+            public int iLight;
+            public bool bShowAppend; // 是否显示10/9 或是1/2等
+        }
+
+        /// <summary>
+        /// 油价牌的价格，每个数字一个字节
+        /// </summary>
+        public class CardOilValEachNumAByte
+        {
+            public void AddAOilValOfBCDVal(byte[] bVal)
+            {
+                System.Diagnostics.Debug.Assert(bVal.Count() == 6);
+                for (int i=0; i<6; i++)
+                {
+                    lstArr.Add(bVal[i]);
+                }
+
+            }
+            public void Clear()
+            {
+                lstArr.Clear();
+            }
+
+            public List<byte> lstArr = new List<byte>();
+        }
+
+
+
+
+    }
+}

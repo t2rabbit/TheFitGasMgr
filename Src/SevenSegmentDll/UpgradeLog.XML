@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SevenSegTest">
+</Property><Property Name="解决方案文件" Value="D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\SevenSegTest.sln">
+</Property><Property Name="Date" Value="2012年10月31日">
+</Property><Property Name="Time" Value="8:12">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SevenSegTest.sln" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\SevenSegTest.sln">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="SevenSegTest.csproj" Description="项目文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\SevenSegTest.csproj">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="SevenSegTest.csproj.user" Description="项目用户文件成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\SevenSegTest.csproj.user">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="Form1.cs" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\Form1.cs">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="Form1.Designer.cs" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="Program.cs" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\Program.cs">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="Properties\AssemblyInfo.cs" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="Properties\Resources.Designer.cs" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="Properties\Settings.Designer.cs" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="SevenSegment.cs" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\SevenSegment.cs">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="SevenSegmentArray.cs" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\SevenSegmentArray.cs">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="Properties\Settings.settings" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="Form1.resx" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\Form1.resx">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="Properties\Resources.resx" Description="文件已成功备份为 D:\work\ProjectInSvn\格莱光\src\proto\demoofseven-segment\SevenSegment\Backup\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="SevenSegTest.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SevenSegTest" Source="SevenSegTest.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="SevenSegTest.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="SevenSegTest.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SevenSegTest" Source="SevenSegTest.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

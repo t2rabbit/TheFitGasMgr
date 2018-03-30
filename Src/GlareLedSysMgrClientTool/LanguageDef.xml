@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resourcre>
+  <strings>
+    <item key="tcpportlist" value="TCP服务器设备"/>
+    <item key="serialportlist" value="串口设备"/>
+    <item key="gprsportlist" value="GPRS(TCP客户端设备)-7804"/>
+    <item key="oilstationlist" value="油站列表"/>
+  </strings>
+  
+  
+  
+  <Form>
+    <Name>FormMain</Name>
+    <Controls>
+      <Control name="FormMain" text="格莱光LED管理软件" />
+      <Control name="labelDevList" text="-设备列表-" />
+      <Control name="lbllanguage" text="Language:" />
+      <Control name="btnlogon" text="Logon" />
+      <Control name="btncancel" text="Exit" />
+      <Control name="btnchangepwd" text="Change Password" />
+    </Controls>
+  </Form>
+
+
+  <Form>
+    <Name>mainscript</Name>
+    <Controls>
+      <Control name="mainscript" text="系统菜单" />
+      <Control name="SysToolStripMenuItem" text="-系统-" />
+      <Control name="ConTypeToolStripMenuItem" text="-连接方式-" />
+    </Controls>
+  </Form>
+  <Form>
+    <Name>FrmPasswordChange</Name>
+    <Controls>
+      <Control name="frmpasswordchange" text="Change password" />
+      <Control name="lblusername" text="Username:" />
+      <Control name="lblpassword" text="Old Password:" />
+      <Control name="lblnewpassword" text="New Password:" />
+      <Control name="lblpasswordconfirm" text="Password Confirm:" />
+      <Control name="btnok" text="OK" />
+      <Control name="btncancel" text="Return" />
+    </Controls>
+  </Form>
+</Resourcre>

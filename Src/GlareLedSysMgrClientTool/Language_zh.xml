@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resourcre>
+  <strings>
+    <item key="tcpportlist" value="TCP服务器设备"/>
+    <item key="serialportlist" value="串口设备"/>
+    <item key="gprsportlist" value="GPRS(TCP客户端设备)-7804"/>
+    <item key="oilstationlist" value="油站列表"/>
+    <item key="GetDataFailNotReturn" value="获取数据失败，没有数据返回。"/>
+    <item key="GetDataFailReturnByErr" value="获取数据失败,分析数据出错。"/>
+    <item key="SetFailNotReturn" value="设置失败，没有数据返回。"/>
+    <item key="SetFailReturnByError" value="设置失败，分析数据出错。"/>
+    <item key="CfgFailed" value="设置失败!"/>
+    <item key="CfgSuccess" value="设置成功!"/>
+    <item key="GetCfgFailed" value="获取设置失败!"/>
+    <item key="GetCfgSuccess" value="获取设置成功!"/>
+    <item key="TipSelPort" value="请选择端口!"/>
+    <item key="TipSetDec" value="请配置小数位数!"/>
+    <item key="InputID1to254" value="请输入合法ID：1-254!"/>
+    <item key="InputDataError" value="输入的参数有误!"/>
+    <item key="InputPassword" value="输入密码有误!"/>
+    <item key="PleaseSelOneUser" value="请选择一个用户!"/>
+    <item key="InputUserName" value="请输入用户名!"/>
+    <item key="UserNameExisted" value="用户名重复!"/>
+    <item key="InputPasswordError" value="请输入密码!"/>
+    <item key="InputSelectOilStation" value="请选择加油站!"/>
+    <item key="OpSuccess" value="操作成功!"/>
+    <item key="OpFailed" value="操作失败!"/>
+    <item key="ConfirmDel" value="确定删除?"/>
+    <item key="GridItemUserName" value="用户名"/>
+    <item key="GridItemUserAuth" value="权限"/>
+    <item key="GridItemUserAppendOil" value="加油站"/>
+    <item key="TipTypeNoDef" value="类型未定义" />
+    <item key="TipSelOilStation" value="请选择加油站" />
+    <item key="TipOpCommFailed" value="打开串口失败" />
+    <item key="TipConnTcpFailed" value="GPRS或TCP设备未连接" />
+    <item key="TipPleaseSelectItem" value="请从设备树选择需要显示的信息" />
+    <item key="TipConnServerFailed" value="连接数据中心失败" />
+    
+  </strings>
+  
+  
+  
+  <Form>
+    <Name>FormMain</Name>
+    <Controls>
+      <Control name="FormMain" text="格莱光LED管理软件" />
+      <Control name="labelDevList" text="-设备列表-" />
+      <Control name="lbllanguage" text="Language:" />
+      <Control name="btnlogon" text="Logon" />
+      <Control name="btncancel" text="Exit" />
+      <Control name="btnchangepwd" text="修改密码" />
+      <Control name="buttonDevMgr" text="设备管理"/>
+      <Control name="buttonSysUserMgr" text="用户管理"/>
+      <Control name="buttonShowHideLog" text="显示隐藏日志"/>
+      <Control name="tabPageCtrlPanel" text="控制台"/>
+      <Control name="buttonExSelLanguage" text="语言"/>
+      <Control name="labelOilStaList" text="加油站列表（设备列表）"/>
+      <Control name="buttonStartDC" text="启动"/>
+      <Control name="buttonRefreshCenOrg" text="刷新"/>
+      <Control name="labelLogFilMod" text="--"/>
+      <Control name="labelLogFilType1" text="--"/>
+      <Control name="labelLogFilType2" text="--"/>
+      <Control name="labelLogFilType3" text="--"/>
+      <Control name="checkBoxShowLog" text="暂停" />
+      <Control name="buttonClearLog" text="清空日志"/>
+    </Controls>
+  </Form>
+
+
+  <Form>
+    <Name>FormMainCfg</Name>
+    <Controls>
+      <Control name="FormMainCfg" text="油价牌/温度/时间牌配置工具" />
+      <Control name="glassButtonOilCard" text="油价牌" />
+      <Control name="glassButton4" text="--" />
+      <Control name="glassButton7" text="--" />
+      <Control name="glassButton6" text="--" />
+      <Control name="glassButton3" text="--" />
+      <Control name="glassButton2" text="--" />
+      <Control name="glassButtonTimeTempCard" text="时间温度牌" />
+      <Control name="tabPagePanelOilCard" text="--" />
+      <Control name="tabPage5" text="--" />
+      <Control name="labelSelID" text="选择ID" />
+      <Control name="labelSelComm" text="选择串口" />
+      <Control name="labelPos" text="--" />
+      <Control name="labelOilCardBrigthness" text="亮度" />
+      <Control name="labelOilCardIsDouble" text="单双面" />
+      <Control name="labelOilCardCount" text="油价牌数量" />
+      <Control name="labelValIsDouble" text="--" />
+      <Control name="labelOilValBriagth" text="--" />
+      <Control name="labelValOilCount" text="--" />
+      <Control name="labelValOilType" text="--" />
+      <Control name="labelOilCardType" text="油价牌类型" />
+      <Control name="buttonExAdvFun" text="高级>>" />
+      <Control name="buttonExWrite" text="写" />
+      <Control name="buttonExRead" text="读" />
+      <Control name="buttonExSelLanguage" text="语言>>" />
+      <Control name="groupBoxCommType" text="选择通信方式" />
+      <Control name="labelTcpDevIp" text="IP" />
+      <Control name="labelTcpDevPort" text="端口号" />               
+    </Controls>
+  </Form>
+
+
+  <Form>
+    <Name>FormSysuserMgr</Name>
+    <Controls>
+      <Control name="FormSysuserMgr" text="用户管理>>" />
+      <Control name="buttonAdd" text="添加" />
+      <Control name="buttonMdy" text="修改" />
+      <Control name="buttonDel" text="删除" />
+    </Controls>
+  </Form>
+  
+  <Form>
+    <Name>FormSysUserInfo</Name>
+    <Controls>
+      <Control name="FormSysUserInfo" text="用户管理>>" />
+      <Control name="labelName" text="用户名" />
+      <Control name="labelPassword" text="密码" />
+      <Control name="labelAuth" text="权限" />
+      <Control name="labelOil" text="分配到加油站" />
+      <Control name="buttonOk" text="确定" />
+      <Control name="buttonCancel" text="取消" />
+    </Controls>
+  </Form>
+  
+  <Form>
+    <Name>FormCfgNormalInfo</Name>
+    <Controls>
+      <Control name="FormCfgNormalInfo" text="基本信息设置>>" />
+      <Control name="labelTypePrivew" text="预览>>" />
+      <Control name="labelSelType" text="选择类型>>" />
+      <Control name="labelAddr" text="地址" />
+      <Control name="buttonRead" text="读取" />
+      <Control name="labelScreenCount" text="牌数量" />
+      <Control name="labelSingleOrDouble" text="单双面" />
+      <Control name="labelDigCount" text="数字个数" />
+      <Control name="labelBrightenss" text="亮度" />
+      <Control name="labelIsShow910" text="是否显示9/10" />
+      <Control name="labelHardVersion" text="硬件版本" />
+      <Control name="labelFirmewareVer" text="固件版本" />
+      <Control name="buttonSetCfg" text="修改" />
+      <Control name="FormMainCfg_labelSelID" text="选择ID" />
+      <Control name="groupBoxSelCommType" text="选择通信方式" />
+      <Control name="labelTcpDevIp" text="IP" />
+      <Control name="labelTcpDevPort" text="端口号" />
+      <Control name="labelSelComm" text="串口" />
+    </Controls>
+  </Form>
+
+
+  <Form>
+    <Name>FormInputPassword</Name>
+    <Controls>
+      <Control name="FormInputPassword" text="输入密码" />
+      <Control name="labelTipInputPassword" text="输入密码" />
+      <Control name="buttonOk" text="确定" />
+      <Control name="buttonCancel" text="取消" />
+    </Controls>
+  </Form>
+
+
+  <Form>
+    <Name>FormMdyID</Name>
+    <Controls>
+      <Control name="FormMdyID" text="修改ID" />
+      <Control name="labelTipNewID" text="输入新ID" />
+      <Control name="groupBoxCommType" text="选择通信方式" />
+      <Control name="labelTcpDevIp" text="IP" />
+      <Control name="labelTcpDevPort" text="端口" />
+      <Control name="labelPcCom" text="串口" />
+      <Control name="buttonSetID" text="设置" />
+
+    </Controls>
+  </Form>
+  
+  <Form>
+    <Name>FormAddCardToPort</Name>
+    <Controls>
+      <Control name="FormAddCardToPort" text="添加控制卡" />
+      <Control name="labelCardType" text="卡类型" />
+      <Control name="labelcardpreview" text="卡类型预览" />
+      <Control name="labelCardAddr" text="地址" />
+      <Control name="labelBrightness" text="亮度" />
+      <Control name="checkBoxIsDouble" text="是否为双面" />
+      <Control name="buttonOK" text="确定" />
+      <Control name="buttonCancel" text="取消" />
+      <Control name="labelCardName" text="卡名字" />
+      <Control name="labelAddToPort" text="添加到端口" />
+      <Control name="labelScreenCount" text="屏幕数量" />
+      <Control name="labelDigitCount" text="数字个数" />
+      <Control name="labelDecInfo" text="小数点配置(用-隔开)" />
+      <Control name="labelIsShow910" text="是否显示9/10" />
+    </Controls>
+  </Form>
+
+  <Form>
+    <Name>FormAddDev</Name>
+    <Controls>
+      <Control name="FormAddDev" text="添加端口" />
+      <Control name="labelDevType" text="端口类型" />
+      <Control name="groupBoxPortDetailInfo" text="端口详细配置信息" />
+      <Control name="labelComPort" text="计算机串口" />
+      <Control name="labelTcpServerIP" text="IP" />
+      <Control name="labelGprsClientInfo" text="客户端身份ID" />
+      <Control name="labelTcpSeverPort" text="TCP端口号" />
+      <Control name="buttonOK" text="确定" />
+      <Control name="buttonCancel" text="取消" />
+      <Control name="radioButtonSerial" text="串口" />
+      <Control name="radioButtonTcpClient" text="TCP 客户端" />
+      <Control name="radioButtonTcpServer" text="TCP 服务器" />
+      <Control name="labelSelOilStation" text="选择加油站" />
+      <Control name="labelPortName" text="端口名字" />
+    </Controls>
+  </Form>
+
+  <Form>
+    <Name>FormCfgAdv</Name>
+    <Controls>
+      <Control name="FormCfgAdv" text="小数点配置" />
+      <Control name="labelID" text="选择ID" />
+      <Control name="labelPcPort" text="选择串口" />
+      <Control name="checkBoxSameAllScreens" text="全部一致" />
+      <Control name="buttonSend" text="修改" />
+      <Control name="buttonRead" text="获取" />
+      <Control name="labelScreen1" text="屏幕1#" />
+      <Control name="labelScreen2" text="屏幕2#" />
+      <Control name="labelScreen3" text="屏幕3#" />
+      <Control name="labelScreen4" text="屏幕4#" />
+      <Control name="labelScreen5" text="屏幕5#" />
+      <Control name="labelScreen6" text="屏幕6#" />
+      <Control name="labelScreen7" text="屏幕7#" />
+      <Control name="labelScreen8" text="屏幕8#" />
+      <Control name="labelScreen9" text="屏幕9#" />
+      <Control name="labelScreen10" text="屏幕10#" />
+      <Control name="labelScreen11" text="屏幕11#" />
+      <Control name="labelScreen12" text="屏幕12#" />
+      <Control name="groupBoxCommType" text="选择通信方式" />
+      <Control name="labelTcpDevIp" text="IP" />
+      <Control name="labelTcpDevPort" text="端口号" />
+    </Controls>
+  </Form>
+  
+  <Form>
+    <Name>FormDecimalSetting</Name>
+    <Controls>
+      <Control name="FormDecimalSetting" text="小数点配置" />
+      <Control name="labelTipCurSelCard" text="当前选择的控制卡" />
+      <Control name="labelPcPort" text="选择串口" />
+      <Control name="checkBoxAllTheSame" text="全部一致" />
+      <Control name="buttonSend" text="修改" />
+      <Control name="buttonRead" text="获取" />
+      <Control name="buttonSaveDB" text="保存" />
+      <Control name="labelScreen1" text="屏幕1#" />
+      <Control name="labelScreen2" text="屏幕2#" />
+      <Control name="labelScreen3" text="屏幕3#" />
+      <Control name="labelScreen4" text="屏幕4#" />
+      <Control name="labelScreen5" text="屏幕5#" />
+      <Control name="labelScreen6" text="屏幕6#" />
+      <Control name="labelScreen7" text="屏幕7#" />
+      <Control name="labelScreen8" text="屏幕8#" />
+      <Control name="labelScreen9" text="屏幕9#" />
+      <Control name="labelScreen10" text="屏幕10#" />
+      <Control name="labelScreen11" text="屏幕11#" />
+      <Control name="labelScreen12" text="屏幕12#" />
+    </Controls>
+  </Form>
+  
+
+
+  <Form>
+    <Name>FormDevMgr</Name>
+    <Controls>
+      <Control name="FormDevMgr" text="设备管理" />      
+      <Control name="buttonOK" text="确定" />
+      <Control name="buttonDetail" text="详细信息" />
+      <Control name="buttonAddOrg" text="添加油站" />
+      <Control name="buttonRFresh" text="刷新" />
+      <Control name="radioButtonByDev" text="按端口列举" />
+      <Control name="radioButtonByOrg" text="按油站列举" />
+      <Control name="buttonAddCard" text="添加控制卡" />
+      <Control name="buttonMdy" text="修改" />
+      <Control name="buttonDel" text="删除" />
+      <Control name="buttonTest" text="测试" />
+      <Control name="buttonAddPort" text="添加端口" />
+      <Control name="labelDevList" text="设备列表" />
+    </Controls>
+  </Form>
+
+  
+  <Form>
+    <Name>FormMainCfgContextMenuStrip1</Name>
+    <Controls>
+      <Control name="修改IDToolStripMenuItem" text="修改ID" />
+      <Control name="修改小数点ToolStripMenuItem" text="修改小数点" />
+      <Control name="修改配置ToolStripMenuItem" text="修改配置" />
+    </Controls>
+  </Form>
+
+  <Form>
+    <Name>mainscript</Name>
+    <Controls>
+      <Control name="mainscript" text="系统菜单" />
+      <Control name="SysToolStripMenuItem" text="-系统-" />
+      <Control name="ConTypeToolStripMenuItem" text="-连接方式-" />
+    </Controls>
+  </Form>
+  <Form>
+    <Name>FrmPasswordChange</Name>
+    <Controls>
+      <Control name="frmpasswordchange" text="Change password" />
+      <Control name="lblusername" text="Username:" />
+      <Control name="lblpassword" text="Old Password:" />
+      <Control name="lblnewpassword" text="New Password:" />
+      <Control name="lblpasswordconfirm" text="Password Confirm:" />
+      <Control name="btnok" text="OK" />
+      <Control name="btncancel" text="Return" />
+    </Controls>
+  </Form>
+</Resourcre>

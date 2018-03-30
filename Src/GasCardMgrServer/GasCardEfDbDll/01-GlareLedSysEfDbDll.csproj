@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{182CB473-73C9-4F2A-9FCB-BAB9D9C359C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GlareLedSysEfDb</RootNamespace>
+    <AssemblyName>GlareLedSysEfDbDll</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SQL_SERVER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CityTable_NotDone_todo.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommDevInfo.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommDevRealStatus.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommDevStatusLog.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommDevUser.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbConstDefine.cs" />
+    <Compile Include="GasCardInfo.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GasCardRealStatus.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GasCardStatusLog.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GasContextLog.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlareLedSysSqlServerModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlareLedSysSqlServerModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlareLedSysSqlServerModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlareLedSysSqlServerModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlareLedSysSqlServerModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupInfo.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupUser.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrgInfo.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrgUser.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectInfo.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectUser.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoadCardRealStatus.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoadCardStatusLog.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoadTipCardInfo.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupLoginedUserModel.cs" />
+    <Compile Include="CommDevLoginedUserModel.cs" />
+    <Compile Include="OrgLoginedUserModel.cs" />
+    <Compile Include="SuperLoginedUserModel.cs" />
+    <Compile Include="SuperUser.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="GlareLedSysSqlServerModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GlareLedSysSqlServerModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="GlareLedSysSqlServerModel.edmx.diagram">
+      <DependentUpon>GlareLedSysSqlServerModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GlareLedSysSqlServerModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GlareLedSysSqlServerModel.Context.cs</LastGenOutput>
+      <DependentUpon>GlareLedSysSqlServerModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="GlareLedSysSqlServerModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GlareLedSysSqlServerModel.edmx</DependentUpon>
+      <LastGenOutput>GlareLedSysSqlServerModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

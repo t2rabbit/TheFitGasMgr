@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E977210-E212-43A2-A30E-91E87EAF45E9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Property</RootNamespace>
+    <AssemblyName>GasCardServer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>The Alien WorkGroup.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ButtonEx">
+      <HintPath>..\..\..\YDesmsPublicDefDll\YDesmsPublicDefDll\lib\ButtonEx.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CardDefine.cs_" />
+    <Compile Include="ConstDef.cs" />
+    <Compile Include="FormCfgAdv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCfgAdv.Designer.cs">
+      <DependentUpon>FormCfgAdv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDecimalSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDecimalSetting.Designer.cs">
+      <DependentUpon>FormDecimalSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInputPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInputPassword.Designer.cs">
+      <DependentUpon>FormInputPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLedConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLedConfig.Designer.cs">
+      <DependentUpon>FormLedConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainCfg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainCfg.Designer.cs">
+      <DependentUpon>FormMainCfg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMdyID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMdyID.Designer.cs">
+      <DependentUpon>FormMdyID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCfgNormalInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCfgNormalInfo.Designer.cs">
+      <DependentUpon>FormCfgNormalInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSysUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSysUserInfo.Designer.cs">
+      <DependentUpon>FormSysUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSysuserMgr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSysuserMgr.Designer.cs">
+      <DependentUpon>FormSysuserMgr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GSTypeHlper.cs" />
+    <None Include="LanguageMgr.cs__" />
+    <Compile Include="OilStationDC\DataCenterObject.cs" />
+    <Compile Include="DB\MemDB.cs" />
+    <Compile Include="Devs\IPort.cs" />
+    <Compile Include="Devs\Rs485Port.cs" />
+    <Compile Include="Devs\TCPPort.cs" />
+    <Compile Include="FormAddCardToPort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddCardToPort.Designer.cs">
+      <DependentUpon>FormAddCardToPort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddDev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddDev.Designer.cs">
+      <DependentUpon>FormAddDev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConnType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConnType.Designer.cs">
+      <DependentUpon>FormConnType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDevMgr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDevMgr.Designer.cs">
+      <DependentUpon>FormDevMgr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrgInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrgInfo.Designer.cs">
+      <DependentUpon>FormOrgInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSendToCardTip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSendToCardTip.Designer.cs">
+      <DependentUpon>FormSendToCardTip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetContextVal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetContextVal.Designer.cs">
+      <DependentUpon>FormSetContextVal.cs</DependentUpon>
+    </Compile>
+    <None Include="GLLedDefine.cs_" />
+    <Compile Include="GLLedOP.cs" />
+    <Compile Include="GLLedProtocol.cs" />
+    <Compile Include="LedOilScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LedOilScreen.Designer.cs">
+      <DependentUpon>LedOilScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OilStationDC\GWListenPort.cs" />
+    <Compile Include="OilStationDC\GWTcpClientPoint.cs" />
+    <Compile Include="OilStationDC\OrgClientStaticInfo.cs" />
+    <Compile Include="Procotols\ProtocolMsg.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Devs\TCPLisenterPort.cs" />
+    <Compile Include="Devs\TcpServerForGPRSDev.cs" />
+    <Compile Include="TestLedContext.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestLedContext.Designer.cs">
+      <DependentUpon>TestLedContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeTempProtocol.cs" />
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewListCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewListCards.Designer.cs">
+      <DependentUpon>ViewListCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSelectPCComDevRoot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSelectPCComDevRoot.Designer.cs">
+      <DependentUpon>ViewSelectPCComDevRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOrgRoot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewOrgRoot.Designer.cs">
+      <DependentUpon>ViewOrgRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSelectedDev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSelectedDev.Designer.cs">
+      <DependentUpon>ViewSelectedDev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewNotSelDevOrCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewNotSelDevOrCard.Designer.cs">
+      <DependentUpon>ViewNotSelDevOrCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOliCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewOliCard.Designer.cs">
+      <DependentUpon>ViewOliCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSelectAOrg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSelectAOrg.Designer.cs">
+      <DependentUpon>ViewSelectAOrg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSelectTCPClientRoot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSelectTCPClientRoot.Designer.cs">
+      <DependentUpon>ViewSelectTCPClientRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSelectTCPServerRoot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSelectTCPServerRoot.Designer.cs">
+      <DependentUpon>ViewSelectTCPServerRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTemputer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewTemputer.Designer.cs">
+      <DependentUpon>ViewTemputer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormAddCardToPort.resx">
+      <DependentUpon>FormAddCardToPort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddDev.resx">
+      <DependentUpon>FormAddDev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCfgAdv.resx">
+      <DependentUpon>FormCfgAdv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDecimalSetting.resx">
+      <DependentUpon>FormDecimalSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInputPassword.resx">
+      <DependentUpon>FormInputPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLedConfig.resx">
+      <DependentUpon>FormLedConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConnType.resx">
+      <DependentUpon>FormConnType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDevMgr.resx">
+      <DependentUpon>FormDevMgr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainCfg.resx">
+      <DependentUpon>FormMainCfg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMdyID.resx">
+      <DependentUpon>FormMdyID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrgInfo.resx">
+      <DependentUpon>FormOrgInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSendToCardTip.resx">
+      <DependentUpon>FormSendToCardTip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetContextVal.resx">
+      <DependentUpon>FormSetContextVal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCfgNormalInfo.resx">
+      <DependentUpon>FormCfgNormalInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSysUserInfo.resx">
+      <DependentUpon>FormSysUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSysuserMgr.resx">
+      <DependentUpon>FormSysuserMgr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LedOilScreen.resx">
+      <DependentUpon>LedOilScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TestLedContext.resx">
+      <DependentUpon>TestLedContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewListCards.resx">
+      <DependentUpon>ViewListCards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewOrgRoot.resx">
+      <DependentUpon>ViewOrgRoot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSelectedDev.resx">
+      <DependentUpon>ViewSelectedDev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewNotSelDevOrCard.resx">
+      <DependentUpon>ViewNotSelDevOrCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewOliCard.resx">
+      <DependentUpon>ViewOliCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSelectAOrg.resx">
+      <DependentUpon>ViewSelectAOrg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSelectPCComDevRoot.resx">
+      <DependentUpon>ViewSelectPCComDevRoot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSelectTCPClientRoot.resx">
+      <DependentUpon>ViewSelectTCPClientRoot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSelectTCPServerRoot.resx">
+      <DependentUpon>ViewSelectTCPServerRoot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewTemputer.resx">
+      <DependentUpon>ViewTemputer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cardtype.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="copylanguagetochen.bat" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TempTimecardtype.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\09215152.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GasCardMgrServer\GasCardBll\02-GlareLedSysBll.csproj">
+      <Project>{8e05f714-b90e-4e66-920a-414955b4aea7}</Project>
+      <Name>02-GlareLedSysBll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GasCardMgrServer\GasCardEfDbDll\01-GlareLedSysEfDbDll.csproj">
+      <Project>{182cb473-73c9-4f2a-9fcb-bab9d9c359c8}</Project>
+      <Name>01-GlareLedSysEfDbDll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlareLedSysPublic\GLLedPublic.csproj">
+      <Project>{2bb28f8d-38c8-420e-911f-d79a120648cf}</Project>
+      <Name>GLLedPublic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WDq.CommonLibs\CommonLibs\PiEms.Public.CommonLibs.csproj">
+      <Project>{9C0D9BAD-C3FC-4DE0-9BB0-A571B3D36248}</Project>
+      <Name>PiEms.Public.CommonLibs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SevenSegmentDll\SevenSegDll.csproj">
+      <Project>{F619AEED-0AF6-4757-AC05-FBE94BF0FBAE}</Project>
+      <Name>SevenSegDll</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DefLanguage.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageDef.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Language_zh.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="language_en.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="The Alien WorkGroup.ico" />
+    <Content Include="The Alien Wri File.ico" />
+    <None Include="Resources\061.png" />
+    <None Include="Resources\051.png" />
+    <None Include="Resources\041.png" />
+    <None Include="Resources\021.png" />
+    <None Include="Resources\06.png" />
+    <None Include="Resources\05.png" />
+    <None Include="Resources\04.png" />
+    <None Include="Resources\02.png" />
+    <None Include="Resources\01.png" />
+    <None Include="Resources\Bkg.png" />
+    <None Include="Resources\goblet_gold_preferences.png" />
+    <None Include="Resources\goblet_gold_new.png" />
+    <None Include="Resources\goblet_bronze.png" />
+    <None Include="Resources\worker.png" />
+    <None Include="Resources\goblet_gold_delete.png" />
+    <None Include="Resources\goblet_gold_add.png" />
+    <None Include="Resources\goblet_gold.png" />
+    <None Include="Resources\woman4.png" />
+    <None Include="Resources\woman3.png" />
+    <None Include="Resources\woman2.png" />
+    <None Include="Resources\woman1.png" />
+    <None Include="Resources\bullet_triangle_yellow.png" />
+    <None Include="Resources\bullet_triangle_red.png" />
+    <None Include="Resources\bullet_triangle_green.png" />
+    <None Include="Resources\bullet_square_yellow.png" />
+    <None Include="Resources\bullet_square_red.png" />
+    <None Include="Resources\bullet_square_green.png" />
+    <None Include="Resources\bullet_square_blue.png" />
+    <None Include="Resources\bullet_triangle_blue.png" />
+    <None Include="Resources\bullet_ball_yellow.png" />
+    <None Include="Resources\bullet_ball_red.png" />
+    <None Include="Resources\bullet_ball_glass_yellow.png" />
+    <None Include="Resources\bullet_ball_glass_red.png" />
+    <None Include="Resources\bullet_ball_glass_green.png" />
+    <None Include="Resources\bullet_ball_glass_blue.png" />
+    <None Include="Resources\bullet_ball_green.png" />
+    <None Include="Resources\bullet_ball_blue.png" />
+    <None Include="Resources\goblet_silver.png" />
+    <None Include="Resources\comments.png" />
+    <None Include="Resources\png-0535.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

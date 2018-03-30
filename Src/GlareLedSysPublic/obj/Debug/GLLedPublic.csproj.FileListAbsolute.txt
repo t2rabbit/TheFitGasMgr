@@ -1,0 +1,9 @@
+E:\Work\PPWorks\ProjectInSvn\格莱光\src\proto\Property\GLLedPublic\bin\Debug\GLLedPublic.dll
+E:\Work\PPWorks\ProjectInSvn\格莱光\src\proto\Property\GLLedPublic\bin\Debug\GLLedPublic.pdb
+E:\Work\PPWorks\ProjectInSvn\格莱光\src\proto\Property\GLLedPublic\obj\Debug\GLLedPublic.dll
+E:\Work\PPWorks\ProjectInSvn\格莱光\src\proto\Property\GLLedPublic\obj\Debug\GLLedPublic.pdb
+E:\Work\ProjectInSvn\g格莱光\src\proto\Property\GLLedPublic\bin\Debug\GLLedPublic.dll
+E:\Work\ProjectInSvn\g格莱光\src\proto\Property\GLLedPublic\bin\Debug\GLLedPublic.pdb
+E:\Work\ProjectInSvn\g格莱光\src\proto\Property\GLLedPublic\obj\Debug\ResolveAssemblyReference.cache
+E:\Work\ProjectInSvn\g格莱光\src\proto\Property\GLLedPublic\obj\Debug\GLLedPublic.dll
+E:\Work\ProjectInSvn\g格莱光\src\proto\Property\GLLedPublic\obj\Debug\GLLedPublic.pdb

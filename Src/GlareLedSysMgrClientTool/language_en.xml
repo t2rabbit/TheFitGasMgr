@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resourcre>
+
+
+  <strings>
+    <item key="tcpportlist" value="TCP Port List"/>
+    <item key="serialportlist" value="Com Port List"/>
+    <item key="gprsportlist" value="GPRS-7804"/>
+    <item key="oilstationlist" value="Gas Station List"/>
+    <item key="GetDataFailNotReturn" value="Get Data Error，Not data return."/>
+    <item key="GetDataFailReturnByErr" value="Get Data Error, Recived error."/>
+    <item key="SetFailNotReturn" value="Set Error, Not data return"/>
+    <item key="SetFailReturnByError" value="Set Error, Recived error."/>
+    <item key="CfgFailed" value="Set Error!"/>
+    <item key="CfgSuccess" value="Set Success!"/>
+    <item key="GetCfgFailed" value="Get Configure Error!"/>
+    <item key="GetCfgSuccess" value="Get Configure Success!"/>
+    <item key="TipSelPort" value="Please Select Port!"/>
+    <item key="TipSetDec" value="Please Set Decimal!"/>
+    <item key="InputID1to254" value="Please Set ID as  1-254!"/>
+    <item key="InputDataError" value="Info Error!"/>
+    <item key="InputPassword" value="Password Error!"/>
+    <item key="PleaseSelOneUser" value="Please Select a user!"/>
+    <item key="InputUserName" value="Please Input Name!"/>
+    <item key="UserNameExisted" value="The Name is existed!"/>
+    <item key="InputPasswordError" value="Please Input Password!"/>
+    <item key="InputSelectOilStation" value="Please Select Gas Station!"/>
+    <item key="OpSuccess" value="Operate Success!"/>
+    <item key="OpFailed" value="Operate Failed!"/>
+    <item key="ConfirmDel" value="Confirm Delete ?"/>
+    <item key="GridItemUserName" value="UserName"/>
+    <item key="GridItemUserAuth" value="Authority"/>
+    <item key="GridItemUserAppendOil" value="Station"/>
+    <item key="TipTypeNoDef" value="Type Not Define" />
+    <item key="TipSelOilStation" value="Please Select Station" />
+    <item key="TipOpCommFailed" value="Open Comm Failed" />
+    <item key="TipConnTcpFailed" value="GPRS or tcp port did not connected" />
+    <item key="TipPleaseSelectItem" value="Please Select Item From Tree " />
+    <item key="TipConnServerFailed" value="Connect to DataCenter Failed" />
+  </strings>
+
+
+
+  <Form>
+    <Name>FormMain</Name>
+    <Controls>
+      <Control name="FormMain" text="Gas Card Manage " />
+      <Control name="glassButtonOilCard" text="GasCard" />
+      <Control name="labelDevList" text="Dev List" />
+      <Control name="lbllanguage" text="Language:" />
+      <Control name="btnlogon" text="Logon" />
+      <Control name="btncancel" text="Exit" />
+      <Control name="buttonSysUserMgr" text="User Manage" />      
+      <Control name="btnchangepwd" text="Change Password" />
+      <Control name="buttonDevMgr" text="Dev Manage"/>
+      <Control name="buttonShowHideLog" text="Show/Hide Log"/>
+      <Control name="tabPageCtrlPanel" text="Control Panel"/>
+      <Control name="buttonExSelLanguage" text="Language"/>
+      <Control name="labelOilStaList" text="Station List"/>
+      <Control name="buttonStartDC" text="Start"/>
+      <Control name="buttonRefreshCenOrg" text="Refresh"/>
+      <Control name="labelLogFilMod" text="--"/>
+      <Control name="labelLogFilType1" text="--"/>
+      <Control name="labelLogFilType2" text="--"/>
+      <Control name="labelLogFilType3" text="--"/>
+      <Control name="checkBoxShowLog" text="Pause Log" />
+      <Control name="buttonClearLog" text="Clear Log"/>
+    </Controls>
+  </Form>
+
+
+
+  <Form>
+    <Name>FormMainCfg</Name>
+    <Controls>
+      <Control name="FormMainCfg" text="Gas Card Configura Tool" />
+      <Control name="glassButtonOilCard" text="GasCard" />
+      <Control name="glassButton4" text="--" />
+      <Control name="glassButton7" text="--" />
+      <Control name="glassButton6" text="--" />
+      <Control name="glassButton3" text="--" />
+      <Control name="glassButton2" text="--" />
+      <Control name="glassButtonTimeTempCard" text="TimeTemp" />
+      <Control name="tabPagePanelOilCard" text="--" />
+      <Control name="tabPage5" text="--" />
+      <Control name="labelSelID" text="ID" />
+      <Control name="labelSelComm" text="Com" />
+      <Control name="labelPos" text="--" />
+      <Control name="labelOilCardBrigthness" text="Brightness" />
+      <Control name="labelOilCardIsDouble" text="IsDouble" />
+      <Control name="labelOilCardCount" text="ScreenCount" />
+      <Control name="labelValIsDouble" text="--" />
+      <Control name="labelOilValBriagth" text="--" />
+      <Control name="labelValOilCount" text="--" />
+      <Control name="labelValOilType" text="--" />
+      <Control name="labelOilCardType" text="CardType" />
+      <Control name="buttonExAdvFun" text="Advance>>" />
+      <Control name="buttonExWrite" text="Write" />
+      <Control name="buttonExRead" text="Read" />
+      <Control name="buttonExSelLanguage" text="Lang>>" />
+      <Control name="groupBoxCommType" text="Select Comm Type" />
+      <Control name="labelTcpDevIp" text="IP" />
+      <Control name="labelTcpDevPort" text="Com" />
+    </Controls>
+  </Form>
+
+
+  <Form>
+    <Name>FormSysuserMgr</Name>
+    <Controls>
+      <Control name="FormSysuserMgr" text="User Manage>>" />
+      <Control name="buttonAdd" text="Add" />
+      <Control name="buttonMdy" text="Modify" />
+      <Control name="buttonDel" text="Delete" />
+    </Controls>
+  </Form>
+
+  <Form>
+    <Name>FormSysUserInfo</Name>
+    <Controls>
+      <Control name="FormSysUserInfo" text="User Info>>" />
+      <Control name="labelName" text="Name" />
+      <Control name="labelPassword" text="Password" />
+      <Control name="labelAuth" text="Authority" />
+      <Control name="labelOil" text="Assign To Station" />
+      <Control name="buttonOk" text="Ok" />
+      <Control name="buttonCancel" text="Cancel" />
+    </Controls>
+  </Form>
+
+  <Form>
+    <Name>FormCfgNormalInfo</Name>
+    <Controls>
+      <Control name="FormCfgNormalInfo" text="Base Info Configure>>" />
+      <Control name="labelTypePrivew" text="Preview>>" />
+      <Control name="labelSelType" text="Select Type>>" />
+      <Control name="labelAddr" text="Addr" />
+      <Control name="buttonRead" text="Read" />
+      <Control name="labelScreenCount" text="Screen Count" />
+      <Control name="labelSingleOrDouble" text="Signal Double" />
+      <Control name="labelDigCount" text="Digit Count" />
+      <Control name="labelBrightenss" text="Brightness" />
+      <Control name="labelIsShow910" text="Is Show 9/10" />
+      <Control name="labelHardVersion" text="Hardware Version" />
+      <Control name="labelFirmewareVer" text="Firmware Version" />
+      <Control name="buttonSetCfg" text="Modify" />
+      <Control name="FormMainCfg_labelSelID" text="Select ID" />
+      <Control name="groupBoxSelCommType" text="Select Comm Type" />
+      <Control name="labelTcpDevIp" text="IP" />
+      <Control name="labelTcpDevPort" text="Port" />
+      <Control name="labelSelComm" text="PC Com" />
+    </Controls>
+  </Form>
+
+
+  <Form>
+    <Name>FormInputPassword</Name>
+    <Controls>
+      <Control name="FormInputPassword" text="Input Password" />
+      <Control name="labelTipInputPassword" text="Please Input Password:" />
+      <Control name="buttonOk" text="Ok" />
+      <Control name="buttonCancel" text="Cancel" />
+    </Controls>
+  </Form>
+
+
+
+  <Form>
+    <Name>FormAddDev</Name>
+    <Controls>
+      <Control name="FormAddDev" text="Add Port" />
+      <Control name="labelDevType" text="Port Type" />
+      <Control name="groupBoxPortDetailInfo" text="Communication Info" />
+      <Control name="labelComPort" text="PC Com" />
+      <Control name="labelTcpServerIP" text="IP" />
+      <Control name="labelGprsClientInfo" text="Client Sn" />
+      <Control name="labelTcpSeverPort" text="TCP Port" />
+      <Control name="buttonOK" text="Ok" />
+      <Control name="buttonCancel" text="Cancel" />
+      <Control name="radioButtonSerial" text="Com" />
+      <Control name="radioButtonTcpClient" text="TCP Client" />
+      <Control name="radioButtonTcpServer" text="TCP Server" />
+      <Control name="labelSelOilStation" text="Add to Station" />
+      <Control name="labelPortName" text="Name" />
+    </Controls>
+  </Form>
+
+  <Form>
+    <Name>FormCfgAdv</Name>
+    <Controls>
+      <Control name="FormCfgAdv" text="Decimal" />
+      <Control name="labelID" text="ID" />
+      <Control name="checkBoxSameAllScreens" text="All The Same" />
+      <Control name="buttonSend" text="Write" />
+      <Control name="buttonRead" text="Read" />
+      <Control name="labelScreen1" text="Screen1#" />
+      <Control name="labelScreen2" text="Screen2#" />
+      <Control name="labelScreen3" text="Screen3#" />
+      <Control name="labelScreen4" text="Screen4#" />
+      <Control name="labelScreen5" text="Screen5#" />
+      <Control name="labelScreen6" text="Screen6#" />
+      <Control name="labelScreen7" text="Screen7#" />
+      <Control name="labelScreen8" text="Screen8#" />
+      <Control name="labelScreen9" text="Screen9#" />
+      <Control name="labelScreen10" text="Screen10#" />
+      <Control name="labelScreen11" text="Screen11#" />
+      <Control name="labelScreen12" text="Screen12#" />
+      <Control name="groupBoxCommType" text="Select Comm Type" />
+      <Control name="labelTcpDevIp" text="IP" />
+      <Control name="labelTcpDevPort" text="Port" />
+      <Control name="labelPcPort" text="PC Com" />
+    </Controls>
+  </Form>
+  
+
+  <Form>
+    <Name>FormDecimalSetting</Name>
+    <Controls>
+      <Control name="FormDecimalSetting" text="Decimal Setting" />
+      <Control name="labelTipCurSelCard" text="Select GasCard" />
+      <Control name="labelPcPort" text="Select Port" />
+      <Control name="checkBoxAllTheSame" text="All The Same" />
+      <Control name="buttonSend" text="Write" />
+      <Control name="buttonRead" text="Read" />
+      <Control name="buttonSaveDB" text="Save To DB" />
+      <Control name="labelScreen1" text="Screen1#" />
+      <Control name="labelScreen2" text="Screen2#" />
+      <Control name="labelScreen3" text="Screen3#" />
+      <Control name="labelScreen4" text="Screen4#" />
+      <Control name="labelScreen5" text="Screen5#" />
+      <Control name="labelScreen6" text="Screen6#" />
+      <Control name="labelScreen7" text="Screen7#" />
+      <Control name="labelScreen8" text="Screen8#" />
+      <Control name="labelScreen9" text="Screen9#" />
+      <Control name="labelScreen10" text="Screen10#" />
+      <Control name="labelScreen11" text="Screen11#" />
+      <Control name="labelScreen12" text="Screen12#" />
+    </Controls>
+  </Form>
+
+
+  <Form>
+    <Name>FormMainCfgContextMenuStrip1</Name>
+    <Controls>
+      <Control name="修改IDToolStripMenuItem" text="Modify ID" />
+      <Control name="修改小数点ToolStripMenuItem" text="Modify Decimal" />
+      <Control name="修改配置ToolStripMenuItem" text="Modify Cfg" />
+    </Controls>
+  </Form>
+
+  <Form>
+    <Name>FormMdyID</Name>
+    <Controls>
+      <Control name="FormMdyID" text="Modify ID" />
+      <Control name="labelTipNewID" text="New ID" />
+      <Control name="groupBoxCommType" text="Select Comm Type" />
+      <Control name="labelTcpDevIp" text="IP" />
+      <Control name="labelTcpDevPort" text="Tcp Port" />
+      <Control name="labelPcCom" text="Pc Com" />
+      <Control name="buttonSetID" text="Write" />
+    </Controls>
+  </Form>
+  
+  <Form>
+    <Name>FrmPasswordChange</Name>
+    <Controls>
+      <Control name="frmpasswordchange" text="Change password" />
+      <Control name="lblusername" text="Username:" />
+      <Control name="lblpassword" text="Old Password:" />
+      <Control name="lblnewpassword" text="New Password:" />
+      <Control name="lblpasswordconfirm" text="Password Confirm:" />
+      <Control name="btnok" text="OK" />
+      <Control name="btncancel" text="Return" />
+    </Controls>
+  </Form>
+  
+
+
+  <Form>
+    <Name>mainscript</Name>
+    <Controls>
+      <Control name="mainscript" text="系统菜单" />
+      <Control name="SysToolStripMenuItem" text="-系统-" />
+      <Control name="ConTypeToolStripMenuItem" text="-连接方式-" />
+    </Controls>
+  </Form>
+  
+  
+  
+
+
+
+    <Form>
+    <Name>FormDevMgr</Name>
+    <Controls>
+      <Control name="FormDevMgr" text="DevManage" />
+      <Control name="buttonOK" text="OK" />
+      <Control name="buttonDetail" text="Detail" />
+      <Control name="buttonAddOrg" text="Add Station" />
+      <Control name="buttonRFresh" text="Refresh" />
+      <Control name="radioButtonByDev" text="listbydev" />
+      <Control name="radioButtonByOrg" text="listbystation" />
+      <Control name="buttonAddCard" text="Add Card" />
+      <Control name="buttonMdy" text="Modify" />
+      <Control name="buttonDel" text="Delete" />
+      <Control name="buttonTest" text="Test" />
+      <Control name="buttonAddPort" text="Add Port" />
+      <Control name="labelDevList" text="Dev List" />
+    </Controls>
+  </Form>
+
+  <Form>
+    <Name>FormAddCardToPort</Name>
+    <Controls>
+      <Control name="FormAddCardToPort" text="Add GasCard" />
+      <Control name="labelCardType" text="Card Type" />
+      <Control name="labelcardpreview" text="Type Preview" />
+      <Control name="labelCardAddr" text="Address" />
+      <Control name="labelBrightness" text="Brightness" />
+      <Control name="checkBoxIsDouble" text="Double" />
+      <Control name="buttonOK" text="Ok" />
+      <Control name="buttonCancel" text="Cancel" />
+      <Control name="labelCardName" text="Name" />
+      <Control name="labelAddToPort" text="Add To" />
+      <Control name="labelScreenCount" text="Screen Count" />
+      <Control name="labelDigitCount" text="Digit Count" />
+      <Control name="labelDecInfo" text="Dec Info" />
+      <Control name="labelIsShow910" text="Is Show 9/10" />
+    </Controls>
+  </Form>
+
+</Resourcre>
