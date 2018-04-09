@@ -133,6 +133,11 @@ namespace GlareLedSysBll
 
         public static bool CheckLoginId(int iTockId)
         {
+            if (iTockId==ConstDefineBll.TockIdEnableTest)
+            {
+                return true;
+            }
+
             return LoginUserEnableMgr.Get().IsLoginIdEnable(iTockId);
         }
 

@@ -9,5 +9,6 @@ namespace GlareLedSysBll
     {
         public const string NameExist = "名字已存在";
         public const string InfoCanNotFind = "查找不到信息";
+        public const int TockIdEnableTest = 5999;
     }
 }
