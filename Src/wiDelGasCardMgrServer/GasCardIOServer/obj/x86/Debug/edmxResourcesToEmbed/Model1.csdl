@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="yd_esms_2.db3Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="yd_esmsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="buildings" EntityType="yd_esms_2.db3Model.building" />
+    <EntitySet Name="commands" EntityType="yd_esms_2.db3Model.command" />
+    <EntitySet Name="communicationlogs" EntityType="yd_esms_2.db3Model.communicationlog" />
+    <EntitySet Name="communicationobjects" EntityType="yd_esms_2.db3Model.communicationobject" />
+    <EntitySet Name="datagateways" EntityType="yd_esms_2.db3Model.datagateway" />
+    <EntitySet Name="departments" EntityType="yd_esms_2.db3Model.department" />
+    <EntitySet Name="devs" EntityType="yd_esms_2.db3Model.dev" />
+    <EntitySet Name="DevStatisticals" EntityType="yd_esms_2.db3Model.DevStatistical" />
+    <EntitySet Name="employees" EntityType="yd_esms_2.db3Model.employee" />
+    <EntitySet Name="idmanagers" EntityType="yd_esms_2.db3Model.idmanager" />
+    <EntitySet Name="logs" EntityType="yd_esms_2.db3Model.log" />
+    <EntitySet Name="modules" EntityType="yd_esms_2.db3Model.module" />
+    <EntitySet Name="moduledailyplans" EntityType="yd_esms_2.db3Model.moduledailyplan" />
+    <EntitySet Name="nodes" EntityType="yd_esms_2.db3Model.node" />
+    <EntitySet Name="nodelastvals" EntityType="yd_esms_2.db3Model.nodelastval" />
+    <EntitySet Name="realtimeitems" EntityType="yd_esms_2.db3Model.realtimeitem" />
+    <EntitySet Name="recorditems" EntityType="yd_esms_2.db3Model.recorditem" />
+    <EntitySet Name="rooms" EntityType="yd_esms_2.db3Model.room" />
+    <EntitySet Name="systemusers" EntityType="yd_esms_2.db3Model.systemuser" />
+  </EntityContainer>
+  <EntityType Name="building">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="BuildingType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FloorCount" Type="Int64" />
+    <Property Name="BuildingFunction" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BuildingArea" Type="Int64" />
+    <Property Name="AirArea" Type="Int64" />
+    <Property Name="EconomyIndicator" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+    <Property Name="BuildingExtInfoJson" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+    <Property Name="BuildingYear" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DeptID" Type="Int64" />
+    <Property Name="ManagerID" Type="Int64" />
+    <Property Name="EleVID" Type="Int64" />
+    <Property Name="WaterVID" Type="Int64" />
+    <Property Name="GasVID" Type="Int64" />
+    <Property Name="CentersHeatingVID" Type="Int64" />
+    <Property Name="CentersColdVID" Type="Int64" />
+    <Property Name="CoalVID" Type="Int64" />
+    <Property Name="LPGVID" Type="Int64" />
+    <Property Name="ManufacturedGasVID" Type="Int64" />
+    <Property Name="PetrolVID" Type="Int64" />
+    <Property Name="Kerosene" Type="Int64" />
+    <Property Name="Diesel" Type="Int64" />
+    <Property Name="RenewableEgVID" Type="Int64" />
+    <Property Name="OtherEgVID" Type="Int64" />
+    <Property Name="Ele_LightSockVID" Type="Int64" />
+    <Property Name="Ele_AirConditionVID" Type="Int64" />
+    <Property Name="Ele_PowerVID" Type="Int64" />
+    <Property Name="Ele_SpecialVID" Type="Int64" />
+    <Property Name="Ele_LS_NormalVID" Type="Int64" />
+    <Property Name="Ele_LS_CorridorVID" Type="Int64" />
+    <Property Name="Ele_LS_LandscapeVID" Type="Int64" />
+    <Property Name="Ele_AC_CenterVID" Type="Int64" />
+    <Property Name="Ele_AC_EndPointVID" Type="Int64" />
+    <Property Name="Ele_Power_ElevatorVID" Type="Int64" />
+    <Property Name="Ele_Power_PumpVID" Type="Int64" />
+    <Property Name="Ele_Power_AirinessVID" Type="Int64" />
+    <Property Name="Ele_Spec_ITCenterVID" Type="Int64" />
+    <Property Name="Ele_Spec_CookroomVID" Type="Int64" />
+    <Property Name="Ele_Spec_NatatoriumVID" Type="Int64" />
+    <Property Name="Ele_Spec_LabVID" Type="Int64" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="T_FloorCount" Type="Int64" />
+    <Property Name="T_RoomsForFloor" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="T_RoomsHadAirCond" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="command">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cmd" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="LogDT" Type="DateTime" />
+    <Property Name="UpdateDT" Type="DateTime" />
+    <Property Name="ResultFlag" Type="Int64" />
+    <Property Name="ResultMsg" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="CmdType" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="ResultForID" Type="Int64" />
+    <Property Name="HandleBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="communicationlog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectID" Type="Int64" Nullable="false" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <Property Name="UpdateMsg" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="UpdateStatus" Type="Int64" />
+  </EntityType>
+  <EntityType Name="communicationobject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Cata1" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Cata2" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Cata3" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="GwID" Type="Int64" />
+    <Property Name="DevID" Type="Int64" />
+    <Property Name="ModuleID" Type="Int64" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <Property Name="UpdateMsg" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="UpdateStatus" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Timeout" Type="Int64" />
+  </EntityType>
+  <EntityType Name="datagateway">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="InstallInBuildingID" Type="Int64" />
+    <Property Name="InstallInRoomID" Type="Int64" />
+    <Property Name="InstallPos" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="IP" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="DataCenterIPs" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="DataCenterPorts" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Cfg" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="BEnable" Type="Int64" />
+    <Property Name="Type" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="version" Type="Int64" />
+  </EntityType>
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="DeptSN" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Level" Type="Int64" />
+    <Property Name="ParentDeptID" Type="Int64" Nullable="false" />
+    <Property Name="ManagerID" Type="Int64" />
+    <Property Name="EleVID" Type="Int64" />
+    <Property Name="WaterVID" Type="Int64" />
+    <Property Name="GasVID" Type="Int64" />
+    <Property Name="CentersHeatingVID" Type="Int64" />
+    <Property Name="CentersColdVID" Type="Int64" />
+    <Property Name="CoalVID" Type="Int64" />
+    <Property Name="LPGVID" Type="Int64" />
+    <Property Name="ManufacturedGasVID" Type="Int64" />
+    <Property Name="PetrolVID" Type="Int64" />
+    <Property Name="Kerosene" Type="Int64" />
+    <Property Name="Diesel" Type="Int64" />
+    <Property Name="RenewableEgVID" Type="Int64" />
+    <Property Name="OtherEgVID" Type="Int64" />
+    <Property Name="Ele_LightSockVID" Type="Int64" />
+    <Property Name="Ele_AirConditionVID" Type="Int64" />
+    <Property Name="Ele_PowerVID" Type="Int64" />
+    <Property Name="Ele_SpecialVID" Type="Int64" />
+    <Property Name="Ele_LS_NormalVID" Type="Int64" />
+    <Property Name="Ele_LS_CorridorVID" Type="Int64" />
+    <Property Name="Ele_LS_LandscapeVID" Type="Int64" />
+    <Property Name="Ele_AC_CenterVID" Type="Int64" />
+    <Property Name="Ele_AC_EndPointVID" Type="Int64" />
+    <Property Name="Ele_Power_ElevatorVID" Type="Int64" />
+    <Property Name="Ele_Power_PumpVID" Type="Int64" />
+    <Property Name="Ele_Power_AirinessVID" Type="Int64" />
+    <Property Name="Ele_Spec_ITCenterVID" Type="Int64" />
+    <Property Name="Ele_Spec_CookroomVID" Type="Int64" />
+    <Property Name="Ele_Spec_NatatoriumVID" Type="Int64" />
+    <Property Name="Ele_Spec_LabVID" Type="Int64" />
+    <Property Name="BuildingArea" Type="Int64" />
+    <Property Name="AirArea" Type="Int64" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="ManCount" Type="Int64" />
+  </EntityType>
+  <EntityType Name="dev">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="InstallInBuildID" Type="Int64" />
+    <Property Name="InstallInRoomID" Type="Int64" />
+    <Property Name="InstallPos" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DataGatewayID" Type="Int64" />
+    <Property Name="CommType" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="TransferType" Type="Int64" />
+    <Property Name="CommPort" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Baud" Type="Int64" />
+    <Property Name="DataBit" Type="Int64" />
+    <Property Name="Parity" Type="Int64" />
+    <Property Name="StopBit" Type="Int64" />
+    <Property Name="IP" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="TCPPort" Type="Int64" />
+    <Property Name="TimeOut" Type="Int64" />
+    <Property Name="ExtCfgs" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Rtu" Type="Int64" />
+    <Property Name="BEnable" Type="Int64" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DevStatistical">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DevID" Type="Int64" />
+    <Property Name="ModuleID" Type="Int64" />
+    <Property Name="CurStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="OnByToday" Type="Double" />
+    <Property Name="OnByWeek" Type="Double" />
+    <Property Name="OnByMonth" Type="Double" />
+    <Property Name="OnByYear" Type="Double" />
+    <Property Name="EngStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CurTmpe" Type="Double" />
+    <Property Name="CurLight" Type="Double" />
+    <Property Name="UpdateDt" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="SSID" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="DeptID" Type="Int64" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="MPhone" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="idmanager">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TableName" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="LastID" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="log">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Msg" Type="String" MaxLength="450" Unicode="true" FixedLength="false" />
+    <Property Name="LogType" Type="Int64" />
+    <Property Name="LogModule" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="LogLevel" Type="Int64" />
+    <Property Name="LogDT" Type="DateTime" />
+    <Property Name="SrcLogID" Type="Int64" />
+    <Property Name="GateID" Type="Int64" />
+    <Property Name="DevID" Type="Int64" />
+    <Property Name="ModuleID" Type="Int64" />
+    <Property Name="CommObjID" Type="Int64" />
+    <Property Name="QuatoID" Type="Int64" />
+    <Property Name="ExtInt1" Type="Int64" />
+    <Property Name="ExtInt2" Type="Int64" />
+    <Property Name="ExtStr1" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="ExtStr2" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="module">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="InstallBuildingID" Type="Int64" />
+    <Property Name="InstallInRoomID" Type="Int64" />
+    <Property Name="InstallPos" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ModuleType" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="ModuleModel" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="CfgJson" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="DevID" Type="Int64" Nullable="false" />
+    <Property Name="Addr" Type="Int64" />
+    <Property Name="BEnable" Type="Int64" />
+    <Property Name="StrategyID" Type="Int64" />
+    <Property Name="StrategyVer" Type="Int64" />
+    <Property Name="UpdateStrategyDT" Type="DateTime" />
+    <Property Name="PlanCommToGW" Type="DateTime" />
+    <Property Name="PlanSyncGW" Type="DateTime" />
+    <Property Name="PlanCommToMod" Type="DateTime" />
+    <Property Name="PlanSyncToMod" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="moduledailyplan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="ModuleID" Type="Int64" />
+    <Property Name="Version" Type="Int64" />
+    <Property Name="PlanInfo" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="SendedTime" Type="DateTime" />
+    <Property Name="Status" Type="Int64" />
+    <Property Name="ForDay" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="node">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Cfg" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="NodeType" Type="Int64" />
+    <Property Name="IsAutoRead" Type="Int64" />
+    <Property Name="P2CExpression" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="AdjustValue" Type="Double" />
+    <Property Name="RatioOfTransfer" Type="Double" />
+    <Property Name="CurValue" Type="Double" />
+    <Property Name="UpdateDT" Type="DateTime" />
+    <Property Name="CurValueFlag" Type="Int64" />
+    <Property Name="ModuleID" Type="Int64" />
+    <Property Name="C2PExpression" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="FuncCode" Type="Int64" />
+    <Property Name="Addr" Type="Int64" />
+    <Property Name="BEnable" Type="Int64" />
+    <Property Name="T_BaseValue" Type="Double" />
+    <Property Name="T_ValueFor24Hour" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="T_RandValue" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="T_BEnableInsert" Type="Int64" />
+    <Property Name="T_ValueForWeek" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="T_ValueFor12Month" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="T_IncBase" Type="Double" />
+    <Property Name="IncVal" Type="Double" />
+    <Property Name="VTopVal" Type="Double" />
+    <Property Name="TopVal" Type="Double" />
+    <Property Name="NormalVal" Type="Double" />
+    <Property Name="LowVal" Type="Double" />
+    <Property Name="IncVTopVal" Type="Double" />
+    <Property Name="IncTopVal" Type="Double" />
+    <Property Name="IncNormalVal" Type="Double" />
+    <Property Name="IncLowVal" Type="Double" />
+    <Property Name="IncChargeVal" Type="Double" />
+    <Property Name="ChargeVal" Type="Double" />
+    <Property Name="LastDumpDT" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="nodelastval">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="Double" />
+    <Property Name="MaxValue_" Type="Double" />
+    <Property Name="MinValue" Type="Double" />
+    <Property Name="AvgValue" Type="Double" />
+    <Property Name="ValueFlag" Type="Int64" />
+    <Property Name="RecordType" Type="Int64" />
+    <Property Name="NodeID" Type="Int64" />
+    <Property Name="LogDT" Type="DateTime" />
+    <Property Name="DataCount" Type="Int64" />
+    <Property Name="Increment" Type="Double" />
+    <Property Name="VTopVal" Type="Double" />
+    <Property Name="TopVal" Type="Double" />
+    <Property Name="NormalVal" Type="Double" />
+    <Property Name="LowVal" Type="Double" />
+    <Property Name="ChargeVal" Type="Double" />
+    <Property Name="IncVTopVal" Type="Double" />
+    <Property Name="IncTopVal" Type="Double" />
+    <Property Name="IncNormalVal" Type="Double" />
+    <Property Name="IncLowVal" Type="Double" />
+    <Property Name="IncChargeVal" Type="Double" />
+  </EntityType>
+  <EntityType Name="realtimeitem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="Double" />
+    <Property Name="RMaxValue" Type="Double" />
+    <Property Name="MinValue" Type="Double" />
+    <Property Name="AvgValue" Type="Double" />
+    <Property Name="ValueFlag" Type="Int64" />
+    <Property Name="NodeID" Type="Int64" />
+    <Property Name="RecordType" Type="Int64" />
+    <Property Name="LogDT" Type="DateTime" />
+    <Property Name="DataCount" Type="Int64" />
+    <Property Name="Increment" Type="Double" />
+  </EntityType>
+  <EntityType Name="recorditem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurValue" Type="Double" />
+    <Property Name="MaxValue_" Type="Double" />
+    <Property Name="MinValue" Type="Double" />
+    <Property Name="AvgValue" Type="Double" />
+    <Property Name="ValueFlag" Type="Int64" />
+    <Property Name="RecordType" Type="Int64" />
+    <Property Name="NodeID" Type="Int64" />
+    <Property Name="LogDT" Type="DateTime" />
+    <Property Name="DataCount" Type="Int64" />
+    <Property Name="Increment" Type="Double" />
+    <Property Name="VTopVal" Type="Double" />
+    <Property Name="TopVal" Type="Double" />
+    <Property Name="NormalVal" Type="Double" />
+    <Property Name="LowVal" Type="Double" />
+    <Property Name="ChargeVal" Type="Double" />
+    <Property Name="IncVTopVal" Type="Double" />
+    <Property Name="IncTopVal" Type="Double" />
+    <Property Name="IncNormalVal" Type="Double" />
+    <Property Name="IncLowVal" Type="Double" />
+    <Property Name="IncChargeVal" Type="Double" />
+  </EntityType>
+  <EntityType Name="room">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="DeptID" Type="Int64" />
+    <Property Name="BuildingID" Type="Int64" />
+    <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Floor" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="RoomNO" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="ManagerID" Type="Int64" />
+    <Property Name="EleVID" Type="Int64" />
+    <Property Name="WaterVID" Type="Int64" />
+    <Property Name="GasVID" Type="Int64" />
+    <Property Name="CentersHeatingVID" Type="Int64" />
+    <Property Name="CentersColdVID" Type="Int64" />
+    <Property Name="CoalVID" Type="Int64" />
+    <Property Name="LPGVID" Type="Int64" />
+    <Property Name="ManufacturedGasVID" Type="Int64" />
+    <Property Name="PetrolVID" Type="Int64" />
+    <Property Name="Kerosene" Type="Int64" />
+    <Property Name="Diesel" Type="Int64" />
+    <Property Name="RenewableEgVID" Type="Int64" />
+    <Property Name="OtherEgVID" Type="Int64" />
+    <Property Name="Ele_LightSockVID" Type="Int64" />
+    <Property Name="Ele_AirConditionVID" Type="Int64" />
+    <Property Name="Ele_PowerVID" Type="Int64" />
+    <Property Name="Ele_SpecialVID" Type="Int64" />
+    <Property Name="Ele_LS_NormalVID" Type="Int64" />
+    <Property Name="Ele_LS_CorridorVID" Type="Int64" />
+    <Property Name="Ele_LS_LandscapeVID" Type="Int64" />
+    <Property Name="Ele_AC_CenterVID" Type="Int64" />
+    <Property Name="Ele_AC_EndPointVID" Type="Int64" />
+    <Property Name="Ele_Power_ElevatorVID" Type="Int64" />
+    <Property Name="Ele_Power_PumpVID" Type="Int64" />
+    <Property Name="Ele_Power_AirinessVID" Type="Int64" />
+    <Property Name="Ele_Spec_ITCenterVID" Type="Int64" />
+    <Property Name="Ele_Spec_CookroomVID" Type="Int64" />
+    <Property Name="Ele_Spec_NatatoriumVID" Type="Int64" />
+    <Property Name="Ele_Spec_LabVID" Type="Int64" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="systemuser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="DeptID" Type="Int64" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="Authority" Type="Int64" />
+  </EntityType>
+</Schema>

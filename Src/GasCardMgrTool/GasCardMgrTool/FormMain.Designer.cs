@@ -39,6 +39,7 @@
             this.buttonMakefMgr.TabIndex = 0;
             this.buttonMakefMgr.Text = "生产管理";
             this.buttonMakefMgr.UseVisualStyleBackColor = true;
+            this.buttonMakefMgr.Click += new System.EventHandler(this.buttonMakefMgr_Click);
             // 
             // FormMain
             // 

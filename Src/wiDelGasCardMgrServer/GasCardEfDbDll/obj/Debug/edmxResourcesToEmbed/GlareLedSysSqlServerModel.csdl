@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GLedDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="CityTable_NotDone_todo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ToDoCoity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CommDevInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DefName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DefPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatePassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PosLongitude" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PosLatitude" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="OrgId" Type="Int32" />
+    <Property Name="CommType" Type="Int32" />
+    <Property Name="ProtocolType" Type="Int32" />
+    <Property Name="CommServerIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CommServerPort" Type="Int32" />
+    <Property Name="CommServerSn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CommSerialPort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CommSerialBaud" Type="Int32" />
+    <Property Name="CommSerialDataBit" Type="Int32" />
+    <Property Name="CommSerialStopBit" Type="Int32" />
+    <Property Name="CommSerialParity" Type="Int32" />
+    <Property Name="CommTimeoutMs" Type="Int32" />
+    <Property Name="CommExtConnInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BEnable" Type="Int32" />
+    <Property Name="BUseDefName" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CommDevRealStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommDevId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LogDt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CommDevStatusLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DevId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LogDt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CommDevUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MgrCommDevId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="GasCardInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProtocolAddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDouble" Type="Int32" />
+    <Property Name="Brightness" Type="Int32" />
+    <Property Name="PointCount" Type="Int32" />
+    <Property Name="NumberCount" Type="Int32" />
+    <Property Name="ScreenCount" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CommDevId" Type="Int32" Nullable="false" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="OrgId" Type="Int32" />
+    <Property Name="Context" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GasCardRealStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GasCardDevId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LogDt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="GasCardStatusLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GasCardId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LogDt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="GasContextLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CardId" Type="Int32" />
+    <Property Name="LogDt" Type="DateTime" Precision="3" />
+    <Property Name="Context" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateBySysUserType" Type="Int32" />
+    <Property Name="UpdateBySysUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="GroupInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManageTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrgId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="GroupUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MgrGroupId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDt" Type="DateTime" Precision="3" />
+    <Property Name="Context" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="LogType" Type="Int32" />
+  </EntityType>
+  <EntityType Name="OrgInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManageTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OrgUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MgrOrgId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProjectInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ManagerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManagerTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="OrgId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProjectUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MgrProjectId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RoadCardRealStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoadCardDevId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LogDt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="RoadCardStatusLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoadCardId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LogDt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="RoadTipCardInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Addr" Type="Int32" />
+    <Property Name="SectionCount" Type="Int32" />
+    <Property Name="SectionCfgByJson" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SectionContextInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="GLedDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CityTable_NotDone_todo" EntityType="Self.CityTable_NotDone_todo" />
+    <EntitySet Name="CommDevInfo" EntityType="Self.CommDevInfo" />
+    <EntitySet Name="CommDevRealStatus" EntityType="Self.CommDevRealStatus" />
+    <EntitySet Name="CommDevStatusLog" EntityType="Self.CommDevStatusLog" />
+    <EntitySet Name="CommDevUser" EntityType="Self.CommDevUser" />
+    <EntitySet Name="GasCardInfo" EntityType="Self.GasCardInfo" />
+    <EntitySet Name="GasCardRealStatus" EntityType="Self.GasCardRealStatus" />
+    <EntitySet Name="GasCardStatusLog" EntityType="Self.GasCardStatusLog" />
+    <EntitySet Name="GasContextLog" EntityType="Self.GasContextLog" />
+    <EntitySet Name="GroupInfo" EntityType="Self.GroupInfo" />
+    <EntitySet Name="GroupUser" EntityType="Self.GroupUser" />
+    <EntitySet Name="Log" EntityType="Self.Log" />
+    <EntitySet Name="OrgInfo" EntityType="Self.OrgInfo" />
+    <EntitySet Name="OrgUser" EntityType="Self.OrgUser" />
+    <EntitySet Name="ProjectInfo" EntityType="Self.ProjectInfo" />
+    <EntitySet Name="ProjectUser" EntityType="Self.ProjectUser" />
+    <EntitySet Name="RoadCardRealStatus" EntityType="Self.RoadCardRealStatus" />
+    <EntitySet Name="RoadCardStatusLog" EntityType="Self.RoadCardStatusLog" />
+    <EntitySet Name="RoadTipCardInfo" EntityType="Self.RoadTipCardInfo" />
+    <EntitySet Name="SuperUser" EntityType="GLedDbModel.SuperUser" />
+  </EntityContainer>
+  <EntityType Name="SuperUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EnableTime" Type="DateTime" Precision="3" />
+    <Property Name="UserType" Type="Int32" />
+  </EntityType>
+</Schema>

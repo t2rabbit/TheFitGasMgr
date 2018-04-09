@@ -1,0 +1,11 @@
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\bin\Debug\GlareSysEfDbAndModels.dll.config
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\bin\Debug\GlareSysEfDbAndModels.dll
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\bin\Debug\GlareSysEfDbAndModels.pdb
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\bin\Debug\EntityFramework.dll
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\bin\Debug\EntityFramework.xml
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\obj\Debug\01-GlareysEfDbDllAndModels.csprojResolveAssemblyReference.cache
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\obj\Debug\01-GlareysEfDbDllAndModels.csproj.CoreCompileInputs.cache
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\obj\Debug\01-GlareysEfDbDllAndModels.csproj.CopyComplete
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\obj\Debug\GlareSysEfDbAndModels.dll
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysEfAndModel\obj\Debug\GlareSysEfDbAndModels.pdb

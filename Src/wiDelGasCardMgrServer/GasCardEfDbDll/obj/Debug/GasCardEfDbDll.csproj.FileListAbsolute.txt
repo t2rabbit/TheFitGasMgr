@@ -1,0 +1,6 @@
+D:\TheFits\格莱光\Src\GasCardMgrServer\GasCardEfDbDll\bin\Debug\NetLabelEfDbDll.dll.config
+D:\TheFits\格莱光\Src\GasCardMgrServer\GasCardEfDbDll\bin\Debug\NetLabelEfDbDll.dll
+D:\TheFits\格莱光\Src\GasCardMgrServer\GasCardEfDbDll\bin\Debug\NetLabelEfDbDll.pdb
+D:\TheFits\格莱光\Src\GasCardMgrServer\GasCardEfDbDll\obj\Debug\ResolveAssemblyReference.cache
+D:\TheFits\格莱光\Src\GasCardMgrServer\GasCardEfDbDll\obj\Debug\NetLabelEfDbDll.dll
+D:\TheFits\格莱光\Src\GasCardMgrServer\GasCardEfDbDll\obj\Debug\NetLabelEfDbDll.pdb

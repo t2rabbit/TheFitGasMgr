@@ -399,9 +399,9 @@
       <Project>{8e05f714-b90e-4e66-920a-414955b4aea7}</Project>
       <Name>02-GlareLedSysBll</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GasCardMgrServer\GasCardEfDbDll\01-GlareLedSysEfDbDll.csproj">
+    <ProjectReference Include="..\GasCardMgrServer\GasCardEfDbDll\01-GlareysEfDbDllAndModels.csproj">
       <Project>{182cb473-73c9-4f2a-9fcb-bab9d9c359c8}</Project>
-      <Name>01-GlareLedSysEfDbDll</Name>
+      <Name>01-GlareysEfDbDllAndModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\GlareLedSysPublic\GLLedPublic.csproj">
       <Project>{2bb28f8d-38c8-420e-911f-d79a120648cf}</Project>
