@@ -1,0 +1,308 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Scripts.Render("~/bundles/easyui")
+    @Styles.Render("~/Content/easyui")
+    <style type="text/css">
+        .line {
+            height: auto;
+            width: 100%;
+            float: left;
+            margin-bottom: 5px;
+        }
+
+        .lineText {
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            float: left;
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+
+        fieldset {
+            float: left;
+            width: auto;
+            padding: 5px 5px 10px 5px;
+            margin: 0 5px 0 5px;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            border-radius: 5px;
+            border: 1px solid #d0e5f6;
+            padding-left: 15px;
+            font-weight: bold;
+            font-family: "微软雅黑";
+        }
+
+        .legen {
+            border: 1px solid #d0e5f6;
+            color: #d0e5f6;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .btn {
+            width: 70px;
+            height: 23px;
+            border: none;
+            color: white;
+            background-color: #a1d5fc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #fm {
+            margin: 0;
+            padding: 10px 30px;
+            font-family: 微软雅黑;
+            font-size: 14px;
+        }
+
+        .ftitle {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .fitem {
+            margin-bottom: 5px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0;
+        }
+
+            .fitem label {
+                display: inline-block;
+                width: 100px;
+                font-weight: bold;
+                font-family: '微软雅黑';
+            }
+    </style>
+</head>
+<body>
+    <div class="line">
+        <fieldset style="width: 99%;">
+            <legend>
+                条件筛选
+            </legend>
+            <div class="lineText">
+                <input id="ss" style="width: 280px;"></input>
+                <div id="mm" style="width: 120px">
+                    <div data-options="name:'key',iconCls:'icon-ok'">关键字</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="divForTable">
+        <table id="tt" style="width: 99%; height: 660px;"></table>
+    </div>
+    <div id="dlg" class="easyui-dialog" style="width: 590px; height: 250px; padding: 5px 10px"
+         data-options="closed:true,buttons:'#dlg-buttons',modal:true">
+        <form id="dlg_form" method="post">
+            <div class="fitem">
+                <label>Name:</label>
+                <input name="Name" id="Name" class="easyui-textbox" data-options="required:true" style="width:400px;" />
+            </div>
+            <div class="fitem">
+                <label>Address:</label>
+                <input name="Address" id="Address" class="easyui-textbox" style="width: 400px;">
+            </div>
+            <div class="fitem">
+                <label>ManageName:</label>
+                <input name="ManageName" id="ManageName" class="easyui-textbox" style="width: 400px;">
+            </div>
+            <div class="fitem">
+                <label>ManageTel:</label>
+                <input name="ManageTel" id="ManageTel" class="easyui-textbox" style="width: 400px;">
+            </div>
+        </form>
+    </div>
+    <div id="dlg-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-ok" onclick="fSaveData()">
+            保存
+        </a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel"
+           onclick="javascript:$('#dlg').dialog('close')">
+            取消
+        </a>
+    </div>
+    <script type="text/javascript" language="javascript">
+        var vUrl;
+        var vOrgUrl;
+        $(document).ready(function () {
+            fLoadTable();//加载参数            
+            $('#ss').searchbox({
+                searcher: function (value, name) {
+                    $('#tt').datagrid('reload', {
+                        Method: 'SearchLoad',
+                        Key: value
+                    });
+                },
+                menu: '#mm',
+                prompt: '请输入题目关键字'
+            });
+        });
+        function fLoadTable() {
+            $('#tt').datagrid({
+                title: 'Org列表',
+                url: 'Org/List',
+                pagination: true,
+                pageSize: 20,
+                pagePosition: 'both',
+                striped: true,
+                //nowrap:false,
+                //singleSelect: true,
+                ctrlSelect: true,//在启用多行选择的时候允许使用Ctrl键+鼠标点击的方式进行多选操作。
+                rownumbers: true,
+                queryParams: {
+                    Method: 'FirstLoad'
+                },
+                columns: [[
+                    { field: 'Id', checkbox: true, title: 'Id', align: 'center' },
+                    { field: 'Name', title: 'Name', align: 'left', width: 150 },
+                    { field: 'ManageName', title: 'ManageName', align: 'center', width: 150 },
+                    { field: 'ManageTel', title: 'ManageTel', align: 'center', width: 150 },
+                    {
+                        field: 'CreateDt', title: 'CreateDt', align: 'center', width: 150, formatter: function (val) {
+                            var vDt = timeStamp2String(val);
+                            return vDt;
+                        }
+                    },
+                    {
+                        field: 'UpdateDt', title: 'UpdateDt', align: 'center', width: 150, formatter: function (val) {
+                            var vDt = timeStamp2String(val);
+                            return vDt;
+                        }
+                    }
+                ]],
+                toolbar: [{
+                    text: '增加',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        $('#dlg').dialog('open').dialog('setTitle', '新增Org');
+                        $('#dlg_form').form('clear');
+                        vUrl = 'Org/Add';
+                    }
+                }, {
+                    text: '修改',
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        var row = $('#tt').datagrid('getSelected');
+                        if (row) {
+                            $('#dlg').dialog('open').dialog('setTitle', '修改Org信息');
+                            $('#dlg_form').form('load', row);
+                            vUrl = 'Org/Modify?Id=' + row.Id;
+                        } else {
+                            $.messager.alert('提示', '请至少选中一项作为修改项.')
+                        }
+                    }
+                }, '-', {
+                    text: '删除',
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        var ids = [];
+                        var rows = $('#tt').datagrid('getChecked');
+                        for (var i = 0; i < rows.length; i++) {
+                            ids.push(rows[i].Id);
+                        }
+                        //alert(ids);
+                        if (ids.length > 0) {
+                            $.messager.confirm('提示', '您确定要删除已选择的Org信息吗?', function (r) {
+                                if (r) {
+                                    vUrl = 'Org/Delete?OrgIds=' + ids;
+                                    $.ajax({
+                                        type: "POST",
+                                        url: vUrl,
+                                        dataType: 'json',
+                                        success: function (json) {
+                                            if (json.Status == true) {
+                                                $.messager.show({
+                                                    title: 'Success',
+                                                    msg: '删除成功！'
+                                                });
+                                                $('#dlg').dialog('close');
+                                                // close the dialog
+                                                $('#tt').datagrid('reload'); // reload the user data
+                                            } else {
+                                                $.messager.show({
+                                                    title: 'Error',
+                                                    msg: '删除失败，请稍后再试！'
+                                                });
+                                                $('#dlg').dialog('close');
+                                                // close the dialog
+                                                $('#tt').datagrid('reload'); // reload the user data
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                        else {
+                            $.messager.alert('提示', '请至少选中一项作为删除项');
+                        }
+                    }
+                }]
+            });
+        };
+        
+        function fSaveData() {
+            $('#dlg_form').form('submit', {
+                url: vUrl,
+                onSubmit: function () {
+                    return $(this).form('validate');
+                },
+                success: function (sjson) {
+                    var json = eval('(' + sjson + ')');
+                    if (json.Status == true) {
+                        $.messager.show({
+                            title: 'Success',
+                            msg: json.Msg ? json.Msg : '操作成功！'
+                        });
+                        $('#dlg').dialog('close');     // close the dialog
+                        $('#tt').datagrid('reload'); // reload the user data
+                    } else {
+                        $.messager.show({
+                            title: 'Error',
+                            msg: json.Msg ? json.Msg : '操作失败，请稍后再试！'
+                        });
+                        $('#dlg').dialog('close');     // close the dialog
+                    }
+                },
+                error: function () {
+                    $.messager.show({
+                        title: 'Error',
+                        msg: json.Msg ? json.Msg : '操作失败，请稍后再试！'
+                    });
+                    $('#dlg').dialog('close');     // close the dialog
+                }
+            });
+        };      
+        function timeStamp2String(time) {
+            time = time.replace(/\//g, '');
+            time = time.substring(5, time.length - 1);
+            var datetime = new Date();
+            datetime.setTime(time);
+            var year = datetime.getFullYear();
+            var month = datetime.getMonth() + 1;
+            var date = datetime.getDate();
+            var hour = datetime.getHours();
+            var minute = datetime.getMinutes();
+            var second = datetime.getSeconds();
+            var mseconds = datetime.getMilliseconds();
+            return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+        };
+    </script>
+</body>
+</html>

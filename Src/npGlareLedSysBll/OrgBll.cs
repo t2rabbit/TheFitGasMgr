@@ -12,7 +12,7 @@ namespace GlareLedSysBll
         public static bool AddAOrg(ref OrgInfo model, out string strErrInfo)
         {
             strErrInfo = "";
-            if (IsProjectNameExist(model.Name))
+            if (IsNameExist(model.Name))
             {
                 strErrInfo = ConstDefineBll.NameExist;
                 return false;
@@ -22,18 +22,20 @@ namespace GlareLedSysBll
             {
                 OrgInfo newModel = new OrgInfo()
                 {
-                    ID = 0,
+                    Id = 0,
                     Name = model.Name,
                     ManageName = model.ManageName,
                     ManageTel = model.ManageTel,
-                    Address = model.Address
+                    Address = model.Address,
+                    CreateDt = DateTime.Now,
+                    UpdateDt = DateTime.Now
                 };
 
                 try
                 {
                     ent.OrgInfo.Add(newModel);
                     ent.SaveChanges();
-                    model.ID = newModel.ID;
+                    model.Id = newModel.Id;
                     return true;
                 }
                 catch (System.Exception ex)
@@ -50,7 +52,7 @@ namespace GlareLedSysBll
             strError = "";
             using (GLedDbEntities ent = new GLedDbEntities())
             {
-                var delItem = (from c in ent.OrgInfo where c.ID == id select c).FirstOrDefault();
+                var delItem = (from c in ent.OrgInfo where c.Id == id select c).FirstOrDefault();
                 if (delItem == null)
                 {
                     return true;
@@ -69,8 +71,8 @@ namespace GlareLedSysBll
             {
                 using (GLedDbEntities ent = new GLedDbEntities())
                 {
-                    int id = model.ID;
-                    OrgInfo mdyMod = (from c in ent.OrgInfo where c.ID == id select c).FirstOrDefault();
+                    int id = model.Id;
+                    OrgInfo mdyMod = (from c in ent.OrgInfo where c.Id == id select c).FirstOrDefault();
                     if (mdyMod == null)
                     {
                         strError = ConstDefineBll.InfoCanNotFind;
@@ -81,6 +83,7 @@ namespace GlareLedSysBll
                     mdyMod.Address = model.Address;
                     mdyMod.ManageName = model.ManageName;
                     mdyMod.ManageTel = model.ManageTel;
+                    mdyMod.UpdateDt = DateTime.Now;
                     ent.SaveChanges();
                     return true;
                 }
@@ -118,7 +121,7 @@ namespace GlareLedSysBll
             {
                 using (GLedDbEntities ent = new GLedDbEntities())
                 {
-                    OrgInfo pro = (from c in ent.OrgInfo where c.ID == id
+                    OrgInfo pro = (from c in ent.OrgInfo where c.Id == id
                                               select c).FirstOrDefault();
 
                     return pro;
@@ -138,11 +141,11 @@ namespace GlareLedSysBll
             return null;
         }
 
-        private static bool IsProjectNameExist(string name)
+        public static bool IsNameExist(string name)
         {
             using (GLedDbEntities ent = new GLedDbEntities())
             {
-                if ((from c in ent.OrgInfo where c.Name == name select c).FirstOrDefault() == null)
+                if ((from c in ent.OrgInfo where c.Name == name select c).FirstOrDefault() != null)
                 {
                     return true;
                 }
@@ -151,17 +154,17 @@ namespace GlareLedSysBll
         }
 
         /// <summary>
-        /// 检查是否有存在指定名字工程,除当前的ID外的
+        /// 检查是否有存在指定名字工程,除当前的Id外的
         /// </summary>
-        /// <param name="iEcxpId">不包括这ID</param>
+        /// <param name="iEcxpId">不包括这Id</param>
         /// <param name="projectName"></param>
         /// <returns></returns>
-        private bool IsProjectNameExist(int iEcxpId, string name)
+        public bool IsNameExist(int iEcxpId, string name)
         {
             using (GLedDbEntities ent = new GLedDbEntities())
             {
                 if ((from c in ent.OrgInfo
-                     where c.Name == name &&c.ID != iEcxpId 
+                     where c.Name == name &&c.Id != iEcxpId 
                      select c).FirstOrDefault() == null)
                 {
                     return true;

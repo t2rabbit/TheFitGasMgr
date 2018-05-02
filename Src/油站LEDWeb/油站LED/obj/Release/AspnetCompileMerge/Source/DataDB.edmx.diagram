@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d9f1f17c6184fdfa680d4d9022ec07b" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="GLedDbModel.CityTable_NotDone_todo" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GLedDbModel.CmdLogs" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GLedDbModel.ddCommDevInfo" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GLedDbModel.ddCommDevRealStatus" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="GLedDbModel.ddCommDevStatusLog" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GLedDbModel.ddCommDevUser" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="GLedDbModel.ddGasCardInfo" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="GLedDbModel.GasCardRealStatus" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="GLedDbModel.GasCardStatusLog" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GLedDbModel.GasCardWithCommInfo" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="GLedDbModel.GasContextLog" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="GLedDbModel.GroupInfo" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="GLedDbModel.GroupUser" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GLedDbModel.Log" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="GLedDbModel.OrgInfo" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="GLedDbModel.OrgUser" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="GLedDbModel.ProjectInfo" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="GLedDbModel.ProjectUser" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="GLedDbModel.RoadCardRealStatus" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="GLedDbModel.RoadCardStatusLog" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GLedDbModel.RoadTipCardInfo" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="GLedDbModel.SuperUser" Width="1.5" PointX="12.75" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

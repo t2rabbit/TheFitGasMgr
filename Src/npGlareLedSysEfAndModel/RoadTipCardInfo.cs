@@ -14,7 +14,7 @@ namespace GlareSysEfDbAndModels
     
     public partial class RoadTipCardInfo
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string CardName { get; set; }
         public Nullable<int> Addr { get; set; }
         public Nullable<int> SectionCount { get; set; }

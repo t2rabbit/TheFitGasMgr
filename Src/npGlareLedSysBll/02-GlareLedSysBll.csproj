@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CmdLogsBll.cs" />
+    <Compile Include="CardWithCommDevBll.cs" />
     <Compile Include="ConstDef.zh.cs" />
     <Compile Include="ControlBll.cs" />
     <Compile Include="GasCardBll.cs" />
@@ -56,7 +58,11 @@
     <Compile Include="GroupBll.cs" />
     <Compile Include="OrgBll.cs" />
     <Compile Include="ProjectBll.cs" />
-    <Compile Include="ProjectUserMgr.cs" />
+    <Compile Include="CommDevUserBll.cs" />
+    <Compile Include="SuperUserBll.cs" />
+    <Compile Include="OrgUserBll.cs" />
+    <Compile Include="GroupUserBll.cs" />
+    <Compile Include="ProjectUserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoginBll.cs" />
   </ItemGroup>

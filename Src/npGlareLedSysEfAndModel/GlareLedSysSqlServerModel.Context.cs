@@ -26,13 +26,15 @@ namespace GlareSysEfDbAndModels
         }
     
         public DbSet<CityTable_NotDone_todo> CityTable_NotDone_todo { get; set; }
-        public DbSet<CommDevInfo> CommDevInfo { get; set; }
-        public DbSet<CommDevRealStatus> CommDevRealStatus { get; set; }
-        public DbSet<CommDevStatusLog> CommDevStatusLog { get; set; }
-        public DbSet<CommDevUser> CommDevUser { get; set; }
-        public DbSet<GasCardInfo> GasCardInfo { get; set; }
+        public DbSet<CmdLogs> CmdLogs { get; set; }
+        public DbSet<ddCommDevInfo> ddCommDevInfo { get; set; }
+        public DbSet<ddCommDevRealStatus> ddCommDevRealStatus { get; set; }
+        public DbSet<ddCommDevStatusLog> ddCommDevStatusLog { get; set; }
+        public DbSet<ddCommDevUser> ddCommDevUser { get; set; }
+        public DbSet<ddGasCardInfo> ddGasCardInfo { get; set; }
         public DbSet<GasCardRealStatus> GasCardRealStatus { get; set; }
         public DbSet<GasCardStatusLog> GasCardStatusLog { get; set; }
+        public DbSet<GasCardWithCommInfo> GasCardWithCommInfo { get; set; }
         public DbSet<GasContextLog> GasContextLog { get; set; }
         public DbSet<GroupInfo> GroupInfo { get; set; }
         public DbSet<GroupUser> GroupUser { get; set; }

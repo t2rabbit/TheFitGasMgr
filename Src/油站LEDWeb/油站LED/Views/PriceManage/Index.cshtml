@@ -1,0 +1,172 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>价格管理</title>
+    @Scripts.Render("~/bundles/easyui")
+    @Styles.Render("~/Content/easyui")
+    <script type="text/javascript">
+        $(function () {
+            bind();
+        });
+        function onNodeClicked(node) {
+            var src = '/PriceControl?nodeid=' + node.id;
+            if (node.id.indexOf("gas_") >= 0)//如果是设备
+            {
+                src = '/Dev?GasCardId=' + node.id.split('_')[1];
+            }
+            if ($("#tabs").tabs("exists", node.text)) {
+                $("#tabs").tabs("select", node.text);
+            } else {
+                $("#tabs").tabs("add", {
+                    title: node.text,
+                    content: '<iframe frameborder="0"  src="' + src + '" style="width:100%;height:100%;"></iframe>',
+                    closable: true
+                });
+            }
+        }
+        //双击打开的页面
+        function openRoomTab(roomName, roomId) {
+            if ($("#tabs").tabs("exists", roomName)) {
+                $("#tabs").tabs("select", roomName);
+            } else {
+                $("#tabs").tabs("add", {
+                    title: roomName,
+                    content: '<iframe frameborder="0"  src="/Surveillance/RoomDetails.aspx?roomId=' + roomId + '" style="width:100%;height:100%;"></iframe>',
+                    closable: true
+                });
+            }
+        }
+        //绑定右键
+        function bind() {
+            //刷新
+            $("#m-refresh").click(function () {
+                var currTab = $('#tabs').tabs('getSelected');    //获取选中的标签项
+                var url = $(currTab.panel('options').content).attr('src');    //获取该选项卡中内容标签（iframe）的 src 属性
+                if (url == null) {
+                    /* 重新设置该标签 */
+                    $('#tabs').tabs('update', {
+                        tab: currTab,
+                        options: {
+                            content: '<iframe frameborder="0"  src="/WholeMonitor/Index" style="height: 99%; width: 100%;" ></iframe>'//如果用herf,容易导致样式与主页面重载,导致页面奔溃.
+                        }
+                    })
+                }
+                else {
+                    /* 重新设置该标签 */
+                    $('#tabs').tabs('update', {
+                        tab: currTab,
+                        options: {
+                            content: '<iframe frameborder="0"  src="' + url + '"  style="height: 99%; width: 100%;" ></iframe>'//如果用herf,容易导致样式与主页面重载,导致页面奔溃.
+                        }
+                    })
+                }
+            });
+
+            //关闭所有
+            $("#m-closeall").click(function () {
+                $(".tabs li").each(function (i, n) {
+                    var title = $(n).text();
+                    if (title != '主页') {//非主页全部关闭
+                        $('#tabs').tabs('close', title);
+                    }
+                });
+            });
+
+            //除当前之外关闭所有
+            $("#m-closeother").click(function () {
+                var currTab = $('#tabs').tabs('getSelected');
+                currTitle = currTab.panel('options').title;
+                $(".tabs li").each(function (i, n) {
+                    var title = $(n).text();
+
+                    if (currTitle != title && title != '主页') {//除本页和主页以外全部关闭
+                        $('#tabs').tabs('close', title);
+                    }
+                });
+            });
+
+            //关闭当前
+            $("#m-close").click(function () {
+                var currTab = $('#tabs').tabs('getSelected');
+                currTitle = currTab.panel('options').title;
+                $('#tabs').tabs('close', currTitle);
+            });
+
+            /*为选项卡绑定右键*/
+            $("#tabs").tabs({
+                onContextMenu: function (e) {
+                    /* 选中当前触发事件的选项卡 */
+                    var subtitle = $(this).text();
+                    $('#tabs').tabs('select', subtitle);
+                    //显示快捷菜单
+                    e.preventDefault();
+                    //阻止冒泡
+                    $('#menu').menu('show', {
+                        left: e.pageX,
+                        top: e.pageY
+                    });
+                    return false;
+                }
+            })
+        };
+
+    </script>
+    <style type="text/css">
+        .icon-org {
+            background: url('/images/org.png') no-repeat;
+        }
+
+        .icon-group {
+            background: url('/images/group.png') no-repeat;
+        }
+
+        .icon-project {
+            background: url('/images/project.png') no-repeat;
+        }
+
+        .icon-commdev {
+            background: url('/images/commdev.png') no-repeat;
+        }
+
+        .icon-gas {
+            background: url('/images/gas.png') no-repeat;
+        }
+    </style>
+
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'west',split:true,title:'组织架构'" style="width: 200px; padding: 10px;">
+        <ul id="tree" class="easyui-tree" data-options="url:'/PriceManage/LoadTree',animate:true,onClick:onNodeClicked,lines:true"></ul>
+    </div>
+    <div id="zhujiemian" data-options="region:'center'" style="overflow: hidden;">
+        <div id="tabs" class="easyui-tabs" fit="true" border="false">
+
+        </div>
+    </div>
+    @*右键菜单*@
+    <div id="menu" class="easyui-menu" style="width: 150px;">
+        <div id="m-refresh" data-options="iconCls:'icon-reload'">
+            刷新
+        </div>
+        <div class="menu-sep" data-options="iconCls:''">
+        </div>
+        <div id="m-closeall" data-options="iconCls:''">
+            全部关闭
+        </div>
+        <div id="m-closeother" data-options="iconCls:''">
+            关闭其他
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="m-close" data-options="iconCls:'icon-no'">
+            关闭
+        </div>
+    </div>
+</body>
+</html>

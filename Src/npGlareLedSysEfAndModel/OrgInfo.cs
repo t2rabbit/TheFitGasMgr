@@ -14,10 +14,13 @@ namespace GlareSysEfDbAndModels
     
     public partial class OrgInfo
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string ManageName { get; set; }
         public string ManageTel { get; set; }
+        public Nullable<int> IsDel { get; set; }
+        public Nullable<System.DateTime> CreateDt { get; set; }
+        public Nullable<System.DateTime> UpdateDt { get; set; }
     }
 }

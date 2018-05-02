@@ -17,7 +17,8 @@ namespace GlareLedSysWs
         {
 
             string strError;
-            RequestModelString reqinfo = ServerHlper.GetRequestModelString("AddNewOrg", strParams, out strError);
+            RequestModelString reqinfo = ServerHlper.GetRequestModelString(System.Reflection.MethodBase.GetCurrentMethod().Name,
+                strParams, out strError);
             if (reqinfo == null)
             {
                 return strError;
@@ -38,14 +39,14 @@ namespace GlareLedSysWs
             }
 
             // 成功返回成功标志及新增加的ID
-            JsonResutlModel<int> result = new JsonResutlModel<int>()
+            JsonResutlModelString result = new JsonResutlModelString()
             {
                 ErrorDesc = "success",
-                Info = mod.ID,
+                Info = mod.Id.ToString(),
                 Status = true,
                 StatusInt = 1
             };
-            return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModel<int>));
+            return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModelString));
         }
 
         // todo : org select update, del...
@@ -55,7 +56,8 @@ namespace GlareLedSysWs
         public string AddGroup(string strParams)
         {
             string strError;
-            RequestModelString reqinfo = ServerHlper.GetRequestModelString("AddGroup", strParams, out strError);
+            RequestModelString reqinfo = ServerHlper.GetRequestModelString(System.Reflection.MethodBase.GetCurrentMethod().Name, 
+                strParams, out strError);
             if (reqinfo == null)
             {
                 return strError;
@@ -76,14 +78,14 @@ namespace GlareLedSysWs
             }
 
             // 成功返回成功标志及新增加的ID
-            JsonResutlModel<int> result = new JsonResutlModel<int>()
+            JsonResutlModelString result = new JsonResutlModelString()
             {
                 ErrorDesc = "success",
-                Info = mod.ID,
+                Info = mod.Id.ToString(),
                 Status = true,
                 StatusInt = 1
             };
-            return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModel<int>));            
+            return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModelString));            
         }
         // todo : group  select update, del...
 
@@ -91,7 +93,8 @@ namespace GlareLedSysWs
         public string AddProject(string strParams)
         {
             string strError;
-            RequestModelString reqinfo = ServerHlper.GetRequestModelString("AddGroup", strParams, out strError);
+            RequestModelString reqinfo = ServerHlper.GetRequestModelString(System.Reflection.MethodBase.GetCurrentMethod().Name, 
+                strParams, out strError);
             if (reqinfo == null)
             {
                 return strError;
@@ -112,14 +115,14 @@ namespace GlareLedSysWs
             }
 
             // 成功返回成功标志及新增加的ID
-            JsonResutlModel<int> result = new JsonResutlModel<int>()
+            JsonResutlModelString result = new JsonResutlModelString()
             {
                 ErrorDesc = "success",
-                Info = mod.Id,
+                Info = mod.Id.ToString(),
                 Status = true,
                 StatusInt = 1
             };
-            return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModel<int>));
+            return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModelString));
         }
         // todo : project select update, del...
     }

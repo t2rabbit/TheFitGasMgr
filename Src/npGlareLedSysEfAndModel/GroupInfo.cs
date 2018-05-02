@@ -14,11 +14,14 @@ namespace GlareSysEfDbAndModels
     
     public partial class GroupInfo
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string GroupName { get; set; }
         public string GroupAddress { get; set; }
         public string ManageName { get; set; }
         public string ManageTel { get; set; }
         public Nullable<int> OrgId { get; set; }
+        public Nullable<int> IsDel { get; set; }
+        public Nullable<System.DateTime> CreateDt { get; set; }
+        public Nullable<System.DateTime> UpdateDt { get; set; }
     }
 }

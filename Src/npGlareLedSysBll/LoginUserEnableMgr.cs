@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using PiPublic.Log;
 
 namespace GlareLedSysBll
 {
     public class LoginUserEnableMgr
     {
-        Dictionary<int, DateTime> _dicLoginIndexDt = new Dictionary<int, DateTime>();
-        private int _baseLoginIndex = 600000;
+        Dictionary<string, DateTime> _dicLoginIndexDt = new Dictionary<string, DateTime>();        
         protected LoginUserEnableMgr() { }
         protected static LoginUserEnableMgr _pInst;
         private Thread _thread;
@@ -83,37 +83,27 @@ namespace GlareLedSysBll
         }
 
 
-        public int InsertANewLogined()
+        public string InsertANewLogined()
         {
             lock (_pInst)
             {
-                Random rd = new Random();
-                _baseLoginIndex += rd.Next(1, 10);
-                while (true)
-                {
-                    if(!_dicLoginIndexDt.ContainsKey(_baseLoginIndex))
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        _baseLoginIndex += 1;
-                    }
-                }
+                string strNewGuid = Guid.NewGuid().ToString();
+   
 
-                if (_dicLoginIndexDt.ContainsKey(_baseLoginIndex))
+                if (_dicLoginIndexDt.ContainsKey(strNewGuid))
                 {
-                    _dicLoginIndexDt[_baseLoginIndex] = DateTime.Now;
+                    LogMgr.WriteErrorDefSys("add new user guid existed...");
+                    return strNewGuid;
                 }
                 else
                 {
-                    _dicLoginIndexDt.Add(_baseLoginIndex, DateTime.Now);
+                    _dicLoginIndexDt.Add(strNewGuid, DateTime.Now);
                 }                
-                return _baseLoginIndex;
+                return strNewGuid;
             }
         }
 
-        public bool Logout(int tockId)
+        public bool Logout(string tockId)
         {
             if (_dicLoginIndexDt.ContainsKey(tockId))
             {
@@ -124,12 +114,12 @@ namespace GlareLedSysBll
         }
 
 
-        public bool IsLoginIdEnable(int id)
+        public bool IsLoginIdEnable(string id)
         {
             return _dicLoginIndexDt.ContainsKey(id);
         }
 
-        public void UpdateTockIdTime(int id)
+        public void UpdateTockIdTime(string id)
         {
             if (_dicLoginIndexDt.ContainsKey(id))
             {

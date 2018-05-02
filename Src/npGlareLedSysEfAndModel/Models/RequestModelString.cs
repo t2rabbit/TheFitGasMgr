@@ -10,7 +10,7 @@ namespace GlareSysEfDbAndModels.Models
     /// </summary>
     public class RequestModelString
     {
-        public int TockId { get; set; }
+        public string TockId { get; set; }
         public DateTime reqDt { get; set; }
         public string Info { get; set; }
     }

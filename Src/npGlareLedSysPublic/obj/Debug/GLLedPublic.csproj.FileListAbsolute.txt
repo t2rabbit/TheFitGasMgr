@@ -15,7 +15,6 @@ E:\Work\TheFit\TheFitGasMgr\Src\GlareLedSysPublic\obj\Debug\GLLedPublic.dll
 E:\Work\TheFit\TheFitGasMgr\Src\GlareLedSysPublic\obj\Debug\GLLedPublic.pdb
 E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\bin\Debug\GLLedPublic.dll
 E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\bin\Debug\GLLedPublic.pdb
-E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\obj\Debug\GLLedPublic.csprojResolveAssemblyReference.cache
 E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\obj\Debug\GLLedPublic.csproj.CoreCompileInputs.cache
 E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\obj\Debug\GLLedPublic.dll
 E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\obj\Debug\GLLedPublic.pdb

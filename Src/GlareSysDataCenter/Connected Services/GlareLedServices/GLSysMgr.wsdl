@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webapi.glareled.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://webapi.glareled.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webapi.glareled.net/">
+      <s:element name="SuperLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuperLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SuperLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrgLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrgLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrgLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Projectlogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProjectloginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProjectloginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommDevLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommDevLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommDevLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogoutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLoginTimeByUuid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLoginTimeByUuidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateLoginTimeByUuidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCards">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCardsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCardsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardsListByOrgId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardsListByOrgIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardsListByOrgIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDevListByProjectId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDevListByProjectIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDevListByProjectIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDevListByGroupId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDevListByGroupIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDevListByGroupIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardListByCondAndSetOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardListByCondAndSetOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardListByCondAndSetOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddCardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateADev">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateADevResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateADevResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelADevById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelADevByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelADevByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCmdToDb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCmdToDbResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCmdToDbResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllProject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllProjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllProjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllProjectHtml">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllProjectHtmlResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddNewOrg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewOrgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewOrgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddProject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddProjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddProjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSuperUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSuperUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddSuperUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrgUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrgUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddOrgUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddGroupUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddGroupUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddGroupUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddProjectUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddProjectUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddProjectUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SuperLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:SuperLogin" />
+  </wsdl:message>
+  <wsdl:message name="SuperLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:SuperLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrgLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:OrgLogin" />
+  </wsdl:message>
+  <wsdl:message name="OrgLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:OrgLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupLogin" />
+  </wsdl:message>
+  <wsdl:message name="GroupLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProjectloginSoapIn">
+    <wsdl:part name="parameters" element="tns:Projectlogin" />
+  </wsdl:message>
+  <wsdl:message name="ProjectloginSoapOut">
+    <wsdl:part name="parameters" element="tns:ProjectloginResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommDevLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:CommDevLogin" />
+  </wsdl:message>
+  <wsdl:message name="CommDevLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:CommDevLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLoginTimeByUuidSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLoginTimeByUuid" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLoginTimeByUuidSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLoginTimeByUuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCardsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCards" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCardsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardsListByOrgIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardsListByOrgId" />
+  </wsdl:message>
+  <wsdl:message name="GetCardsListByOrgIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardsListByOrgIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDevListByProjectIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDevListByProjectId" />
+  </wsdl:message>
+  <wsdl:message name="GetDevListByProjectIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDevListByProjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDevListByGroupIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDevListByGroupId" />
+  </wsdl:message>
+  <wsdl:message name="GetDevListByGroupIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDevListByGroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListByCondAndSetOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardListByCondAndSetOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListByCondAndSetOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardListByCondAndSetOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCardSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCard" />
+  </wsdl:message>
+  <wsdl:message name="AddCardSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateADevSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateADev" />
+  </wsdl:message>
+  <wsdl:message name="UpdateADevSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateADevResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelADevByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelADevById" />
+  </wsdl:message>
+  <wsdl:message name="DelADevByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelADevByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCmdToDbSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCmdToDb" />
+  </wsdl:message>
+  <wsdl:message name="SetCmdToDbSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCmdToDbResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllProjectSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllProject" />
+  </wsdl:message>
+  <wsdl:message name="GetAllProjectSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllProjectHtmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllProjectHtml" />
+  </wsdl:message>
+  <wsdl:message name="GetAllProjectHtmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllProjectHtmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewOrgSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewOrg" />
+  </wsdl:message>
+  <wsdl:message name="AddNewOrgSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewOrgResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddGroup" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:AddGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddProjectSoapIn">
+    <wsdl:part name="parameters" element="tns:AddProject" />
+  </wsdl:message>
+  <wsdl:message name="AddProjectSoapOut">
+    <wsdl:part name="parameters" element="tns:AddProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSuperUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSuperUser" />
+  </wsdl:message>
+  <wsdl:message name="AddSuperUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSuperUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrgUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrgUser" />
+  </wsdl:message>
+  <wsdl:message name="AddOrgUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrgUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddProjectUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddProjectUser" />
+  </wsdl:message>
+  <wsdl:message name="AddProjectUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddProjectUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GLSysMgrSoap">
+    <wsdl:operation name="SuperLogin">
+      <wsdl:input message="tns:SuperLoginSoapIn" />
+      <wsdl:output message="tns:SuperLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrgLogin">
+      <wsdl:input message="tns:OrgLoginSoapIn" />
+      <wsdl:output message="tns:OrgLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupLogin">
+      <wsdl:input message="tns:GroupLoginSoapIn" />
+      <wsdl:output message="tns:GroupLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Projectlogin">
+      <wsdl:input message="tns:ProjectloginSoapIn" />
+      <wsdl:output message="tns:ProjectloginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommDevLogin">
+      <wsdl:input message="tns:CommDevLoginSoapIn" />
+      <wsdl:output message="tns:CommDevLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoginTimeByUuid">
+      <wsdl:input message="tns:UpdateLoginTimeByUuidSoapIn" />
+      <wsdl:output message="tns:UpdateLoginTimeByUuidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCards">
+      <wsdl:input message="tns:GetAllCardsSoapIn" />
+      <wsdl:output message="tns:GetAllCardsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsListByOrgId">
+      <wsdl:input message="tns:GetCardsListByOrgIdSoapIn" />
+      <wsdl:output message="tns:GetCardsListByOrgIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevListByProjectId">
+      <wsdl:input message="tns:GetDevListByProjectIdSoapIn" />
+      <wsdl:output message="tns:GetDevListByProjectIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevListByGroupId">
+      <wsdl:input message="tns:GetDevListByGroupIdSoapIn" />
+      <wsdl:output message="tns:GetDevListByGroupIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardListByCondAndSetOrder">
+      <wsdl:input message="tns:GetCardListByCondAndSetOrderSoapIn" />
+      <wsdl:output message="tns:GetCardListByCondAndSetOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <wsdl:input message="tns:AddCardSoapIn" />
+      <wsdl:output message="tns:AddCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateADev">
+      <wsdl:input message="tns:UpdateADevSoapIn" />
+      <wsdl:output message="tns:UpdateADevSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelADevById">
+      <wsdl:input message="tns:DelADevByIdSoapIn" />
+      <wsdl:output message="tns:DelADevByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCmdToDb">
+      <wsdl:input message="tns:SetCmdToDbSoapIn" />
+      <wsdl:output message="tns:SetCmdToDbSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProject">
+      <wsdl:input message="tns:GetAllProjectSoapIn" />
+      <wsdl:output message="tns:GetAllProjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProjectHtml">
+      <wsdl:input message="tns:GetAllProjectHtmlSoapIn" />
+      <wsdl:output message="tns:GetAllProjectHtmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewOrg">
+      <wsdl:input message="tns:AddNewOrgSoapIn" />
+      <wsdl:output message="tns:AddNewOrgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <wsdl:input message="tns:AddGroupSoapIn" />
+      <wsdl:output message="tns:AddGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProject">
+      <wsdl:input message="tns:AddProjectSoapIn" />
+      <wsdl:output message="tns:AddProjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSuperUser">
+      <wsdl:input message="tns:AddSuperUserSoapIn" />
+      <wsdl:output message="tns:AddSuperUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrgUser">
+      <wsdl:input message="tns:AddOrgUserSoapIn" />
+      <wsdl:output message="tns:AddOrgUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupUser">
+      <wsdl:input message="tns:AddGroupUserSoapIn" />
+      <wsdl:output message="tns:AddGroupUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProjectUser">
+      <wsdl:input message="tns:AddProjectUserSoapIn" />
+      <wsdl:output message="tns:AddProjectUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GLSysMgrSoap" type="tns:GLSysMgrSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SuperLogin">
+      <soap:operation soapAction="http://webapi.glareled.net/SuperLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrgLogin">
+      <soap:operation soapAction="http://webapi.glareled.net/OrgLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupLogin">
+      <soap:operation soapAction="http://webapi.glareled.net/GroupLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projectlogin">
+      <soap:operation soapAction="http://webapi.glareled.net/Projectlogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommDevLogin">
+      <soap:operation soapAction="http://webapi.glareled.net/CommDevLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://webapi.glareled.net/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoginTimeByUuid">
+      <soap:operation soapAction="http://webapi.glareled.net/UpdateLoginTimeByUuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCards">
+      <soap:operation soapAction="http://webapi.glareled.net/GetAllCards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsListByOrgId">
+      <soap:operation soapAction="http://webapi.glareled.net/GetCardsListByOrgId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevListByProjectId">
+      <soap:operation soapAction="http://webapi.glareled.net/GetDevListByProjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevListByGroupId">
+      <soap:operation soapAction="http://webapi.glareled.net/GetDevListByGroupId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardListByCondAndSetOrder">
+      <soap:operation soapAction="http://webapi.glareled.net/GetCardListByCondAndSetOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <soap:operation soapAction="http://webapi.glareled.net/AddCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateADev">
+      <soap:operation soapAction="http://webapi.glareled.net/UpdateADev" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelADevById">
+      <soap:operation soapAction="http://webapi.glareled.net/DelADevById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCmdToDb">
+      <soap:operation soapAction="http://webapi.glareled.net/SetCmdToDb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProject">
+      <soap:operation soapAction="http://webapi.glareled.net/GetAllProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProjectHtml">
+      <soap:operation soapAction="http://webapi.glareled.net/GetAllProjectHtml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewOrg">
+      <soap:operation soapAction="http://webapi.glareled.net/AddNewOrg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <soap:operation soapAction="http://webapi.glareled.net/AddGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProject">
+      <soap:operation soapAction="http://webapi.glareled.net/AddProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSuperUser">
+      <soap:operation soapAction="http://webapi.glareled.net/AddSuperUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrgUser">
+      <soap:operation soapAction="http://webapi.glareled.net/AddOrgUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupUser">
+      <soap:operation soapAction="http://webapi.glareled.net/AddGroupUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProjectUser">
+      <soap:operation soapAction="http://webapi.glareled.net/AddProjectUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GLSysMgrSoap12" type="tns:GLSysMgrSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SuperLogin">
+      <soap12:operation soapAction="http://webapi.glareled.net/SuperLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrgLogin">
+      <soap12:operation soapAction="http://webapi.glareled.net/OrgLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupLogin">
+      <soap12:operation soapAction="http://webapi.glareled.net/GroupLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projectlogin">
+      <soap12:operation soapAction="http://webapi.glareled.net/Projectlogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommDevLogin">
+      <soap12:operation soapAction="http://webapi.glareled.net/CommDevLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="http://webapi.glareled.net/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoginTimeByUuid">
+      <soap12:operation soapAction="http://webapi.glareled.net/UpdateLoginTimeByUuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCards">
+      <soap12:operation soapAction="http://webapi.glareled.net/GetAllCards" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsListByOrgId">
+      <soap12:operation soapAction="http://webapi.glareled.net/GetCardsListByOrgId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevListByProjectId">
+      <soap12:operation soapAction="http://webapi.glareled.net/GetDevListByProjectId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevListByGroupId">
+      <soap12:operation soapAction="http://webapi.glareled.net/GetDevListByGroupId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardListByCondAndSetOrder">
+      <soap12:operation soapAction="http://webapi.glareled.net/GetCardListByCondAndSetOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <soap12:operation soapAction="http://webapi.glareled.net/AddCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateADev">
+      <soap12:operation soapAction="http://webapi.glareled.net/UpdateADev" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelADevById">
+      <soap12:operation soapAction="http://webapi.glareled.net/DelADevById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCmdToDb">
+      <soap12:operation soapAction="http://webapi.glareled.net/SetCmdToDb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProject">
+      <soap12:operation soapAction="http://webapi.glareled.net/GetAllProject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProjectHtml">
+      <soap12:operation soapAction="http://webapi.glareled.net/GetAllProjectHtml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewOrg">
+      <soap12:operation soapAction="http://webapi.glareled.net/AddNewOrg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <soap12:operation soapAction="http://webapi.glareled.net/AddGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProject">
+      <soap12:operation soapAction="http://webapi.glareled.net/AddProject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSuperUser">
+      <soap12:operation soapAction="http://webapi.glareled.net/AddSuperUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrgUser">
+      <soap12:operation soapAction="http://webapi.glareled.net/AddOrgUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupUser">
+      <soap12:operation soapAction="http://webapi.glareled.net/AddGroupUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProjectUser">
+      <soap12:operation soapAction="http://webapi.glareled.net/AddProjectUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GLSysMgr">
+    <wsdl:port name="GLSysMgrSoap" binding="tns:GLSysMgrSoap">
+      <soap:address location="http://localhost:16801/GLSysMgr.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GLSysMgrSoap12" binding="tns:GLSysMgrSoap12">
+      <soap12:address location="http://localhost:16801/GLSysMgr.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

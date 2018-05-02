@@ -50,26 +50,32 @@
     <Compile Include="CityTable_NotDone_todo.cs">
       <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CommDevInfo.cs">
-      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CommDevRealStatus.cs">
-      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CommDevStatusLog.cs">
-      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CommDevUser.cs">
+    <Compile Include="CmdLogs.cs">
       <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DbConstDefine.cs" />
-    <Compile Include="GasCardInfo.cs">
+    <Compile Include="ddCommDevInfo.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ddCommDevRealStatus.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ddCommDevStatusLog.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ddCommDevUser.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ddGasCardInfo.cs">
       <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GasCardRealStatus.cs">
       <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GasCardStatusLog.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GasCardWithCommInfo.cs">
       <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GasContextLog.cs">
@@ -99,7 +105,9 @@
     <Compile Include="Log.cs">
       <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\JsonResutlModelString.cs" />
     <Compile Include="Models\JsonResutlModel.cs" />
+    <Compile Include="Models\LoginNamePassModel.cs" />
     <Compile Include="Models\RequestModelObjectT.cs" />
     <Compile Include="Models\RequestModelString.cs" />
     <Compile Include="OrgInfo.cs">

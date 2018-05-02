@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace YDesmsPublicDefDll
+namespace GLLedPublic
 {
-    public class GlareLedSysDef
+    public class GlareLedSysDefPub
     {
         // 油价牌的定义信息
         public class GasCardDef
@@ -90,6 +90,15 @@ namespace YDesmsPublicDefDll
             public int iLight;
             public bool bShowAppend; // 是否显示10/9 或是1/2等
         }
+
+
+        public const string CmdDefSetOilValue = "SetOilValue";
+        public const string CmdDefGetOilValue = "GetOilValue";
+        public const string CmdDefSetOilCfg = "SetOilCfg";
+
+        public const string MemcachedKeyNewCmd = "NewCmdIds";
+        public const string MemcachedKeyCmdResult = "ResultIds";
+
 
         /// <summary>
         /// 油价牌的价格，每个数字一个字节

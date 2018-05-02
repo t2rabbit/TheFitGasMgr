@@ -8,7 +8,7 @@ namespace GlareSysEfDbAndModels
     public class OrgLoginedUserModel
     {
         public OrgUser UserInfo;
-        public int LoginIdByCenter;
+        public string LoginIdByCenter;
         public DateTime LoginDt;
     }
 }

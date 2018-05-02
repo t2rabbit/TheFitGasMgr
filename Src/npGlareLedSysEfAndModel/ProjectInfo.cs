@@ -21,5 +21,8 @@ namespace GlareSysEfDbAndModels
         public string ManagerTel { get; set; }
         public Nullable<int> GroupId { get; set; }
         public Nullable<int> OrgId { get; set; }
+        public Nullable<int> IsDel { get; set; }
+        public Nullable<System.DateTime> CreateDt { get; set; }
+        public Nullable<System.DateTime> UpdateDt { get; set; }
     }
 }

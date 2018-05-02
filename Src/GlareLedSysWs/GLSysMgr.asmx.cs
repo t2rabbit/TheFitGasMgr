@@ -36,44 +36,29 @@ namespace GlareLedSysWs
                 return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
             }
 
-            SuperLoginedUserModel mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(SuperLoginedUserModel))
-                as SuperLoginedUserModel;
+            LoginNamePassModel mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(LoginNamePassModel))
+                as LoginNamePassModel;
             if (reqinfo == null)
             {
                 return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
             }
 
-            SuperLoginedUserModel userInfo = LoginBll.SuperLogin(mod.UserInfo.Name, mod.UserInfo.Password);
+            SuperLoginedUserModel userInfo = LoginBll.SuperLogin(mod.UserName, mod.Password);
             if (userInfo != null)
             {                
-                JsonResutlModel<SuperLoginedUserModel> result = new JsonResutlModel<SuperLoginedUserModel>()
+                JsonResutlModelString result = new JsonResutlModelString()
                 {
                     ErrorDesc = "success",
-                    Info = userInfo,
+                    Info = JsonStrObjConver.Obj2JsonStr(userInfo, typeof(SuperLoginedUserModel)),
                     Status = true,
                     StatusInt = 1
                 };
 
-                return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModel<SuperLoginedUserModel>));
+                return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModelString));
             }
             return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.LoginNameOrPassword);
         }
-
-        [WebMethod]
-        public void SuperLoginHtml()
-        {
-            //string jsonCallBackFunName;
-            //string strJsonParam;
-            //ServerHlper.MakeHead(out jsonCallBackFunName, out strJsonParam);
-            //string strRet = SuperLogin(strJsonParam);
-            //ServerHlper.MakeResponse(jsonCallBackFunName, strRet);
-        }
-
-        /// <summary>
-        /// 组织登录，组织如：七天连锁酒店；标联云；中国石油广州分公司
-        /// </summary>
-        /// <param name="strJsonParam"></param>
-        /// <returns></returns>
+        
         [WebMethod]
         public string OrgLogin(string strJsonParam)
         {
@@ -84,39 +69,61 @@ namespace GlareLedSysWs
                 return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
             }
 
-            OrgLoginedUserModel mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(OrgLoginedUserModel))
-                as OrgLoginedUserModel;
+            LoginNamePassModel mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(LoginNamePassModel))
+                as LoginNamePassModel;
             if (reqinfo == null)
             {
                 return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
             }
 
-            OrgLoginedUserModel userInfo = LoginBll.OrgLogin(mod.UserInfo.Name, mod.UserInfo.Password);
+            OrgLoginedUserModel userInfo = LoginBll.OrgLogin(mod.UserName, mod.Password);
             if (userInfo != null)
             {
-                JsonResutlModel<OrgLoginedUserModel> result = new JsonResutlModel<OrgLoginedUserModel>()
+                JsonResutlModelString result = new JsonResutlModelString()
                 {
                     ErrorDesc = "success",
-                    Info = userInfo,
+                    Info = JsonStrObjConver.Obj2JsonStr(userInfo, typeof(OrgLoginedUserModel)),
                     Status = true,
                     StatusInt = 1
                 };
 
-                return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModel<OrgLoginedUserModel>));
+                return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModelString));
             }
             return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.LoginNameOrPassword);
         }
-        
-        [WebMethod]
-        public void OrgLoginHtml()
-        {
-            //string jsonCallBackFunName;
-            //string strJsonParam;
-            //ServerHlper.MakeHead(out jsonCallBackFunName, out strJsonParam);
-            //string strRet = OrgLogin(strJsonParam);
-            //ServerHlper.MakeResponse(jsonCallBackFunName, strRet);
-        }
 
+        [WebMethod]
+        public string GroupLogin(string strJsonParam)
+        {
+            RequestModelString reqinfo = JsonStrObjConver.JsonStr2Obj(strJsonParam, typeof(RequestModelString))
+               as RequestModelString;
+            if (reqinfo == null)
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
+            }
+
+            LoginNamePassModel mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(LoginNamePassModel))
+                as LoginNamePassModel;
+            if (reqinfo == null)
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
+            }
+
+            GroupLoginedUserModel userInfo = LoginBll.GroupLogin(-1, mod.UserName, mod.Password);
+            if (userInfo != null)
+            {
+                JsonResutlModelString result = new JsonResutlModelString()
+                {
+                    ErrorDesc = "success",
+                    Info = JsonStrObjConver.Obj2JsonStr(userInfo, typeof(GroupLoginedUserModel)),
+                    Status = true,
+                    StatusInt = 1
+                };
+
+                return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModelString));
+            }
+            return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.LoginNameOrPassword);
+        }
 
         [WebMethod]
         public string Projectlogin(string strJsonParam)
@@ -128,44 +135,62 @@ namespace GlareLedSysWs
                 return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
             }
 
-            ProjectLoginedUserModel mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(ProjectLoginedUserModel))
-                as ProjectLoginedUserModel;
+            LoginNamePassModel mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(LoginNamePassModel))
+                as LoginNamePassModel;
             if (reqinfo == null)
             {
                 return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
             }
 
-            ProjectLoginedUserModel userInfo = LoginBll.ProjectLogin(mod.UserInfo.Name, mod.UserInfo.Password);
+            ProjectLoginedUserModel userInfo = LoginBll.ProjectLogin(0, mod.UserName, mod.Password);
             if (userInfo != null)
             {                
-                JsonResutlModel<ProjectLoginedUserModel> result = new JsonResutlModel<ProjectLoginedUserModel>()
+                JsonResutlModelString result = new JsonResutlModelString()
                 {
                     ErrorDesc = "success",
-                    Info = userInfo,
+                    Info = JsonStrObjConver.Obj2JsonStr(userInfo, typeof(ProjectLoginedUserModel)),
                     Status = true,
                     StatusInt = 1
                 };
 
-                return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModel<ProjectLoginedUserModel>));
+                return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModelString));
             }
             return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.LoginNameOrPassword);
         }
 
-        /// <summary>
-        /// 工程登录
-        /// </summary>
-        /// <param name="strJsonParam"></param>
-        /// <returns></returns>
+        
         [WebMethod]
-        public void ProjectloginHtml()
+        public string CommDevLogin(string strJsonParam)
         {
-            //ServerHlper.MakeResponse(jsonCallBackFunName, strRet);
-            //string jsonCallBackFunName;
-            //string strJsonParam;
-            //ServerHlper.MakeHead(out jsonCallBackFunName, out strJsonParam);
-            //string strRet = Projectlogin(strJsonParam);
-        }
+            RequestModelString reqinfo = JsonStrObjConver.JsonStr2Obj(strJsonParam, typeof(RequestModelString))
+               as RequestModelString;
+            if (reqinfo == null)
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
+            }
 
+            LoginNamePassModel mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(LoginNamePassModel))
+                as LoginNamePassModel;
+            if (reqinfo == null)
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
+            }
+
+            CommDevLoginedUserModel userInfo = LoginBll.CommDevLogin(0, mod.UserName, mod.Password);
+            if (userInfo != null)
+            {
+                JsonResutlModelString result = new JsonResutlModelString()
+                {
+                    ErrorDesc = "success",
+                    Info = JsonStrObjConver.Obj2JsonStr(userInfo,typeof(CommDevLoginedUserModel)),
+                    Status = true,
+                    StatusInt = 1
+                };
+
+                return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModelString));
+            }
+            return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.LoginNameOrPassword);
+        }              
 
         [WebMethod]
         public string Logout(string strJsonParam)
@@ -182,18 +207,7 @@ namespace GlareLedSysWs
             LoginBll.Logout(reqinfo.TockId);
             return ServerHlper.MakeInfoByStatus(true, "success");
         }
-
-        [WebMethod]
-        public void LogoutHtml()
-        {
-            //string jsonCallBackFunName;
-            //string strJsonParam;
-            //ServerHlper.MakeHead(out jsonCallBackFunName, out strJsonParam);
-            //string strRet = Logout(strJsonParam);
-            //ServerHlper.MakeResponse(jsonCallBackFunName, strRet);
-        }
-
-
+        
 
         [WebMethod]
         public string UpdateLoginTimeByUuid(string strJsonParam)
@@ -208,18 +222,6 @@ namespace GlareLedSysWs
             bool bRsult = true;
             LoginBll.UpdateLoginStatus(reqinfo.TockId);
             return ServerHlper.MakeInfoByStatus(bRsult, bRsult.ToString());
-        }
-
-
-        [WebMethod]
-        public void UpdateLoginTimeByUuidHtml()
-        {
-            return;
-            //string jsonCallBackFunName;
-            //string strJsonParam;
-            //ServerHlper.MakeHead(out jsonCallBackFunName, out strJsonParam);
-            //string strRet = UploadLoginTimeByUuid(strJsonParam);
-            //ServerHlper.MakeResponse(jsonCallBackFunName, strRet);
-        }
+        }        
     }
 }

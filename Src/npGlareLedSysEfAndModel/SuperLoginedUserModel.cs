@@ -8,7 +8,7 @@ namespace GlareSysEfDbAndModels
     public class SuperLoginedUserModel
     {
         public SuperUser UserInfo;
-        public int LoginIdByCenter;
+        public string LoginIdByCenter;
         public DateTime LoginDt;
     }
 }

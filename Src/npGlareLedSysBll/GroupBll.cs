@@ -12,7 +12,7 @@ namespace GlareLedSysBll
         public static bool AddAGroup(ref GroupInfo model, out string strErrInfo)
         {
             strErrInfo = "";
-            if (IsGroupNameExist(model.GroupName))
+            if (IsNameExist(model.GroupName))
             {
                 strErrInfo = ConstDefineBll.NameExist;
                 return false;
@@ -22,19 +22,21 @@ namespace GlareLedSysBll
             {
                 GroupInfo newModel = new GroupInfo()
                 {
-                    ID = 0,
+                    Id = 0,
                     GroupName = model.GroupName,
                     ManageName = model.ManageName,
                     ManageTel = model.ManageTel,
                     GroupAddress = model.GroupAddress,
-                    OrgId = model.OrgId
+                    OrgId = model.OrgId,
+                    CreateDt = DateTime.Now,
+                    UpdateDt = DateTime.Now
                 };
 
                 try
                 {
                     ent.GroupInfo.Add(newModel);
                     ent.SaveChanges();
-                    model.ID = newModel.ID;
+                    model.Id = newModel.Id;
                     return true;
                 }
                 catch (System.Exception ex)
@@ -51,7 +53,7 @@ namespace GlareLedSysBll
             strError = "";
             using (GLedDbEntities ent = new GLedDbEntities())
             {
-                var delItem = (from c in ent.GroupInfo where c.ID == id select c).FirstOrDefault();
+                var delItem = (from c in ent.GroupInfo where c.Id == id select c).FirstOrDefault();
                 if (delItem == null)
                 {
                     return true;
@@ -70,8 +72,8 @@ namespace GlareLedSysBll
             {
                 using (GLedDbEntities ent = new GLedDbEntities())
                 {
-                    int id = model.ID;
-                    GroupInfo mdyMod = (from c in ent.GroupInfo where c.ID == id select c).FirstOrDefault();
+                    int id = model.Id;
+                    GroupInfo mdyMod = (from c in ent.GroupInfo where c.Id == id select c).FirstOrDefault();
                     if (mdyMod == null)
                     {
                         strError = ConstDefineBll.InfoCanNotFind;
@@ -83,6 +85,7 @@ namespace GlareLedSysBll
                     mdyMod.ManageName = model.ManageName;
                     mdyMod.ManageTel = model.ManageTel;
                     mdyMod.OrgId = model.OrgId;
+                    mdyMod.UpdateDt = DateTime.Now;
                     ent.SaveChanges();
                     return true;
                 }
@@ -120,7 +123,7 @@ namespace GlareLedSysBll
             {
                 using (GLedDbEntities ent = new GLedDbEntities())
                 {
-                    GroupInfo pro = (from c in ent.GroupInfo where c.ID == id
+                    GroupInfo pro = (from c in ent.GroupInfo where c.Id == id
                                               select c).FirstOrDefault();
 
                     return pro;
@@ -140,11 +143,11 @@ namespace GlareLedSysBll
             return null;
         }
 
-        private static bool IsGroupNameExist(string name)
+        public static bool IsNameExist(string name)
         {
             using (GLedDbEntities ent = new GLedDbEntities())
             {
-                if ((from c in ent.GroupInfo where c.GroupName == name select c).FirstOrDefault() == null)
+                if ((from c in ent.GroupInfo where c.GroupName == name select c).FirstOrDefault() != null)
                 {
                     return true;
                 }
@@ -152,19 +155,13 @@ namespace GlareLedSysBll
             return false;
         }
 
-        /// <summary>
-        /// 检查是否有存在指定名字工程,除当前的ID外的
-        /// </summary>
-        /// <param name="iEcxpId">不包括这ID</param>
-        /// <param name="projectName"></param>
-        /// <returns></returns>
         private bool IsGroupNameExist(int iEcxpId, string name)
         {
             using (GLedDbEntities ent = new GLedDbEntities())
             {
                 if ((from c in ent.GroupInfo
-                     where c.GroupName == name &&c.ID != iEcxpId 
-                     select c).FirstOrDefault() == null)
+                     where c.GroupName == name &&c.Id != iEcxpId 
+                     select c).FirstOrDefault() != null)
                 {
                     return true;
                 }

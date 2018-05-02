@@ -8,7 +8,7 @@ namespace GlareSysEfDbAndModels.Models
     /// <summary>
     /// JSON结果对象
     /// </summary>
-    public class JsonResutlModel<T>
+    public class JsonResutlModelT<T>
     {
         // 成功与否
         public bool Status { get; set; }

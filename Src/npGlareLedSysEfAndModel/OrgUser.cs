@@ -14,9 +14,12 @@ namespace GlareSysEfDbAndModels
     
     public partial class OrgUser
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
         public Nullable<int> MgrOrgId { get; set; }
+        public Nullable<int> IsDel { get; set; }
+        public Nullable<System.DateTime> CreateDt { get; set; }
+        public Nullable<System.DateTime> UpdateDt { get; set; }
     }
 }

@@ -1,0 +1,398 @@
+@charset "gb2312";
+/* CSS Document */
+
+.zhuce_cont
+{
+    width: 804px;
+    height: auto !important;
+    height: 550px;
+    min-height: 495px;
+    margin: 25px 0 0 50px;
+}
+
+    .zhuce_cont .zc_message
+    {
+        height: auto !important;
+        height: 40px;
+        min-height: 40px;
+        padding: 15px 18px 10px;
+        clear: both;
+    }
+    /* CSS 样式 */
+    .zhuce_cont .zc_messBorder
+    {
+        width: 690px;
+        border: 1px solid #ebebeb;
+        /*background: #f6f6f6;*/
+    }
+
+        .zhuce_cont .zc_messBorder .zc_input
+        {
+            /*background: #f6f6f6;*/
+        }
+
+        .zhuce_cont .zc_messBorder .zc_prompt
+        {
+            width: 260px;
+        }
+
+    .zhuce_cont p.zsxyx
+    {
+        font-family: "微软雅黑";
+        font-size: 16px;
+        padding: 3px 0 0px 18px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .zhuce_cont .zc_message > label, .zhuce_cont label.zc_label, .zhuce_cont .zc_input, .zhuce_cont .zc_prompt
+    {
+        float: left;
+        display: block;
+    }
+
+    .zhuce_cont label.zc_label
+    {
+        width: 70px;
+        float: left;
+        line-height: 38px;
+        padding-right: 15px;
+        font-size: 14px;
+        color: #666666;
+    }
+
+    .zhuce_cont .zc_input, .zhuce_cont .zc_yzmInput
+    {
+        float: left;
+        width: 268px;
+        height: 18px;
+        border: 1px solid #b5b5b5;
+        padding: 10px 5px;
+        margin-right: 25px;
+    }
+
+    .zhuce_cont .zc_yzmInput
+    {
+        width: 105px;
+        margin-right: 0;
+    }
+
+    .zhuce_cont .zc_prompt
+    {
+        width: 350px;
+        text-align: left;
+        line-height: 38px;
+        height: 38px;
+    }
+
+        .zhuce_cont .zc_prompt p
+        {
+            display: none;
+            color: #888;
+            float: left;
+        }
+
+            .zhuce_cont .zc_prompt p.zc_proA span
+            {
+                color: #d4020d;
+                width: 12px;
+                line-height: 38px;
+                font-size: 12px;
+                display: block;
+                float: left;
+            }
+
+            .zhuce_cont .zc_prompt p.zc_proB span, .zhuce_cont .zc_prompt p.zc_proC span
+            {
+                color: #d4020d;
+                width: 21px;
+                height: 21px;
+                margin: 8px 10px 0 0;
+                font-size: 12px;
+                display: block;
+                float: left;
+                background: url(../img/regspirit.png) no-repeat -27px -63px;
+            }
+
+            .zhuce_cont .zc_prompt p.zc_proC span
+            {
+                background: url(../img/regspirit.png) no-repeat -2px -63px;
+            }
+
+    .zhuce_cont .zc_hint
+    {
+        clear: both;
+        height: 20px;
+        color: #808080;
+        padding-left: 90px;
+        padding-top: 27px;
+        line-height: 20px;
+        display: none;
+        overflow: hidden;
+    }
+
+        .zhuce_cont .zc_hint .zc_cd
+        {
+            display block;
+            clear: both;
+        }
+
+        .zhuce_cont .zc_hint .zc_rzq
+        {
+            margin-top: 8px;
+            width: 126px;
+            height: 4px;
+            background: #b9bbbc;
+            float: left;
+        }
+
+            .zhuce_cont .zc_hint .zc_rzq div
+            {
+                line-height: 0;
+                font-size: 0;
+                height: 4px;
+            }
+
+        .zhuce_cont .zc_hint p
+        {
+            float: left;
+            margin-left: 15px;
+        }
+
+        .zhuce_cont .zc_hint .zc_ruo div
+        {
+            width: 42px;
+            /*background: #d4020d;*/
+        }
+
+        .zhuce_cont .zc_hint p.zc_ruoText
+        {
+            color: #ff6600;
+        }
+
+        .zhuce_cont .zc_hint p.zc_zhongText
+        {
+            color: #1864a9;
+        }
+
+        .zhuce_cont .zc_hint p.zc_gaoText
+        {
+            color: #44a813;
+        }
+
+        .zhuce_cont .zc_hint .zc_zhong div
+        {
+            width: 84px;
+            /*background: #1864a9;*/
+        }
+
+        .zhuce_cont .zc_hint .zc_gao div
+        {
+            width: 126px;
+            /*background: #44a813;*/
+        }
+/*刷新验证码重复多余css*/
+.main span.VerifyCodeImg
+{
+    width: 90px;
+    height: 30px;
+    float: left;
+    margin: 5px 15px 0 5px;
+    cursor: pointer;
+}
+/*end*/
+.zhuce_cont .zc_InputW
+{
+    width: 284px;
+    height: 40px;
+    float: left;
+    margin-right: 25px;
+}
+/*协议方面 服务条款*/
+.zhuce_cont .zc_text
+{
+    padding-left: 100px;
+}
+
+.zhuce_cont div.zc_text div.zc_xy
+{
+    display: block;
+    margin-left: 2px;
+    height: 40px;
+    font-size: 14px;
+    color: #808080;
+}
+
+.zhuce_cont div.zc_text div.zc_xyz
+{
+    color: #cc0000;
+    width: 150px;
+    height: 12px;
+    padding: 9px;
+    border: 1px solid #f7b2b2;
+    background: #fce3e3;
+    display: none;
+    margin-left: 1px;
+}
+
+    .zhuce_cont div.zc_text div.zc_xyz span
+    {
+        width: 14px;
+        height: 14px;
+        display: block;
+        margin-right: 5px;
+        float: left;
+        background: url(../img/regspirit.png) no-repeat -5px -99px;
+        background-color: #fce3e3;
+        margin-bottom: 10px;
+    }
+
+.zhuce_cont .zc_text .zc_checkbox
+{
+    width: 22px;
+    height: 14px;
+    float: left;
+    padding-top: 10px;
+    *padding-top: 5px;
+}
+
+.zhuce_cont .zc_text .zc_ctext
+{
+    float: left;
+    padding-top: 8px;
+}
+
+.zhuce_cont .zc_text a
+{
+    color: #1864a9;
+}
+
+    .zhuce_cont .zc_text a:hover
+    {
+        color: #084f8f;
+    }
+
+.zhuce_cont .zc_submit
+{
+    padding: 8px 0 0 100px;
+    height: 60px;
+    font-size: 14px;
+}
+
+    .zhuce_cont .zc_submit .zc_mszc
+    {
+        margin-bottom: 5px;
+        float: left;
+        display: block;
+        line-height: 48px;
+        font-size: 18px;
+        border: none;
+        font-family: "Microsoft YaHei";
+        color: #ffffff;
+        margin: 0 auto 12px;
+        width: 167px;
+        height: 48px;
+        text-align: center;
+        text-decoration: none;
+        background: url(../img/regspirit.png) no-repeat 0px -207px;
+    }
+
+        .zhuce_cont .zc_submit .zc_mszc:hover
+        {
+            margin-bottom: 5px;
+            float: left;
+            display: block;
+            line-height: 48px;
+            font-size: 18px;
+            border: none;
+            font-family: "Microsoft YaHei";
+            color: #ffffff;
+            margin: 0 auto 12px;
+            width: 167px;
+            height: 48px;
+            text-align: center;
+            text-decoration: none;
+            background: url(../img/regspirit.png) no-repeat -179px -207px;
+        }
+
+    .zhuce_cont .zc_submit p
+    {
+        float: left;
+        clear: both;
+    }
+
+        .zhuce_cont .zc_submit p a
+        {
+            font-size: 14px;
+            color: #1864a9;
+        }
+
+            .zhuce_cont .zc_submit p a:hover
+            {
+                color: #084f8f;
+                font-size: 14px;
+            }
+
+.zc_proA
+{
+    display: block;
+}
+
+.zhuce_cont .zc_prompt p.zc_proA
+{
+    display: block;
+}
+
+#regsiter15221
+{
+    float: left;
+    width: 763px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+    #regsiter15221 b
+    {
+        position: absolute;
+        top: 15px;
+        color: #f00;
+        left: 507px;
+        _left: 493px;
+        cursor: pointer;
+    }
+
+.regsiter15222
+{
+    color: #16387c;
+    width: 500px;
+    height: auto;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+#regsiter15223
+{
+    color: #888;
+    line-height: 20px;
+    padding: 10px;
+}
+
+body
+{
+    background: #fff;
+}
+
+.zc_InputW b
+{
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    line-height: 30px;
+    background: #f0eeee;
+    border: 1px solid #c0bfbf;
+    color: #2b2b2b;
+    padding: 0px 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    text-align: center;
+}

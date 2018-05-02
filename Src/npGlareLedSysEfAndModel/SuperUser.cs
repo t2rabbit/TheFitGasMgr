@@ -19,5 +19,8 @@ namespace GlareSysEfDbAndModels
         public string Password { get; set; }
         public Nullable<System.DateTime> EnableTime { get; set; }
         public Nullable<int> UserType { get; set; }
+        public Nullable<int> IsDel { get; set; }
+        public Nullable<System.DateTime> CreateDt { get; set; }
+        public Nullable<System.DateTime> UpdateDt { get; set; }
     }
 }

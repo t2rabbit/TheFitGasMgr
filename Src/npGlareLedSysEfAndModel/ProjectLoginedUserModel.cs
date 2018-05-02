@@ -9,7 +9,7 @@ namespace GlareSysEfDbAndModels
     public class ProjectLoginedUserModel
     {
         public ProjectUser UserInfo;
-        public int LoginIdByCenter;
+        public string LoginIdByCenter;
         public DateTime LoginDt;
     }
 }

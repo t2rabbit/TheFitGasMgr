@@ -7,16 +7,30 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="ToDoCoity" Type="nchar" MaxLength="10" />
   </EntityType>
-  <EntityType Name="CommDevInfo">
+  <EntityType Name="CmdLogs">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CmdType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommDevId" Type="int" />
+    <Property Name="CardInfoId" Type="int" />
+    <Property Name="CmdInfo" Type="nvarchar(max)" />
+    <Property Name="Result" Type="int" />
+    <Property Name="ResultInfo" Type="nvarchar(max)" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="IsDetele" Type="int" />
+  </EntityType>
+  <EntityType Name="ddCommDevInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DefName" Type="nvarchar" MaxLength="50" />
     <Property Name="DefPassword" Type="nvarchar" MaxLength="50" />
-    <Property Name="CardName" Type="nvarchar" MaxLength="50" />
-    <Property Name="UpdateName" Type="nvarchar" MaxLength="50" />
-    <Property Name="UpdatePassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="CityId" Type="nvarchar" MaxLength="50" />
     <Property Name="Address" Type="nvarchar" MaxLength="100" />
     <Property Name="PosLongitude" Type="nvarchar" MaxLength="10" />
@@ -39,8 +53,11 @@
     <Property Name="BEnable" Type="int" />
     <Property Name="BUseDefName" Type="int" />
     <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
-  <EntityType Name="CommDevRealStatus">
+  <EntityType Name="ddCommDevRealStatus">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -49,7 +66,7 @@
     <Property Name="Status" Type="int" />
     <Property Name="LogDt" Type="datetime" />
   </EntityType>
-  <EntityType Name="CommDevStatusLog">
+  <EntityType Name="ddCommDevStatusLog">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -58,16 +75,22 @@
     <Property Name="Status" Type="int" />
     <Property Name="LogDt" Type="datetime" />
   </EntityType>
-  <EntityType Name="CommDevUser">
+  <EntityType Name="ddCommDevUser">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="MgrCommDevId" Type="int" />
+    <Property Name="RefOrgId" Type="int" />
+    <Property Name="RefGroupId" Type="int" />
+    <Property Name="RefProjectId" Type="int" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
-  <EntityType Name="GasCardInfo">
+  <EntityType Name="ddGasCardInfo">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -79,12 +102,16 @@
     <Property Name="Brightness" Type="int" />
     <Property Name="PointCount" Type="int" />
     <Property Name="NumberCount" Type="int" />
-    <Property Name="ScreenCount" Type="nchar" MaxLength="10" />
+    <Property Name="ScreenCount" Type="int" />
     <Property Name="CommDevId" Type="int" Nullable="false" />
     <Property Name="ProjectId" Type="int" />
     <Property Name="GroupId" Type="int" />
     <Property Name="OrgId" Type="int" />
-    <Property Name="Context" Type="nvarchar" MaxLength="100" />
+    <Property Name="Context" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ScreenNams" Type="nvarchar" MaxLength="1000" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
   <EntityType Name="GasCardRealStatus">
     <Key>
@@ -104,11 +131,53 @@
     <Property Name="Status" Type="int" />
     <Property Name="LogDt" Type="datetime" />
   </EntityType>
+  <EntityType Name="GasCardWithCommInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DefPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="CityId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="PosLongitude" Type="nvarchar" MaxLength="10" />
+    <Property Name="PosLatitude" Type="nvarchar" MaxLength="10" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="OrgId" Type="int" />
+    <Property Name="CommType" Type="int" />
+    <Property Name="ProtocolType" Type="int" />
+    <Property Name="CommServerIp" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommServerPort" Type="int" />
+    <Property Name="CommServerSn" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommSerialPort" Type="nvarchar" MaxLength="10" />
+    <Property Name="CommSerialBaud" Type="int" />
+    <Property Name="CommSerialDataBit" Type="int" />
+    <Property Name="CommSerialStopBit" Type="int" />
+    <Property Name="CommSerialParity" Type="int" />
+    <Property Name="CommTimeoutMs" Type="int" />
+    <Property Name="CommExtConnInfo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardModel" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardIsDouble" Type="int" />
+    <Property Name="CardBrightness" Type="int" />
+    <Property Name="CardPointCount" Type="int" />
+    <Property Name="CardNumberCount" Type="int" />
+    <Property Name="CardScreenCount" Type="int" />
+    <Property Name="CardContext" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ScreenNams" Type="nvarchar" MaxLength="1000" />
+    <Property Name="BEnable" Type="int" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
+  </EntityType>
   <EntityType Name="GasContextLog">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CardId" Type="int" />
     <Property Name="LogDt" Type="datetime" />
     <Property Name="Context" Type="nvarchar" MaxLength="100" />
@@ -117,23 +186,30 @@
   </EntityType>
   <EntityType Name="GroupInfo">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
     <Property Name="GroupAddress" Type="nvarchar" MaxLength="50" />
     <Property Name="ManageName" Type="nvarchar" MaxLength="50" />
     <Property Name="ManageTel" Type="nvarchar" MaxLength="50" />
     <Property Name="OrgId" Type="int" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
   <EntityType Name="GroupUser">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="MgrGroupId" Type="int" />
+    <Property Name="RefOrgId" Type="int" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
   <EntityType Name="Log">
     <Key>
@@ -148,22 +224,28 @@
   </EntityType>
   <EntityType Name="OrgInfo">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Address" Type="nvarchar" MaxLength="50" />
     <Property Name="ManageName" Type="nvarchar" MaxLength="50" />
     <Property Name="ManageTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
   <EntityType Name="OrgUser">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="MgrOrgId" Type="int" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
   <EntityType Name="ProjectInfo">
     <Key>
@@ -176,6 +258,9 @@
     <Property Name="ManagerTel" Type="nvarchar" MaxLength="50" />
     <Property Name="GroupId" Type="int" />
     <Property Name="OrgId" Type="int" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
   <EntityType Name="ProjectUser">
     <Key>
@@ -185,6 +270,11 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="MgrProjectId" Type="int" />
+    <Property Name="RefGroupId" Type="int" />
+    <Property Name="RefOrgId" Type="int" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
   <EntityType Name="RoadCardRealStatus">
     <Key>
@@ -206,9 +296,9 @@
   </EntityType>
   <EntityType Name="RoadTipCardInfo">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CardName" Type="nvarchar" MaxLength="50" />
     <Property Name="Addr" Type="int" />
     <Property Name="SectionCount" Type="int" />
@@ -219,21 +309,26 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="EnableTime" Type="datetime" />
     <Property Name="UserType" Type="int" />
+    <Property Name="IsDel" Type="int" />
+    <Property Name="CreateDt" Type="datetime" />
+    <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
   <EntityContainer Name="GLedDbModelStoreContainer">
     <EntitySet Name="CityTable_NotDone_todo" EntityType="Self.CityTable_NotDone_todo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CommDevInfo" EntityType="Self.CommDevInfo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CommDevRealStatus" EntityType="Self.CommDevRealStatus" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CommDevStatusLog" EntityType="Self.CommDevStatusLog" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CommDevUser" EntityType="Self.CommDevUser" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="GasCardInfo" EntityType="Self.GasCardInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CmdLogs" EntityType="Self.CmdLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ddCommDevInfo" EntityType="Self.ddCommDevInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ddCommDevRealStatus" EntityType="Self.ddCommDevRealStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ddCommDevStatusLog" EntityType="Self.ddCommDevStatusLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ddCommDevUser" EntityType="Self.ddCommDevUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ddGasCardInfo" EntityType="Self.ddGasCardInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GasCardRealStatus" EntityType="Self.GasCardRealStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GasCardStatusLog" EntityType="Self.GasCardStatusLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GasCardWithCommInfo" EntityType="Self.GasCardWithCommInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GasContextLog" EntityType="Self.GasContextLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GroupInfo" EntityType="Self.GroupInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GroupUser" EntityType="Self.GroupUser" Schema="dbo" store:Type="Tables" />

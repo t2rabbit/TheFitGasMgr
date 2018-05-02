@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GLedDbModelStoreContainer" CdmEntityContainer="LedDbEntities">
+    <EntitySetMapping Name="CityTable_NotDone_todo">
+      <EntityTypeMapping TypeName="GLedDbModel.CityTable_NotDone_todo">
+        <MappingFragment StoreEntitySet="CityTable_NotDone_todo">
+          <ScalarProperty Name="ToDoCoity" ColumnName="ToDoCoity" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CmdLogs">
+      <EntityTypeMapping TypeName="GLedDbModel.CmdLogs">
+        <MappingFragment StoreEntitySet="CmdLogs">
+          <ScalarProperty Name="IsDetele" ColumnName="IsDetele" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ResultInfo" ColumnName="ResultInfo" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="CmdInfo" ColumnName="CmdInfo" />
+          <ScalarProperty Name="CardInfoId" ColumnName="CardInfoId" />
+          <ScalarProperty Name="CommDevId" ColumnName="CommDevId" />
+          <ScalarProperty Name="CmdType" ColumnName="CmdType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ddCommDevInfo">
+      <EntityTypeMapping TypeName="GLedDbModel.ddCommDevInfo">
+        <MappingFragment StoreEntitySet="ddCommDevInfo">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="BUseDefName" ColumnName="BUseDefName" />
+          <ScalarProperty Name="BEnable" ColumnName="BEnable" />
+          <ScalarProperty Name="CommExtConnInfo" ColumnName="CommExtConnInfo" />
+          <ScalarProperty Name="CommTimeoutMs" ColumnName="CommTimeoutMs" />
+          <ScalarProperty Name="CommSerialParity" ColumnName="CommSerialParity" />
+          <ScalarProperty Name="CommSerialStopBit" ColumnName="CommSerialStopBit" />
+          <ScalarProperty Name="CommSerialDataBit" ColumnName="CommSerialDataBit" />
+          <ScalarProperty Name="CommSerialBaud" ColumnName="CommSerialBaud" />
+          <ScalarProperty Name="CommSerialPort" ColumnName="CommSerialPort" />
+          <ScalarProperty Name="CommServerSn" ColumnName="CommServerSn" />
+          <ScalarProperty Name="CommServerPort" ColumnName="CommServerPort" />
+          <ScalarProperty Name="CommServerIp" ColumnName="CommServerIp" />
+          <ScalarProperty Name="ProtocolType" ColumnName="ProtocolType" />
+          <ScalarProperty Name="CommType" ColumnName="CommType" />
+          <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="PosLatitude" ColumnName="PosLatitude" />
+          <ScalarProperty Name="PosLongitude" ColumnName="PosLongitude" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DefPassword" ColumnName="DefPassword" />
+          <ScalarProperty Name="DefName" ColumnName="DefName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ddCommDevRealStatus">
+      <EntityTypeMapping TypeName="GLedDbModel.ddCommDevRealStatus">
+        <MappingFragment StoreEntitySet="ddCommDevRealStatus">
+          <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CommDevId" ColumnName="CommDevId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ddCommDevStatusLog">
+      <EntityTypeMapping TypeName="GLedDbModel.ddCommDevStatusLog">
+        <MappingFragment StoreEntitySet="ddCommDevStatusLog">
+          <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DevId" ColumnName="DevId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ddCommDevUser">
+      <EntityTypeMapping TypeName="GLedDbModel.ddCommDevUser">
+        <MappingFragment StoreEntitySet="ddCommDevUser">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="RefProjectId" ColumnName="RefProjectId" />
+          <ScalarProperty Name="RefGroupId" ColumnName="RefGroupId" />
+          <ScalarProperty Name="RefOrgId" ColumnName="RefOrgId" />
+          <ScalarProperty Name="MgrCommDevId" ColumnName="MgrCommDevId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ddGasCardInfo">
+      <EntityTypeMapping TypeName="GLedDbModel.ddGasCardInfo">
+        <MappingFragment StoreEntitySet="ddGasCardInfo">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="ScreenNams" ColumnName="ScreenNams" />
+          <ScalarProperty Name="Context" ColumnName="Context" />
+          <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="CommDevId" ColumnName="CommDevId" />
+          <ScalarProperty Name="ScreenCount" ColumnName="ScreenCount" />
+          <ScalarProperty Name="NumberCount" ColumnName="NumberCount" />
+          <ScalarProperty Name="PointCount" ColumnName="PointCount" />
+          <ScalarProperty Name="Brightness" ColumnName="Brightness" />
+          <ScalarProperty Name="IsDouble" ColumnName="IsDouble" />
+          <ScalarProperty Name="CardModel" ColumnName="CardModel" />
+          <ScalarProperty Name="ProtocolAddr" ColumnName="ProtocolAddr" />
+          <ScalarProperty Name="CardName" ColumnName="CardName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GasCardRealStatus">
+      <EntityTypeMapping TypeName="GLedDbModel.GasCardRealStatus">
+        <MappingFragment StoreEntitySet="GasCardRealStatus">
+          <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GasCardDevId" ColumnName="GasCardDevId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GasCardStatusLog">
+      <EntityTypeMapping TypeName="GLedDbModel.GasCardStatusLog">
+        <MappingFragment StoreEntitySet="GasCardStatusLog">
+          <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GasCardId" ColumnName="GasCardId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GasCardWithCommInfo">
+      <EntityTypeMapping TypeName="GLedDbModel.GasCardWithCommInfo">
+        <MappingFragment StoreEntitySet="GasCardWithCommInfo">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="BEnable" ColumnName="BEnable" />
+          <ScalarProperty Name="ScreenNams" ColumnName="ScreenNams" />
+          <ScalarProperty Name="CardContext" ColumnName="CardContext" />
+          <ScalarProperty Name="CardScreenCount" ColumnName="CardScreenCount" />
+          <ScalarProperty Name="CardNumberCount" ColumnName="CardNumberCount" />
+          <ScalarProperty Name="CardPointCount" ColumnName="CardPointCount" />
+          <ScalarProperty Name="CardBrightness" ColumnName="CardBrightness" />
+          <ScalarProperty Name="CardIsDouble" ColumnName="CardIsDouble" />
+          <ScalarProperty Name="CardModel" ColumnName="CardModel" />
+          <ScalarProperty Name="CommExtConnInfo" ColumnName="CommExtConnInfo" />
+          <ScalarProperty Name="CommTimeoutMs" ColumnName="CommTimeoutMs" />
+          <ScalarProperty Name="CommSerialParity" ColumnName="CommSerialParity" />
+          <ScalarProperty Name="CommSerialStopBit" ColumnName="CommSerialStopBit" />
+          <ScalarProperty Name="CommSerialDataBit" ColumnName="CommSerialDataBit" />
+          <ScalarProperty Name="CommSerialBaud" ColumnName="CommSerialBaud" />
+          <ScalarProperty Name="CommSerialPort" ColumnName="CommSerialPort" />
+          <ScalarProperty Name="CommServerSn" ColumnName="CommServerSn" />
+          <ScalarProperty Name="CommServerPort" ColumnName="CommServerPort" />
+          <ScalarProperty Name="CommServerIp" ColumnName="CommServerIp" />
+          <ScalarProperty Name="ProtocolType" ColumnName="ProtocolType" />
+          <ScalarProperty Name="CommType" ColumnName="CommType" />
+          <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="PosLatitude" ColumnName="PosLatitude" />
+          <ScalarProperty Name="PosLongitude" ColumnName="PosLongitude" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DefPassword" ColumnName="DefPassword" />
+          <ScalarProperty Name="DefName" ColumnName="DefName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GasContextLog">
+      <EntityTypeMapping TypeName="GLedDbModel.GasContextLog">
+        <MappingFragment StoreEntitySet="GasContextLog">
+          <ScalarProperty Name="UpdateBySysUserId" ColumnName="UpdateBySysUserId" />
+          <ScalarProperty Name="UpdateBySysUserType" ColumnName="UpdateBySysUserType" />
+          <ScalarProperty Name="Context" ColumnName="Context" />
+          <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+          <ScalarProperty Name="CardId" ColumnName="CardId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupInfo">
+      <EntityTypeMapping TypeName="GLedDbModel.GroupInfo">
+        <MappingFragment StoreEntitySet="GroupInfo">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+          <ScalarProperty Name="ManageTel" ColumnName="ManageTel" />
+          <ScalarProperty Name="ManageName" ColumnName="ManageName" />
+          <ScalarProperty Name="GroupAddress" ColumnName="GroupAddress" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupUser">
+      <EntityTypeMapping TypeName="GLedDbModel.GroupUser">
+        <MappingFragment StoreEntitySet="GroupUser">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="RefOrgId" ColumnName="RefOrgId" />
+          <ScalarProperty Name="MgrGroupId" ColumnName="MgrGroupId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log">
+      <EntityTypeMapping TypeName="GLedDbModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="LogType" ColumnName="LogType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="Context" ColumnName="Context" />
+          <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrgInfo">
+      <EntityTypeMapping TypeName="GLedDbModel.OrgInfo">
+        <MappingFragment StoreEntitySet="OrgInfo">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="ManageTel" ColumnName="ManageTel" />
+          <ScalarProperty Name="ManageName" ColumnName="ManageName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrgUser">
+      <EntityTypeMapping TypeName="GLedDbModel.OrgUser">
+        <MappingFragment StoreEntitySet="OrgUser">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="MgrOrgId" ColumnName="MgrOrgId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectInfo">
+      <EntityTypeMapping TypeName="GLedDbModel.ProjectInfo">
+        <MappingFragment StoreEntitySet="ProjectInfo">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="ManagerTel" ColumnName="ManagerTel" />
+          <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectUser">
+      <EntityTypeMapping TypeName="GLedDbModel.ProjectUser">
+        <MappingFragment StoreEntitySet="ProjectUser">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="RefOrgId" ColumnName="RefOrgId" />
+          <ScalarProperty Name="RefGroupId" ColumnName="RefGroupId" />
+          <ScalarProperty Name="MgrProjectId" ColumnName="MgrProjectId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoadCardRealStatus">
+      <EntityTypeMapping TypeName="GLedDbModel.RoadCardRealStatus">
+        <MappingFragment StoreEntitySet="RoadCardRealStatus">
+          <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RoadCardDevId" ColumnName="RoadCardDevId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoadCardStatusLog">
+      <EntityTypeMapping TypeName="GLedDbModel.RoadCardStatusLog">
+        <MappingFragment StoreEntitySet="RoadCardStatusLog">
+          <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RoadCardId" ColumnName="RoadCardId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoadTipCardInfo">
+      <EntityTypeMapping TypeName="GLedDbModel.RoadTipCardInfo">
+        <MappingFragment StoreEntitySet="RoadTipCardInfo">
+          <ScalarProperty Name="SectionContextInfo" ColumnName="SectionContextInfo" />
+          <ScalarProperty Name="SectionCfgByJson" ColumnName="SectionCfgByJson" />
+          <ScalarProperty Name="SectionCount" ColumnName="SectionCount" />
+          <ScalarProperty Name="Addr" ColumnName="Addr" />
+          <ScalarProperty Name="CardName" ColumnName="CardName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuperUser">
+      <EntityTypeMapping TypeName="GLedDbModel.SuperUser">
+        <MappingFragment StoreEntitySet="SuperUser">
+          <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+          <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="EnableTime" ColumnName="EnableTime" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

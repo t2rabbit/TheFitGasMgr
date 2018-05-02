@@ -1,0 +1,1065 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GLedDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CityTable_NotDone_todo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ToDoCoity" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CmdLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CmdType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommDevId" Type="int" />
+          <Property Name="CardInfoId" Type="int" />
+          <Property Name="CmdInfo" Type="nvarchar(max)" />
+          <Property Name="Result" Type="int" />
+          <Property Name="ResultInfo" Type="nvarchar(max)" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="IsDetele" Type="int" />
+        </EntityType>
+        <EntityType Name="ddCommDevInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DefName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DefPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="PosLongitude" Type="nvarchar" MaxLength="10" />
+          <Property Name="PosLatitude" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="OrgId" Type="int" />
+          <Property Name="CommType" Type="int" />
+          <Property Name="ProtocolType" Type="int" />
+          <Property Name="CommServerIp" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommServerPort" Type="int" />
+          <Property Name="CommServerSn" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommSerialPort" Type="nvarchar" MaxLength="10" />
+          <Property Name="CommSerialBaud" Type="int" />
+          <Property Name="CommSerialDataBit" Type="int" />
+          <Property Name="CommSerialStopBit" Type="int" />
+          <Property Name="CommSerialParity" Type="int" />
+          <Property Name="CommTimeoutMs" Type="int" />
+          <Property Name="CommExtConnInfo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BEnable" Type="int" />
+          <Property Name="BUseDefName" Type="int" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ddCommDevRealStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommDevId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="LogDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ddCommDevStatusLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DevId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="LogDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ddCommDevUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="MgrCommDevId" Type="int" />
+          <Property Name="RefOrgId" Type="int" />
+          <Property Name="RefGroupId" Type="int" />
+          <Property Name="RefProjectId" Type="int" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ddGasCardInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProtocolAddr" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardModel" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDouble" Type="int" />
+          <Property Name="Brightness" Type="int" />
+          <Property Name="PointCount" Type="int" />
+          <Property Name="NumberCount" Type="int" />
+          <Property Name="ScreenCount" Type="int" />
+          <Property Name="CommDevId" Type="int" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="OrgId" Type="int" />
+          <Property Name="Context" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ScreenNams" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GasCardRealStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GasCardDevId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="LogDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GasCardStatusLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GasCardId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="LogDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GasCardWithCommInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DefName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DefPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="PosLongitude" Type="nvarchar" MaxLength="10" />
+          <Property Name="PosLatitude" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="OrgId" Type="int" />
+          <Property Name="CommType" Type="int" />
+          <Property Name="ProtocolType" Type="int" />
+          <Property Name="CommServerIp" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommServerPort" Type="int" />
+          <Property Name="CommServerSn" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommSerialPort" Type="nvarchar" MaxLength="10" />
+          <Property Name="CommSerialBaud" Type="int" />
+          <Property Name="CommSerialDataBit" Type="int" />
+          <Property Name="CommSerialStopBit" Type="int" />
+          <Property Name="CommSerialParity" Type="int" />
+          <Property Name="CommTimeoutMs" Type="int" />
+          <Property Name="CommExtConnInfo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardModel" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardIsDouble" Type="int" />
+          <Property Name="CardBrightness" Type="int" />
+          <Property Name="CardPointCount" Type="int" />
+          <Property Name="CardNumberCount" Type="int" />
+          <Property Name="CardScreenCount" Type="int" />
+          <Property Name="CardContext" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ScreenNams" Type="nvarchar" MaxLength="1000" />
+          <Property Name="BEnable" Type="int" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GasContextLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CardId" Type="int" />
+          <Property Name="LogDt" Type="datetime" />
+          <Property Name="Context" Type="nvarchar" MaxLength="100" />
+          <Property Name="UpdateBySysUserType" Type="int" />
+          <Property Name="UpdateBySysUserId" Type="int" />
+        </EntityType>
+        <EntityType Name="GroupInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GroupAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManageTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgId" Type="int" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GroupUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="MgrGroupId" Type="int" />
+          <Property Name="RefOrgId" Type="int" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogDt" Type="datetime" />
+          <Property Name="Context" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="LogType" Type="int" />
+        </EntityType>
+        <EntityType Name="OrgInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManageTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OrgUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="MgrOrgId" Type="int" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProjectInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="ManagerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManagerTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="OrgId" Type="int" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProjectUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="MgrProjectId" Type="int" />
+          <Property Name="RefGroupId" Type="int" />
+          <Property Name="RefOrgId" Type="int" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RoadCardRealStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoadCardDevId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="LogDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RoadCardStatusLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoadCardId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="LogDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RoadTipCardInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Addr" Type="int" />
+          <Property Name="SectionCount" Type="int" />
+          <Property Name="SectionCfgByJson" Type="nvarchar" MaxLength="500" />
+          <Property Name="SectionContextInfo" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SuperUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnableTime" Type="datetime" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="IsDel" Type="int" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="GLedDbModelStoreContainer">
+          <EntitySet Name="CityTable_NotDone_todo" EntityType="Self.CityTable_NotDone_todo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CmdLogs" EntityType="Self.CmdLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ddCommDevInfo" EntityType="Self.ddCommDevInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ddCommDevRealStatus" EntityType="Self.ddCommDevRealStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ddCommDevStatusLog" EntityType="Self.ddCommDevStatusLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ddCommDevUser" EntityType="Self.ddCommDevUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ddGasCardInfo" EntityType="Self.ddGasCardInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GasCardRealStatus" EntityType="Self.GasCardRealStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GasCardStatusLog" EntityType="Self.GasCardStatusLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GasCardWithCommInfo" EntityType="Self.GasCardWithCommInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GasContextLog" EntityType="Self.GasContextLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupInfo" EntityType="Self.GroupInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupUser" EntityType="Self.GroupUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrgInfo" EntityType="Self.OrgInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrgUser" EntityType="Self.OrgUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectInfo" EntityType="Self.ProjectInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectUser" EntityType="Self.ProjectUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoadCardRealStatus" EntityType="Self.RoadCardRealStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoadCardStatusLog" EntityType="Self.RoadCardStatusLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoadTipCardInfo" EntityType="Self.RoadTipCardInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuperUser" EntityType="Self.SuperUser" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GLedDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LedDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CityTable_NotDone_todo" EntityType="GLedDbModel.CityTable_NotDone_todo" />
+          <EntitySet Name="CmdLogs" EntityType="GLedDbModel.CmdLogs" />
+          <EntitySet Name="ddCommDevInfo" EntityType="GLedDbModel.ddCommDevInfo" />
+          <EntitySet Name="ddCommDevRealStatus" EntityType="GLedDbModel.ddCommDevRealStatus" />
+          <EntitySet Name="ddCommDevStatusLog" EntityType="GLedDbModel.ddCommDevStatusLog" />
+          <EntitySet Name="ddCommDevUser" EntityType="GLedDbModel.ddCommDevUser" />
+          <EntitySet Name="ddGasCardInfo" EntityType="GLedDbModel.ddGasCardInfo" />
+          <EntitySet Name="GasCardRealStatus" EntityType="GLedDbModel.GasCardRealStatus" />
+          <EntitySet Name="GasCardStatusLog" EntityType="GLedDbModel.GasCardStatusLog" />
+          <EntitySet Name="GasCardWithCommInfo" EntityType="GLedDbModel.GasCardWithCommInfo" />
+          <EntitySet Name="GasContextLog" EntityType="GLedDbModel.GasContextLog" />
+          <EntitySet Name="GroupInfo" EntityType="GLedDbModel.GroupInfo" />
+          <EntitySet Name="GroupUser" EntityType="GLedDbModel.GroupUser" />
+          <EntitySet Name="Log" EntityType="GLedDbModel.Log" />
+          <EntitySet Name="OrgInfo" EntityType="GLedDbModel.OrgInfo" />
+          <EntitySet Name="OrgUser" EntityType="GLedDbModel.OrgUser" />
+          <EntitySet Name="ProjectInfo" EntityType="GLedDbModel.ProjectInfo" />
+          <EntitySet Name="ProjectUser" EntityType="GLedDbModel.ProjectUser" />
+          <EntitySet Name="RoadCardRealStatus" EntityType="GLedDbModel.RoadCardRealStatus" />
+          <EntitySet Name="RoadCardStatusLog" EntityType="GLedDbModel.RoadCardStatusLog" />
+          <EntitySet Name="RoadTipCardInfo" EntityType="GLedDbModel.RoadTipCardInfo" />
+          <EntitySet Name="SuperUser" EntityType="GLedDbModel.SuperUser" />
+        </EntityContainer>
+        <EntityType Name="CityTable_NotDone_todo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ToDoCoity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CmdLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CmdType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommDevId" Type="Int32" />
+          <Property Name="CardInfoId" Type="Int32" />
+          <Property Name="CmdInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Result" Type="Int32" />
+          <Property Name="ResultInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDetele" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ddCommDevInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DefName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DefPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PosLongitude" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PosLatitude" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="OrgId" Type="Int32" />
+          <Property Name="CommType" Type="Int32" />
+          <Property Name="ProtocolType" Type="Int32" />
+          <Property Name="CommServerIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommServerPort" Type="Int32" />
+          <Property Name="CommServerSn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommSerialPort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CommSerialBaud" Type="Int32" />
+          <Property Name="CommSerialDataBit" Type="Int32" />
+          <Property Name="CommSerialStopBit" Type="Int32" />
+          <Property Name="CommSerialParity" Type="Int32" />
+          <Property Name="CommTimeoutMs" Type="Int32" />
+          <Property Name="CommExtConnInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BEnable" Type="Int32" />
+          <Property Name="BUseDefName" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ddCommDevRealStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommDevId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="LogDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ddCommDevStatusLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DevId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="LogDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ddCommDevUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MgrCommDevId" Type="Int32" />
+          <Property Name="RefOrgId" Type="Int32" />
+          <Property Name="RefGroupId" Type="Int32" />
+          <Property Name="RefProjectId" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ddGasCardInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProtocolAddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDouble" Type="Int32" />
+          <Property Name="Brightness" Type="Int32" />
+          <Property Name="PointCount" Type="Int32" />
+          <Property Name="NumberCount" Type="Int32" />
+          <Property Name="ScreenCount" Type="Int32" />
+          <Property Name="CommDevId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="OrgId" Type="Int32" />
+          <Property Name="Context" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ScreenNams" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GasCardRealStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GasCardDevId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="LogDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GasCardStatusLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GasCardId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="LogDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GasCardWithCommInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DefName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DefPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PosLongitude" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PosLatitude" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="OrgId" Type="Int32" />
+          <Property Name="CommType" Type="Int32" />
+          <Property Name="ProtocolType" Type="Int32" />
+          <Property Name="CommServerIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommServerPort" Type="Int32" />
+          <Property Name="CommServerSn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommSerialPort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CommSerialBaud" Type="Int32" />
+          <Property Name="CommSerialDataBit" Type="Int32" />
+          <Property Name="CommSerialStopBit" Type="Int32" />
+          <Property Name="CommSerialParity" Type="Int32" />
+          <Property Name="CommTimeoutMs" Type="Int32" />
+          <Property Name="CommExtConnInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardIsDouble" Type="Int32" />
+          <Property Name="CardBrightness" Type="Int32" />
+          <Property Name="CardPointCount" Type="Int32" />
+          <Property Name="CardNumberCount" Type="Int32" />
+          <Property Name="CardScreenCount" Type="Int32" />
+          <Property Name="CardContext" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ScreenNams" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="BEnable" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GasContextLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CardId" Type="Int32" />
+          <Property Name="LogDt" Type="DateTime" Precision="3" />
+          <Property Name="Context" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateBySysUserType" Type="Int32" />
+          <Property Name="UpdateBySysUserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GroupInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManageTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgId" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GroupUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MgrGroupId" Type="Int32" />
+          <Property Name="RefOrgId" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogDt" Type="DateTime" Precision="3" />
+          <Property Name="Context" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="LogType" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OrgInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManageTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="OrgUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MgrOrgId" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ProjectInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="OrgId" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ProjectUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MgrProjectId" Type="Int32" />
+          <Property Name="RefGroupId" Type="Int32" />
+          <Property Name="RefOrgId" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RoadCardRealStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoadCardDevId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="LogDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RoadCardStatusLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoadCardId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="LogDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RoadTipCardInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Addr" Type="Int32" />
+          <Property Name="SectionCount" Type="Int32" />
+          <Property Name="SectionCfgByJson" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SectionContextInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SuperUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnableTime" Type="DateTime" Precision="3" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GLedDbModelStoreContainer" CdmEntityContainer="LedDbEntities">
+          <EntitySetMapping Name="CityTable_NotDone_todo">
+            <EntityTypeMapping TypeName="GLedDbModel.CityTable_NotDone_todo">
+              <MappingFragment StoreEntitySet="CityTable_NotDone_todo">
+                <ScalarProperty Name="ToDoCoity" ColumnName="ToDoCoity" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CmdLogs">
+            <EntityTypeMapping TypeName="GLedDbModel.CmdLogs">
+              <MappingFragment StoreEntitySet="CmdLogs">
+                <ScalarProperty Name="IsDetele" ColumnName="IsDetele" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ResultInfo" ColumnName="ResultInfo" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="CmdInfo" ColumnName="CmdInfo" />
+                <ScalarProperty Name="CardInfoId" ColumnName="CardInfoId" />
+                <ScalarProperty Name="CommDevId" ColumnName="CommDevId" />
+                <ScalarProperty Name="CmdType" ColumnName="CmdType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ddCommDevInfo">
+            <EntityTypeMapping TypeName="GLedDbModel.ddCommDevInfo">
+              <MappingFragment StoreEntitySet="ddCommDevInfo">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="BUseDefName" ColumnName="BUseDefName" />
+                <ScalarProperty Name="BEnable" ColumnName="BEnable" />
+                <ScalarProperty Name="CommExtConnInfo" ColumnName="CommExtConnInfo" />
+                <ScalarProperty Name="CommTimeoutMs" ColumnName="CommTimeoutMs" />
+                <ScalarProperty Name="CommSerialParity" ColumnName="CommSerialParity" />
+                <ScalarProperty Name="CommSerialStopBit" ColumnName="CommSerialStopBit" />
+                <ScalarProperty Name="CommSerialDataBit" ColumnName="CommSerialDataBit" />
+                <ScalarProperty Name="CommSerialBaud" ColumnName="CommSerialBaud" />
+                <ScalarProperty Name="CommSerialPort" ColumnName="CommSerialPort" />
+                <ScalarProperty Name="CommServerSn" ColumnName="CommServerSn" />
+                <ScalarProperty Name="CommServerPort" ColumnName="CommServerPort" />
+                <ScalarProperty Name="CommServerIp" ColumnName="CommServerIp" />
+                <ScalarProperty Name="ProtocolType" ColumnName="ProtocolType" />
+                <ScalarProperty Name="CommType" ColumnName="CommType" />
+                <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="PosLatitude" ColumnName="PosLatitude" />
+                <ScalarProperty Name="PosLongitude" ColumnName="PosLongitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DefPassword" ColumnName="DefPassword" />
+                <ScalarProperty Name="DefName" ColumnName="DefName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ddCommDevRealStatus">
+            <EntityTypeMapping TypeName="GLedDbModel.ddCommDevRealStatus">
+              <MappingFragment StoreEntitySet="ddCommDevRealStatus">
+                <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CommDevId" ColumnName="CommDevId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ddCommDevStatusLog">
+            <EntityTypeMapping TypeName="GLedDbModel.ddCommDevStatusLog">
+              <MappingFragment StoreEntitySet="ddCommDevStatusLog">
+                <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DevId" ColumnName="DevId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ddCommDevUser">
+            <EntityTypeMapping TypeName="GLedDbModel.ddCommDevUser">
+              <MappingFragment StoreEntitySet="ddCommDevUser">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="RefProjectId" ColumnName="RefProjectId" />
+                <ScalarProperty Name="RefGroupId" ColumnName="RefGroupId" />
+                <ScalarProperty Name="RefOrgId" ColumnName="RefOrgId" />
+                <ScalarProperty Name="MgrCommDevId" ColumnName="MgrCommDevId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ddGasCardInfo">
+            <EntityTypeMapping TypeName="GLedDbModel.ddGasCardInfo">
+              <MappingFragment StoreEntitySet="ddGasCardInfo">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="ScreenNams" ColumnName="ScreenNams" />
+                <ScalarProperty Name="Context" ColumnName="Context" />
+                <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="CommDevId" ColumnName="CommDevId" />
+                <ScalarProperty Name="ScreenCount" ColumnName="ScreenCount" />
+                <ScalarProperty Name="NumberCount" ColumnName="NumberCount" />
+                <ScalarProperty Name="PointCount" ColumnName="PointCount" />
+                <ScalarProperty Name="Brightness" ColumnName="Brightness" />
+                <ScalarProperty Name="IsDouble" ColumnName="IsDouble" />
+                <ScalarProperty Name="CardModel" ColumnName="CardModel" />
+                <ScalarProperty Name="ProtocolAddr" ColumnName="ProtocolAddr" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GasCardRealStatus">
+            <EntityTypeMapping TypeName="GLedDbModel.GasCardRealStatus">
+              <MappingFragment StoreEntitySet="GasCardRealStatus">
+                <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GasCardDevId" ColumnName="GasCardDevId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GasCardStatusLog">
+            <EntityTypeMapping TypeName="GLedDbModel.GasCardStatusLog">
+              <MappingFragment StoreEntitySet="GasCardStatusLog">
+                <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GasCardId" ColumnName="GasCardId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GasCardWithCommInfo">
+            <EntityTypeMapping TypeName="GLedDbModel.GasCardWithCommInfo">
+              <MappingFragment StoreEntitySet="GasCardWithCommInfo">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="BEnable" ColumnName="BEnable" />
+                <ScalarProperty Name="ScreenNams" ColumnName="ScreenNams" />
+                <ScalarProperty Name="CardContext" ColumnName="CardContext" />
+                <ScalarProperty Name="CardScreenCount" ColumnName="CardScreenCount" />
+                <ScalarProperty Name="CardNumberCount" ColumnName="CardNumberCount" />
+                <ScalarProperty Name="CardPointCount" ColumnName="CardPointCount" />
+                <ScalarProperty Name="CardBrightness" ColumnName="CardBrightness" />
+                <ScalarProperty Name="CardIsDouble" ColumnName="CardIsDouble" />
+                <ScalarProperty Name="CardModel" ColumnName="CardModel" />
+                <ScalarProperty Name="CommExtConnInfo" ColumnName="CommExtConnInfo" />
+                <ScalarProperty Name="CommTimeoutMs" ColumnName="CommTimeoutMs" />
+                <ScalarProperty Name="CommSerialParity" ColumnName="CommSerialParity" />
+                <ScalarProperty Name="CommSerialStopBit" ColumnName="CommSerialStopBit" />
+                <ScalarProperty Name="CommSerialDataBit" ColumnName="CommSerialDataBit" />
+                <ScalarProperty Name="CommSerialBaud" ColumnName="CommSerialBaud" />
+                <ScalarProperty Name="CommSerialPort" ColumnName="CommSerialPort" />
+                <ScalarProperty Name="CommServerSn" ColumnName="CommServerSn" />
+                <ScalarProperty Name="CommServerPort" ColumnName="CommServerPort" />
+                <ScalarProperty Name="CommServerIp" ColumnName="CommServerIp" />
+                <ScalarProperty Name="ProtocolType" ColumnName="ProtocolType" />
+                <ScalarProperty Name="CommType" ColumnName="CommType" />
+                <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="PosLatitude" ColumnName="PosLatitude" />
+                <ScalarProperty Name="PosLongitude" ColumnName="PosLongitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DefPassword" ColumnName="DefPassword" />
+                <ScalarProperty Name="DefName" ColumnName="DefName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GasContextLog">
+            <EntityTypeMapping TypeName="GLedDbModel.GasContextLog">
+              <MappingFragment StoreEntitySet="GasContextLog">
+                <ScalarProperty Name="UpdateBySysUserId" ColumnName="UpdateBySysUserId" />
+                <ScalarProperty Name="UpdateBySysUserType" ColumnName="UpdateBySysUserType" />
+                <ScalarProperty Name="Context" ColumnName="Context" />
+                <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+                <ScalarProperty Name="CardId" ColumnName="CardId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupInfo">
+            <EntityTypeMapping TypeName="GLedDbModel.GroupInfo">
+              <MappingFragment StoreEntitySet="GroupInfo">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+                <ScalarProperty Name="ManageTel" ColumnName="ManageTel" />
+                <ScalarProperty Name="ManageName" ColumnName="ManageName" />
+                <ScalarProperty Name="GroupAddress" ColumnName="GroupAddress" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupUser">
+            <EntityTypeMapping TypeName="GLedDbModel.GroupUser">
+              <MappingFragment StoreEntitySet="GroupUser">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="RefOrgId" ColumnName="RefOrgId" />
+                <ScalarProperty Name="MgrGroupId" ColumnName="MgrGroupId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log">
+            <EntityTypeMapping TypeName="GLedDbModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="LogType" ColumnName="LogType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="Context" ColumnName="Context" />
+                <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrgInfo">
+            <EntityTypeMapping TypeName="GLedDbModel.OrgInfo">
+              <MappingFragment StoreEntitySet="OrgInfo">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="ManageTel" ColumnName="ManageTel" />
+                <ScalarProperty Name="ManageName" ColumnName="ManageName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrgUser">
+            <EntityTypeMapping TypeName="GLedDbModel.OrgUser">
+              <MappingFragment StoreEntitySet="OrgUser">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="MgrOrgId" ColumnName="MgrOrgId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectInfo">
+            <EntityTypeMapping TypeName="GLedDbModel.ProjectInfo">
+              <MappingFragment StoreEntitySet="ProjectInfo">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="ManagerTel" ColumnName="ManagerTel" />
+                <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectUser">
+            <EntityTypeMapping TypeName="GLedDbModel.ProjectUser">
+              <MappingFragment StoreEntitySet="ProjectUser">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="RefOrgId" ColumnName="RefOrgId" />
+                <ScalarProperty Name="RefGroupId" ColumnName="RefGroupId" />
+                <ScalarProperty Name="MgrProjectId" ColumnName="MgrProjectId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoadCardRealStatus">
+            <EntityTypeMapping TypeName="GLedDbModel.RoadCardRealStatus">
+              <MappingFragment StoreEntitySet="RoadCardRealStatus">
+                <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RoadCardDevId" ColumnName="RoadCardDevId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoadCardStatusLog">
+            <EntityTypeMapping TypeName="GLedDbModel.RoadCardStatusLog">
+              <MappingFragment StoreEntitySet="RoadCardStatusLog">
+                <ScalarProperty Name="LogDt" ColumnName="LogDt" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RoadCardId" ColumnName="RoadCardId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoadTipCardInfo">
+            <EntityTypeMapping TypeName="GLedDbModel.RoadTipCardInfo">
+              <MappingFragment StoreEntitySet="RoadTipCardInfo">
+                <ScalarProperty Name="SectionContextInfo" ColumnName="SectionContextInfo" />
+                <ScalarProperty Name="SectionCfgByJson" ColumnName="SectionCfgByJson" />
+                <ScalarProperty Name="SectionCount" ColumnName="SectionCount" />
+                <ScalarProperty Name="Addr" ColumnName="Addr" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuperUser">
+            <EntityTypeMapping TypeName="GLedDbModel.SuperUser">
+              <MappingFragment StoreEntitySet="SuperUser">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="EnableTime" ColumnName="EnableTime" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

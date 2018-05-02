@@ -38,15 +38,13 @@ namespace GlareLedSysWs
             out string paramjson)
         {
             
-            string strTockId;
-            int tockId = 0;
+            string strTockId;            
             string paramDt;
             string strInfo;
             HttpContext.Current.Response.ContentType = ConstDefineWs.ParamHead;
             callbackparam = HttpContext.Current.Request.Params[ConstDefineWs.JsonCallBakcParam].ToString();
             strInfo = HttpContext.Current.Request.Params[ConstDefineWs.ParamName].ToString();
-            strTockId = HttpContext.Current.Request.Params[ConstDefineWs.ParamTockId].ToString();
-            int.TryParse(strTockId, out tockId);
+            strTockId = HttpContext.Current.Request.Params[ConstDefineWs.ParamTockId].ToString();            
             paramDt = HttpContext.Current.Request.Params[ConstDefineWs.ParamDt].ToString();
 
 
@@ -56,7 +54,7 @@ namespace GlareLedSysWs
             {
                 Info = strInfo,
                 reqDt = dt,
-                TockId = tockId
+                TockId = strTockId
             };
             paramjson = JsonStrObjConver.Obj2JsonStr(reqmod, typeof(RequestModelString));
         }
@@ -75,7 +73,7 @@ namespace GlareLedSysWs
         public static string MakeInfoByStatus(bool staus, string strError)
         {
 
-            JsonResutlModel<string> result = new JsonResutlModel<string>()
+            JsonResutlModelString result = new JsonResutlModelString()
             {
                 Info = strError,
                 Status = staus,
@@ -83,7 +81,7 @@ namespace GlareLedSysWs
                 StatusInt = (staus==true?1:0)
             };
 
-            return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModel<string>));
+            return JsonStrObjConver.Obj2JsonStr(result, typeof(JsonResutlModelString));
         }
 
         /// <summary>

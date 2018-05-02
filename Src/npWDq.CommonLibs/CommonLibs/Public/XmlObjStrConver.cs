@@ -32,7 +32,6 @@ namespace PiPublic
         /// </summary>  
         public static object Deserialize(string Xml, Type ThisType)
         {            
-            object result;
             try
             {
 

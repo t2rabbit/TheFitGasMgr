@@ -12,7 +12,7 @@ namespace GlareLedSysBll
         public static bool AddAProject(ref ProjectInfo model, out string strErrInfo)
         {
             strErrInfo = "";
-            if (IsProjectNameExist(model.ProjectName))
+            if (IsNameExist(model.ProjectName))
             {
                 strErrInfo = "名字已经存在";
                 return false;
@@ -28,7 +28,9 @@ namespace GlareLedSysBll
                     ManagerName = model.ManagerName,
                     ManagerTel = model.ManagerTel,
                     GroupId = model.GroupId,
-                    OrgId = model.OrgId
+                    OrgId = model.OrgId,
+                    CreateDt = DateTime.Now,
+                    UpdateDt = DateTime.Now
                 };
 
                 try
@@ -85,6 +87,7 @@ namespace GlareLedSysBll
                     mdyMod.ManagerTel = model.ManagerTel;
                     mdyMod.GroupId = model.GroupId;
                     mdyMod.OrgId = model.OrgId;
+                    mdyMod.UpdateDt = DateTime.Now;
                     ent.SaveChanges();
                     return true;
                 }
@@ -166,11 +169,11 @@ namespace GlareLedSysBll
             return null;
         }
 
-        private static bool IsProjectNameExist(string projectName)
+        public static bool IsNameExist(string projectName)
         {
             using (GLedDbEntities ent = new GLedDbEntities())
             {
-                if ((from c in ent.ProjectInfo where c.ProjectName == projectName select c).FirstOrDefault() == null)
+                if ((from c in ent.ProjectInfo where c.ProjectName == projectName select c).FirstOrDefault() != null)
                 {
                     return true;
                 }

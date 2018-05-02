@@ -1,4 +1,0 @@
-E:\Work\TheFit\TheFitGasMgr\Src\GasCardMgrServer\NetLabelMgrWs\obj\Debug\03-GlareLedSysMgrWs.csprojResolveAssemblyReference.cache
-E:\Work\TheFit\TheFitGasMgr\Src\GasCardMgrServer\NetLabelMgrWs\obj\Debug\03-GlareLedSysMgrWs.csproj.CoreCompileInputs.cache
-E:\Work\TheFit\TheFitGasMgr\Src\GasCardMgrServer\NetLabelMgrWs\obj\Debug\NetLabelMgrWs.dll
-E:\Work\TheFit\TheFitGasMgr\Src\GasCardMgrServer\NetLabelMgrWs\obj\Debug\NetLabelMgrWs.pdb

@@ -1,3 +1,0 @@
-D:\TheFits\格莱光\Src\GasCardMgrServer\GasCardBll\obj\Debug\ResolveAssemblyReference.cache
-D:\TheFits\格莱光\Src\GasCardMgrServer\GasCardBll\obj\Debug\NetLabelBll.dll
-D:\TheFits\格莱光\Src\GasCardMgrServer\GasCardBll\obj\Debug\NetLabelBll.pdb

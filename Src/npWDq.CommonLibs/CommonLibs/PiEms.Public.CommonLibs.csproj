@@ -62,6 +62,7 @@
     <Compile Include="Public\ConfigHlper.cs" />
     <Compile Include="Public\CRC.cs" />
     <Compile Include="Public\DBStringHlper.cs" />
+    <Compile Include="Public\DisplayStringValueInt.cs" />
     <Compile Include="Public\EncryPack.cs" />
     <Compile Include="Public\EnumTextByDescription.cs" />
     <Compile Include="Public\FtpHlper.cs" />

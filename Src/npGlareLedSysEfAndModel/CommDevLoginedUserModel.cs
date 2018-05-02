@@ -7,8 +7,8 @@ namespace GlareSysEfDbAndModels
 {
     public class CommDevLoginedUserModel
     {
-        public CommDevUser UserInfo;
-        public int LoginIdByCenter;
+        public ddCommDevUser UserInfo;
+        public string LoginIdByCenter;
         public DateTime LoginDt;
     }
 }

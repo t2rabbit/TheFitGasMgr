@@ -20,25 +20,26 @@ namespace GlareLedSysWs
         public string AddSuperUser(string strParams)
         {
             string strError;
-            RequestModelString reqinfo = ServerHlper.GetRequestModelString("AddCenterUser", strParams, out strError);
+            RequestModelString reqinfo = ServerHlper.GetRequestModelString(System.Reflection.MethodBase.GetCurrentMethod().Name, 
+                strParams, out strError);
             if (reqinfo == null)
             {
                 return strError;
             }
 
-            OrgUser mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(OrgUser))
-                as OrgUser;
+            SuperUser mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(SuperUser))
+                as SuperUser;
 
             if (mod == null)
             {
                 return ServerHlper.MakeInfoByStatus(false, "需要添加的用户参数不对");
             }
 
-            if (OrgUserMgr.IsProjectUserNameExist(mod.Name))
+            if (SuperUserBll.IsUserNameExist(mod.Name))
             {
                 return ServerHlper.MakeInfoByStatus(false, "需要添加的用户名已经存在");
             }
-            bool result = OrgUserMgr.AddUser(ref mod, out strError);
+            bool result = SuperUserBll.AddUser(ref mod, out strError);
             return ServerHlper.MakeInfoByStatus(result, strError);
         }
 
@@ -47,13 +48,14 @@ namespace GlareLedSysWs
         public string AddOrgUser(string strParams)
         {
             string strError;
-            RequestModelString reqinfo = ServerHlper.GetRequestModelString("AddOrgUser", strParams, out strError);
+            RequestModelString reqinfo = ServerHlper.GetRequestModelString(System.Reflection.MethodBase.GetCurrentMethod().Name, 
+                strParams, out strError);
             if (reqinfo == null)
             {
                 return strError;
             }
 
-            if (LoginBll.CheckLoginId(reqinfo.TockId))
+            if (!LoginBll.CheckLoginId(reqinfo.TockId))
             {
                 return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.LoginInfoError);
             }
@@ -64,18 +66,80 @@ namespace GlareLedSysWs
             {
                 return ServerHlper.MakeInfoByStatus(false, "需要添加的用户参数不对");
             }
-
-            
-
-            if (OrgUserMgr.IsProjectUserNameExist(mod.Name))
+          
+            if (OrgUserBll.IsUserNameExist(mod.Name))
             {
                 return ServerHlper.MakeInfoByStatus(false, "需要添加的用户名已经存在");
             }
-            bool result = OrgUserMgr.AddUser(ref mod, out strError);
+            bool result = OrgUserBll.AddUser(ref mod, out strError);
             return ServerHlper.MakeInfoByStatus(result, strError);
-        }      
+        }
 
-        // todo 未完成
+        //JsonResutlModel 
+        [WebMethod]
+        public string AddGroupUser(string strParams)
+        {
+            string strError;
+            RequestModelString reqinfo = ServerHlper.GetRequestModelString(System.Reflection.MethodBase.GetCurrentMethod().Name,
+                strParams, out strError);
+            if (reqinfo == null)
+            {
+                return strError;
+            }
+
+            if (!LoginBll.CheckLoginId(reqinfo.TockId))
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.LoginInfoError);
+            }
+
+            GroupUser mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(GroupUser)) as GroupUser;
+
+            if (mod == null)
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
+            }
+
+            if (GroupUserBll.IsNameExist(mod.Name))
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineBll.NameExist);
+            }
+            bool result = GroupUserBll.AddUser(ref mod, out strError);
+            return ServerHlper.MakeInfoByStatus(result, strError);
+        }
+
+        //JsonResutlModel 
+        [WebMethod]
+        public string AddProjectUser(string strParams)
+        {
+            string strError;
+            RequestModelString reqinfo = ServerHlper.GetRequestModelString(System.Reflection.MethodBase.GetCurrentMethod().Name,
+                strParams, out strError);
+            if (reqinfo == null)
+            {
+                return strError;
+            }
+
+            if (!LoginBll.CheckLoginId(reqinfo.TockId))
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.LoginInfoError);
+            }
+
+            ProjectUser mod = JsonStrObjConver.JsonStr2Obj(reqinfo.Info, typeof(ProjectUser)) as ProjectUser;
+
+            if (mod == null)
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineWs.HttpParamError);
+            }
+
+            if (ProjectUserBll.IsUserNameExist(mod.Name))
+            {
+                return ServerHlper.MakeInfoByStatus(false, ConstDefineBll.NameExist);
+            }
+            bool result = ProjectUserBll.AddUser(ref mod, out strError);
+            return ServerHlper.MakeInfoByStatus(result, strError);
+        }
+        
+        // todo 未完成 ;修改，删除未完成
     }
 
 

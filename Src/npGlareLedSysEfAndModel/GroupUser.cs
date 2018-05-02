@@ -14,9 +14,13 @@ namespace GlareSysEfDbAndModels
     
     public partial class GroupUser
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
         public Nullable<int> MgrGroupId { get; set; }
+        public Nullable<int> RefOrgId { get; set; }
+        public Nullable<int> IsDel { get; set; }
+        public Nullable<System.DateTime> CreateDt { get; set; }
+        public Nullable<System.DateTime> UpdateDt { get; set; }
     }
 }

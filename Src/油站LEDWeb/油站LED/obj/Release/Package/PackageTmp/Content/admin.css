@@ -1,0 +1,226 @@
+﻿* {
+    padding: 0 0;
+    margin: 0 0;
+}
+
+body {
+    font-family: "微软雅黑";
+    font-size: 14px;
+}
+
+input {
+    vertical-align: central;
+}
+
+label {
+    vertical-align: central;
+}
+.TitleText{
+    font-family:"楷体";
+}
+/* 导航栏样式 */
+
+.submenu {
+    background: #ffffff;
+}
+
+    .submenu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .submenu ul li a {
+            display: block;
+            color: #000000;
+            text-decoration: none;
+            padding: 5px 0;
+            padding-left: 40px;
+            text-align: left;
+            height: 26px;
+            line-height: 26px;
+            font-size: 14px;
+            font-family: "微软雅黑";
+        }
+
+            .submenu ul li a:link {
+                background: #e4f1fb;
+            }
+
+            .submenu ul li a:hover {
+                background: #b6e0ff;
+            }
+
+        .submenu ul li {
+            border-bottom: 1px dashed #06a6f7;
+            display: block;
+            margin-top: 0;
+        }
+
+.icon-title {
+    background: url('/img/gif-0163.gif') 0 3px no-repeat;
+}
+
+.selectTab {
+    background: #d0e5f6;
+}
+/*企业实时数据*/
+
+.EnergyTitleLine {
+    height: 45px;
+    line-height: 45px;
+    float: left;
+    width: 100%;
+}
+
+.EnergyTitleWord {
+    font-size: 16px;
+    text-indent: 10px;
+    float: left;
+    height: 45px;
+    line-height: 45px;
+}
+
+.EnergySearch {
+    font-size: 14px;
+    float: right;
+    height: 45px;
+    line-height: 45px;
+    padding-right: 10px;
+}
+
+.divForTable {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.divForChart {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.tab {
+    border-collapse: collapse;
+    height: 100px;
+    width: 450px;
+    float: left;
+}
+
+.tr {
+    border-collapse: collapse;
+    height: 30px;
+    width: 450px;
+    float: left;
+}
+
+.td {
+    border-collapse: collapse;
+    height: 30px;
+    width: 100px;
+    text-align: left;
+}
+
+#fm {
+    margin: 0;
+    padding: 10px 30px;
+    font-family: 微软雅黑;
+    font-size: 14px;
+}
+
+.ftitle {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.fitem {
+    margin-bottom: 5px;
+    height: 30px;
+    line-height: 30px;
+}
+
+    .fitem label {
+        display: inline-block;
+        width: 80px;
+    }
+
+input {
+    vertical-align: middle;
+}
+
+.margin6px {
+    margin-bottom: 6px;
+}
+
+/*全市能耗数据*/
+.CityEnergy {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.CityMap {
+    width: 770px;
+    height: auto;
+    float: left;
+}
+
+.CityRight {
+    width: 690px;
+    height: auto;
+    float: left;
+}
+
+.CityRightTop {
+    width: 690px;
+    height: 285px;
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 1px;
+}
+
+.CityRightTable {
+    width: 690px;
+    height: 55px;
+    float: left;
+    margin-bottom: 1px;
+}
+
+.CityRightBottom {
+    width: 690px;
+    height: 285px;
+    float: left;
+    margin-bottom: 1px;
+}
+
+.CityRightBottomTable {
+    width: 690px;
+    height: 55px;
+    float: left;
+}
+
+
+.btn {
+    width: 70px;
+    height: 23px;
+    border: none;
+    color: white;
+    background-color:#a1d5fc;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align:center;
+}
+
+.input {
+    height: 18px;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+
+}
+
+
