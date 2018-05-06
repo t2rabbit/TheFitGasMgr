@@ -166,7 +166,6 @@ namespace GlareSysDataCenter
                     }
                     else
                     {
-
                     }
 
                     CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 2, strResult);

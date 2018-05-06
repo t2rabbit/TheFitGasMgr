@@ -40,8 +40,7 @@ namespace GlareSysDataCenter.FromAddMdys
         private void comboBoxOrg_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxOrg.SelectedIndex < 0) return;
-
-            comboBoxGroup.Items.Clear();
+            
             int orgid = (int)comboBoxOrg.SelectedValue;
             List<DisplayStringValueInt> lstCommValues = new List<DisplayStringValueInt>();
             MemCfgInfo.MemOrgInfo memorg = MemCfgInfo.MemDbMgr.Get().dicMemOrgWithAllInfo[orgid];

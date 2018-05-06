@@ -167,7 +167,7 @@ namespace OilStationLED.Controllers
                         }
                     }
                     
-                    if (bSend)
+                    if (bRecived)
                     {
                         objResult = new ResultHelper()
                         {

@@ -114,9 +114,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 80);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.Size = new System.Drawing.Size(23, 12);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Name";
+            this.label4.Text = "Org";
             // 
             // comboBoxOrg
             // 
