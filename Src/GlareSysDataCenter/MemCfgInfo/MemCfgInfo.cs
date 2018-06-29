@@ -17,6 +17,9 @@ namespace GlareSysDataCenter.MemCfgInfo
         public GasCardWithCommInfo cardInfo;        
         public MemProjectInfo RefProject;
         public int UpdateFlag;
+        public int CurStatus;
+        public DateTime dtGetted;
+        public string strGettedValues;
     }
 
 

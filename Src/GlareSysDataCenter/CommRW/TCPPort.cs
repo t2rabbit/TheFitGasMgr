@@ -78,7 +78,8 @@ namespace GlareSysDataCenter.CommRW
 			byte []data = new Byte[1024];
 			String responseData = String.Empty;
 			DateTime dtNow = DateTime.Now;
-			int iRtyTime = 200;
+            // 超时5秒
+			int iRtyTime = 500;
 			bool bReadAble = false;
 			try
 			{
@@ -98,7 +99,7 @@ namespace GlareSysDataCenter.CommRW
                 {
 					return null;
 				}
-
+                Thread.Sleep(100); // 等待数据接受完成
 				Int32 bytes = stream.Read(data, 0, data.Length);
 				if (bytes <= 0)
 				{
@@ -110,10 +111,7 @@ namespace GlareSysDataCenter.CommRW
 				{
 					bRecData[i] = data[i];
 				}
-				//Program.AddDevMsg((int)m_aDev.ID, MsgDirect.E_READ, YD_PUBLIC.HexStrConver.Hex2String(bRecData, 0, bytes), m_aDev.Name);
-
-               // Program.AddDevMsg(ConstDef.LOG_MOD_DEV_MSG, ConstDef.LOG_C1_DEV_READ, "", "", DateTime.Now.ToString(), BitConverter.ToString(bRecData));
-				return bRecData;
+                return bRecData;
 			}
 			catch (System.Exception ex)
             {
@@ -141,9 +139,7 @@ namespace GlareSysDataCenter.CommRW
 			NetworkStream stream = m_tcpClient.GetStream();
 			bool bSended = true;
 			try
-			{
-                //Program.AddDevMsg(ConstDef.LOG_MOD_DEV_MSG, ConstDef.LOG_C1_DEV_WRITE, "", "", DateTime.Now.ToString(), BitConverter.ToString(pMsg));
-				
+			{                
 				stream.Write(pMsg, iOffset, iLen);
 			}
 			catch (System.Exception ex)
@@ -151,8 +147,7 @@ namespace GlareSysDataCenter.CommRW
 				System.Diagnostics.Debug.WriteLine(ex.Message);
 				bSended = false;
 				return bSended;
-			}
-			//Program.AddDevMsg((int)m_aDev.ID, MsgDirect.E_WRITE, YD_PUBLIC.HexStrConver.Hex2String(pMsg, iOffset, iLen), m_aDev.Name);
+			}			
 			return bSended;
 		}
 
@@ -165,6 +160,11 @@ namespace GlareSysDataCenter.CommRW
             Write(bBuf, 0, bBuf.Length);
             Thread.Sleep(1000);
             byte[] bRead = Read();
+            if (bRead == null)
+            {
+                LogMgr.WriteErrorDefSys("SendOilContext RecBuf is Null");
+                return false;
+            }
             return GLLedProtocol.AnalyeseRecSetOilVal(bRead, iAddr);
         }
 
@@ -182,6 +182,11 @@ namespace GlareSysDataCenter.CommRW
             Write(bBuf, 0, bBuf.Length);
             Thread.Sleep(1000);
             byte[] bRead = Read();
+            if (bRead == null)
+            {
+                LogMgr.WriteErrorDefSys("Set Id RecBuf is Null");
+                return false;
+            }
             return GLLedProtocol.AnalyeseRecSetID(bRead, iNewID);
         }
 
@@ -198,6 +203,11 @@ namespace GlareSysDataCenter.CommRW
             Write(bBuf, 0, bBuf.Length);
             Thread.Sleep(1000);
             byte[] bRead = Read();
+            if (bRead == null)
+            {
+                LogMgr.WriteErrorDefSys("GetCfg RecBuf is Null");
+                return false;
+            }
             return GLLedProtocol.AnalyeseRecGetCfg(bRead, iAddr, ref objCardCfg);
         }
 
@@ -215,6 +225,11 @@ namespace GlareSysDataCenter.CommRW
             Write(bBuf, 0, bBuf.Length);
             Thread.Sleep(1000);
             byte[] bRead = Read();
+            if (bRead == null)
+            {
+                LogMgr.WriteErrorDefSys("GetCfg RecBuf is Null");
+                return false;
+            }
             return GLLedProtocol.AnalyeseRecSetCardCfg(bRead, iAddr);
         }
 
@@ -231,6 +246,11 @@ namespace GlareSysDataCenter.CommRW
             Write(bBuf, 0, bBuf.Length);
             Thread.Sleep(1000);
             byte[] bRead = Read();
+            if (bRead == null)
+            {
+                LogMgr.WriteErrorDefSys("GetCfg RecBuf is Null");
+                return false;
+            }
             return GLLedProtocol.AnalyeseRecGetOilVal(bRead, iAddr, ref lstOilVal);
         }
 
@@ -247,6 +267,11 @@ namespace GlareSysDataCenter.CommRW
             Write(bBuf, 0, bBuf.Length);
             Thread.Sleep(1000);
             byte[] bRead = Read();
+            if (bRead == null)
+            {
+                LogMgr.WriteErrorDefSys("GetCfg RecBuf is Null");
+                return false;
+            }
             return GLLedProtocol.AnalyeseRecSetDecemil(bRead, iAddr);
         }
 
@@ -263,6 +288,11 @@ namespace GlareSysDataCenter.CommRW
             Write(bBuf, 0, bBuf.Length);
             Thread.Sleep(1000);
             byte[] bRead = Read();
+            if (bRead == null)
+            {
+                LogMgr.WriteErrorDefSys("GetCfg RecBuf is Null");
+                return false;
+            }
             return GLLedProtocol.AnalyeseRecGetDecmail(bRead, iAddr, ref iArrDecmails);
         }
 
@@ -273,6 +303,11 @@ namespace GlareSysDataCenter.CommRW
             Write(bBuf, 0, bBuf.Length);
             Thread.Sleep(1000);
             byte[] bRead = Read();
+            if (bRead == null)
+            {
+                LogMgr.WriteErrorDefSys("GetCfg RecBuf is Null");
+                return false;
+            }
             return GLLedProtocol.AnalyeseRecGetDecmailString(bRead, ref strVals);
         }
 
@@ -288,9 +323,11 @@ namespace GlareSysDataCenter.CommRW
             Write(bBuf, 0, bBuf.Length);
             Thread.Sleep(1000);
             byte[] bRead = Read();
-
-
-
+            if (bRead == null)
+            {
+                LogMgr.WriteErrorDefSys("GetCfg RecBuf is Null");
+                return false;
+            }
             return GLLedProtocol.AnalyeseRecSetCardCfg(bRead, iAddr);
         }
 

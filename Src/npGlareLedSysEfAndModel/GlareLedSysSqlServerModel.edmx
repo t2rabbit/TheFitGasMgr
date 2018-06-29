@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="GLedDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="CfgVersion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Version" Type="int" />
+          <Property Name="UpdateDt" Type="datetime" />
+        </EntityType>
         <EntityType Name="CityTable_NotDone_todo">
           <Key>
             <PropertyRef Name="Id" />
@@ -16,7 +24,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CmdType" Type="nvarchar" MaxLength="50" />
           <Property Name="CommDevId" Type="int" />
           <Property Name="CardInfoId" Type="int" />
@@ -324,6 +332,7 @@
           <Property Name="UpdateDt" Type="datetime" />
         </EntityType>
         <EntityContainer Name="GLedDbModelStoreContainer">
+          <EntitySet Name="CfgVersion" EntityType="Self.CfgVersion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CityTable_NotDone_todo" EntityType="Self.CityTable_NotDone_todo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CmdLogs" EntityType="Self.CmdLogs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ddCommDevInfo" EntityType="Self.ddCommDevInfo" Schema="dbo" store:Type="Tables" />
@@ -374,6 +383,7 @@
           <EntitySet Name="RoadCardStatusLog" EntityType="GLedDbModel.RoadCardStatusLog" />
           <EntitySet Name="RoadTipCardInfo" EntityType="GLedDbModel.RoadTipCardInfo" />
           <EntitySet Name="SuperUser" EntityType="GLedDbModel.SuperUser" />
+          <EntitySet Name="CfgVersion" EntityType="GLedDbModel.CfgVersion" />
         </EntityContainer>
         <EntityType Name="CityTable_NotDone_todo">
           <Key>
@@ -386,7 +396,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CmdType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CommDevId" Type="Int32" />
           <Property Name="CardInfoId" Type="Int32" />
@@ -691,6 +701,14 @@
           <Property Name="UserType" Type="Int32" />
           <Property Name="IsDel" Type="Int32" />
           <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CfgVersion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Version" Type="Int32" />
           <Property Name="UpdateDt" Type="DateTime" Precision="3" />
         </EntityType>
         </Schema>
@@ -1035,6 +1053,15 @@
                 <ScalarProperty Name="EnableTime" ColumnName="EnableTime" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfgVersion">
+            <EntityTypeMapping TypeName="GLedDbModel.CfgVersion">
+              <MappingFragment StoreEntitySet="CfgVersion">
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

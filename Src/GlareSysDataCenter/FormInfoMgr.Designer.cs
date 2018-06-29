@@ -88,18 +88,20 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxProjectInCardMgr = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBoxGroupInCardMgr = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBoxOrgInCardMgr = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.buttonReloadGasCard = new System.Windows.Forms.Button();
             this.buttonAddGasCard = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.button设备导入 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonFilterGroup = new System.Windows.Forms.Button();
+            this.buttonFilterProject = new System.Windows.Forms.Button();
+            this.buttonFilter = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -140,7 +142,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(792, 424);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "企业管理";
+            this.tabPage1.Text = "OrgMgr";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // listViewOrg
@@ -204,6 +206,7 @@
             this.buttonMdyOrg.TabIndex = 0;
             this.buttonMdyOrg.Text = "Mdy";
             this.buttonMdyOrg.UseVisualStyleBackColor = true;
+            this.buttonMdyOrg.Click += new System.EventHandler(this.buttonMdyOrg_Click);
             // 
             // panel1
             // 
@@ -245,7 +248,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(792, 424);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "区域管理";
+            this.tabPage2.Text = "GroupMgr";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // listViewGroup
@@ -319,6 +322,7 @@
             // 
             this.panel4.Controls.Add(this.comboBoxOrgInGroupMgr);
             this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.buttonFilterGroup);
             this.panel4.Controls.Add(this.buttonReloadGroup);
             this.panel4.Controls.Add(this.buttonAddGroup);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -334,7 +338,6 @@
             this.comboBoxOrgInGroupMgr.Name = "comboBoxOrgInGroupMgr";
             this.comboBoxOrgInGroupMgr.Size = new System.Drawing.Size(185, 20);
             this.comboBoxOrgInGroupMgr.TabIndex = 2;
-            this.comboBoxOrgInGroupMgr.Visible = false;
             // 
             // label1
             // 
@@ -344,7 +347,6 @@
             this.label1.Size = new System.Drawing.Size(71, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "Select Org:";
-            this.label1.Visible = false;
             // 
             // buttonReloadGroup
             // 
@@ -376,7 +378,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(792, 424);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "工程管理";
+            this.tabPage3.Text = "GasStationMgr";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // listViewProject
@@ -454,6 +456,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.buttonFilterProject);
             this.panel6.Controls.Add(this.comboBoxGroupInProject);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.comboBoxOrgInProjectMgr);
@@ -490,6 +493,7 @@
             this.comboBoxOrgInProjectMgr.Name = "comboBoxOrgInProjectMgr";
             this.comboBoxOrgInProjectMgr.Size = new System.Drawing.Size(121, 20);
             this.comboBoxOrgInProjectMgr.TabIndex = 3;
+            this.comboBoxOrgInProjectMgr.SelectedIndexChanged += new System.EventHandler(this.comboBoxOrgInProjectMgr_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -530,7 +534,7 @@
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(792, 424);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "油卡管理";
+            this.tabPage5.Text = "GasCardMgr";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // listViewCard
@@ -545,9 +549,9 @@
             this.columnHeader25,
             this.columnHeader26});
             this.listViewCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listViewCard.Location = new System.Drawing.Point(3, 130);
+            this.listViewCard.Location = new System.Drawing.Point(3, 86);
             this.listViewCard.Name = "listViewCard";
-            this.listViewCard.Size = new System.Drawing.Size(786, 260);
+            this.listViewCard.Size = new System.Drawing.Size(786, 304);
             this.listViewCard.TabIndex = 3;
             this.listViewCard.UseCompatibleStateImageBehavior = false;
             this.listViewCard.View = System.Windows.Forms.View.Details;
@@ -573,12 +577,12 @@
             // 
             // columnHeader23
             // 
-            this.columnHeader23.Text = "ProjectName";
+            this.columnHeader23.Text = "GasStationName";
             this.columnHeader23.Width = 84;
             // 
             // columnHeader24
             // 
-            this.columnHeader24.Text = "CommName";
+            this.columnHeader24.Text = "GasCardName";
             // 
             // columnHeader25
             // 
@@ -620,85 +624,69 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.comboBox7);
-            this.panel10.Controls.Add(this.label10);
-            this.panel10.Controls.Add(this.comboBox4);
+            this.panel10.Controls.Add(this.buttonFilter);
+            this.panel10.Controls.Add(this.comboBoxProjectInCardMgr);
             this.panel10.Controls.Add(this.label7);
-            this.panel10.Controls.Add(this.comboBox5);
+            this.panel10.Controls.Add(this.comboBoxGroupInCardMgr);
             this.panel10.Controls.Add(this.label8);
-            this.panel10.Controls.Add(this.comboBox6);
+            this.panel10.Controls.Add(this.comboBoxOrgInCardMgr);
             this.panel10.Controls.Add(this.label9);
             this.panel10.Controls.Add(this.buttonReloadGasCard);
             this.panel10.Controls.Add(this.buttonAddGasCard);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(786, 127);
+            this.panel10.Size = new System.Drawing.Size(786, 83);
             this.panel10.TabIndex = 4;
             // 
-            // comboBox7
+            // comboBoxProjectInCardMgr
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(561, 67);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(121, 20);
-            this.comboBox7.TabIndex = 11;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(473, 70);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 12);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Gateway:";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(561, 41);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 20);
-            this.comboBox4.TabIndex = 11;
+            this.comboBoxProjectInCardMgr.FormattingEnabled = true;
+            this.comboBoxProjectInCardMgr.Location = new System.Drawing.Point(561, 13);
+            this.comboBoxProjectInCardMgr.Name = "comboBoxProjectInCardMgr";
+            this.comboBoxProjectInCardMgr.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxProjectInCardMgr.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(473, 44);
+            this.label7.Location = new System.Drawing.Point(473, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 8;
             this.label7.Text = "Project:";
             // 
-            // comboBox5
+            // comboBoxGroupInCardMgr
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(298, 67);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 20);
-            this.comboBox5.TabIndex = 12;
+            this.comboBoxGroupInCardMgr.FormattingEnabled = true;
+            this.comboBoxGroupInCardMgr.Location = new System.Drawing.Point(298, 39);
+            this.comboBoxGroupInCardMgr.Name = "comboBoxGroupInCardMgr";
+            this.comboBoxGroupInCardMgr.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxGroupInCardMgr.TabIndex = 12;
+            this.comboBoxGroupInCardMgr.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroupInCardMgr_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(210, 70);
+            this.label8.Location = new System.Drawing.Point(210, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 12);
             this.label8.TabIndex = 9;
             this.label8.Text = "Group:";
             // 
-            // comboBox6
+            // comboBoxOrgInCardMgr
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(298, 41);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 20);
-            this.comboBox6.TabIndex = 13;
+            this.comboBoxOrgInCardMgr.FormattingEnabled = true;
+            this.comboBoxOrgInCardMgr.Location = new System.Drawing.Point(298, 13);
+            this.comboBoxOrgInCardMgr.Name = "comboBoxOrgInCardMgr";
+            this.comboBoxOrgInCardMgr.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxOrgInCardMgr.TabIndex = 13;
+            this.comboBoxOrgInCardMgr.SelectedIndexChanged += new System.EventHandler(this.comboBoxOrgInCardMgr_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(210, 44);
+            this.label9.Location = new System.Drawing.Point(210, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 10;
@@ -706,7 +694,7 @@
             // 
             // buttonReloadGasCard
             // 
-            this.buttonReloadGasCard.Location = new System.Drawing.Point(88, 51);
+            this.buttonReloadGasCard.Location = new System.Drawing.Point(88, 23);
             this.buttonReloadGasCard.Name = "buttonReloadGasCard";
             this.buttonReloadGasCard.Size = new System.Drawing.Size(75, 23);
             this.buttonReloadGasCard.TabIndex = 0;
@@ -716,7 +704,7 @@
             // 
             // buttonAddGasCard
             // 
-            this.buttonAddGasCard.Location = new System.Drawing.Point(7, 51);
+            this.buttonAddGasCard.Location = new System.Drawing.Point(7, 23);
             this.buttonAddGasCard.Name = "buttonAddGasCard";
             this.buttonAddGasCard.Size = new System.Drawing.Size(75, 23);
             this.buttonAddGasCard.TabIndex = 0;
@@ -726,24 +714,64 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label4);
             this.tabPage6.Controls.Add(this.button设备导入);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(792, 424);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "设备导入";
+            this.tabPage6.Text = "DevImport";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // button设备导入
             // 
-            this.button设备导入.Location = new System.Drawing.Point(8, 6);
+            this.button设备导入.Location = new System.Drawing.Point(185, 94);
             this.button设备导入.Name = "button设备导入";
-            this.button设备导入.Size = new System.Drawing.Size(75, 23);
+            this.button设备导入.Size = new System.Drawing.Size(100, 32);
             this.button设备导入.TabIndex = 0;
             this.button设备导入.Text = "Import";
             this.button设备导入.UseVisualStyleBackColor = true;
             this.button设备导入.Click += new System.EventHandler(this.button设备导入_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(161, 12);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Select File to import devs";
+            // 
+            // buttonFilterGroup
+            // 
+            this.buttonFilterGroup.Location = new System.Drawing.Point(633, 17);
+            this.buttonFilterGroup.Name = "buttonFilterGroup";
+            this.buttonFilterGroup.Size = new System.Drawing.Size(75, 23);
+            this.buttonFilterGroup.TabIndex = 0;
+            this.buttonFilterGroup.Text = "Filter";
+            this.buttonFilterGroup.UseVisualStyleBackColor = true;
+            this.buttonFilterGroup.Click += new System.EventHandler(this.buttonFilterGroup_Click);
+            // 
+            // buttonFilterProject
+            // 
+            this.buttonFilterProject.Location = new System.Drawing.Point(656, 32);
+            this.buttonFilterProject.Name = "buttonFilterProject";
+            this.buttonFilterProject.Size = new System.Drawing.Size(75, 23);
+            this.buttonFilterProject.TabIndex = 4;
+            this.buttonFilterProject.Text = "Filter";
+            this.buttonFilterProject.UseVisualStyleBackColor = true;
+            this.buttonFilterProject.Click += new System.EventHandler(this.buttonFilterProject_Click);
+            // 
+            // buttonFilter
+            // 
+            this.buttonFilter.Location = new System.Drawing.Point(607, 42);
+            this.buttonFilter.Name = "buttonFilter";
+            this.buttonFilter.Size = new System.Drawing.Size(75, 23);
+            this.buttonFilter.TabIndex = 14;
+            this.buttonFilter.Text = "Filter";
+            this.buttonFilter.UseVisualStyleBackColor = true;
+            this.buttonFilter.Click += new System.EventHandler(this.buttonFilter_Click);
             // 
             // FormInfoMgr
             // 
@@ -753,6 +781,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "FormInfoMgr";
             this.Text = "ViewInfoMgr";
+            this.Load += new System.EventHandler(this.FormInfoMgr_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -770,6 +799,7 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -831,13 +861,11 @@
         private System.Windows.Forms.ComboBox comboBoxOrgInGroupMgr;
         private System.Windows.Forms.ComboBox comboBoxGroupInProject;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBoxProjectInCardMgr;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBoxGroupInCardMgr;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBoxOrgInCardMgr;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ColumnHeader columnHeader18;
         private System.Windows.Forms.ColumnHeader columnHeader19;
@@ -848,5 +876,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader26;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button button设备导入;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonFilterGroup;
+        private System.Windows.Forms.Button buttonFilterProject;
+        private System.Windows.Forms.Button buttonFilter;
     }
 }

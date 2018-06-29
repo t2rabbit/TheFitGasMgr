@@ -70,7 +70,6 @@ E:\TheFits\格莱光\TheFitGasMgr\Src\npSevenSegmentDll\obj\Debug\SevenSegTest.p
 E:\Work\TheFit\TheFitGasMgr\Src\npSevenSegmentDll\bin\Debug\SevenSegTest.exe.config
 E:\Work\TheFit\TheFitGasMgr\Src\npSevenSegmentDll\bin\Debug\SevenSegTest.exe
 E:\Work\TheFit\TheFitGasMgr\Src\npSevenSegmentDll\bin\Debug\SevenSegTest.pdb
-E:\Work\TheFit\TheFitGasMgr\Src\npSevenSegmentDll\obj\Debug\SevenSegDll.csprojResolveAssemblyReference.cache
 E:\Work\TheFit\TheFitGasMgr\Src\npSevenSegmentDll\obj\Debug\SevenSegTest.ClickAbleArr.resources
 E:\Work\TheFit\TheFitGasMgr\Src\npSevenSegmentDll\obj\Debug\SevenSegTest.ClickAbleCtl.resources
 E:\Work\TheFit\TheFitGasMgr\Src\npSevenSegmentDll\obj\Debug\SevenSegTest.Form1.resources

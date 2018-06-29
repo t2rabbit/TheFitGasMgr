@@ -17,3 +17,8 @@ E:\Work\ProjectInSvn\g格莱光\src\proto\Property\GLLedPublic\bin\Release\GLLed
 E:\Work\ProjectInSvn\g格莱光\src\proto\Property\GLLedPublic\obj\Release\ResolveAssemblyReference.cache
 E:\Work\ProjectInSvn\g格莱光\src\proto\Property\GLLedPublic\obj\Release\GLLedPublic.dll
 E:\Work\ProjectInSvn\g格莱光\src\proto\Property\GLLedPublic\obj\Release\GLLedPublic.pdb
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\bin\Release\GLLedPublic.dll
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\bin\Release\GLLedPublic.pdb
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\obj\Release\GLLedPublic.csproj.CoreCompileInputs.cache
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\obj\Release\GLLedPublic.dll
+E:\Work\TheFit\TheFitGasMgr\Src\npGlareLedSysPublic\obj\Release\GLLedPublic.pdb

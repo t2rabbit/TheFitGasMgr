@@ -1,0 +1,232 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Welcome to use Oil station LED integrated management system";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/easyui")
+    @Styles.Render("~/Content/easyui")
+    <script type="text/javascript">
+        $(function () {
+            //绑定鼠标经过li事件
+            fOnblur();
+        })
+        function openTab(title, url) {
+            if ($("#tabs").tabs("exists", title)) {
+                $("#tabs").tabs("select", title);
+            } else {
+                $("#tabs").tabs("add", {
+                    title: title,
+                    content: '<iframe frameborder="0"  src="' + url + '" style="height: 99%; width: 100%;"></iframe>',
+                    closable: true
+                });
+            }
+        }
+        //鼠标经过菜单的li的时候的变化.
+        function fOnblur() {
+            $(".submenu ul li a").mouseover(function () {
+                $(".submenu ul li a").css("background-image", " url('/img/hand-3.png')");
+                $(".submenu ul li a").css("color", "#000000");
+                var vID = this.id;
+                $("#" + vID + "").css("background-image", " url('/img/hand-greed.png')");
+                $("#" + vID + "").css("color", "#74B200");
+            })
+        }
+        $(function () {
+
+            //refresh
+            $("#m-refresh").click(function () {
+                var currTab = $('#tabs').tabs('getSelected');    // Get选中的标签项
+                var url = $(currTab.panel('options').content).attr('src');    // Get该选项卡中内容标签（iframe）的 src 属性
+                if (url == null) {
+                    /* 重新设置该标签 */
+                    $('#tabs').tabs('update', {
+                        tab: currTab,
+                        options: {
+                            content: '<iframe frameborder="0"  src="/WholeMonitor/Index" style="height: 99%; width: 100%;" ></iframe>'//如果用herf,容易导致样式与主页面重载,导致页面奔溃.
+                        }
+                    })
+                }
+                else {
+                    /* 重新设置该标签 */
+                    $('#tabs').tabs('update', {
+                        tab: currTab,
+                        options: {
+                            content: '<iframe frameborder="0"  src="' + url + '"  style="height: 99%; width: 100%;" ></iframe>'//如果用herf,容易导致样式与主页面重载,导致页面奔溃.
+                        }
+                    })
+                }
+            });
+
+            //Close所有
+            $("#m-closeall").click(function () {
+                $(".tabs li").each(function (i, n) {
+                    var title = $(n).text();
+                    if (title != 'Home') {//非主页Close All
+                        $('#tabs').tabs('close', title);
+                    }
+                });
+            });
+
+            //除当前之外Close所有
+            $("#m-closeother").click(function () {
+                var currTab = $('#tabs').tabs('getSelected');
+                currTitle = currTab.panel('options').title;
+                $(".tabs li").each(function (i, n) {
+                    var title = $(n).text();
+
+                    if (currTitle != title && title != 'Home') {//除本页和主页以外Close All
+                        $('#tabs').tabs('close', title);
+                    }
+                });
+            });
+
+            //Close当前
+            $("#m-close").click(function () {
+                var currTab = $('#tabs').tabs('getSelected');
+                currTitle = currTab.panel('options').title;
+                $('#tabs').tabs('close', currTitle);
+            });
+
+            /*为选项卡绑定右键*/
+            $("#tabs").tabs({
+                onContextMenu: function (e) {
+                    /* 选中当前触发事件的选项卡 */
+                    var subtitle = $(this).text();
+                    $('#tabs').tabs('select', subtitle);
+                    //显示快捷菜单
+                    e.preventDefault();
+                    //阻止冒泡
+                    $('#menu').menu('show', {
+                        left: e.pageX,
+                        top: e.pageY
+                    });
+                    return false;
+                }
+            })
+        })
+        function fLogout() {
+            $.messager.progress({
+                title: SystemTitle,
+                msg: 'Loging out...'
+            });	// 显示进度条
+            $.ajax({
+                type: "post",
+                data: new Date(),
+                url: "Home/Logout",
+                dataType: 'json',
+                success: function (data) {
+                    $.messager.progress('close');//记得Close
+                    if (data != null) {
+                        if (data.Status) {
+                            $.messager.alert(SystemTitle, data.Msg, 'info');
+                            window.location.href = data.Desc;
+                        }
+                        else {
+                            $.messager.alert(SystemTitle, data.Msg, 'warning');
+                        }
+                    }
+                    else {
+                        $.messager.alert(SystemTitle, 'faile', 'error');
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',border:false" style="height: 100px; background: #B3DFDA; background: url(/img/BannerNone.png); overflow-y:hidden;">
+        <div id="idForLogo" style="height: 100px; margin-left: 10px; line-height: 100px; float: left; padding: 0;">
+
+        </div>
+        <div id="idForTitle" style="height: 100px; margin-left: 10px; line-height: 100px; float: left;">
+            <label class="TitleText" style="font-size: 42px; color: #ffffff;">
+                @ViewBag.Title
+            </label>
+        </div>
+        <div id="idForVoice">
+            <input type="hidden" name="audioBtn" id="audioBtn" value="1" />
+        </div>
+        <div id="NowTime" style="float: right;">
+            <label id="lbForTime" style="font-size: 12px;">
+            </label>
+            <div id="forUser" style="height: 100px; line-height: 100px; font-size: 16px; color:white;">
+                <form id="form111">
+                    Welcome，【@ViewBag.Name】<input name="" type="button" class="loginbtn" value="Logout" onclick="fLogout()" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'west',split:true,title:''" style="width: 180px;">
+        <div class="easyui-accordion" fit="true" border="false">
+            <div title="System" class="submenu" data-options="selected:true,iconCls:'icon-menu-consumption'">
+                <ul>
+                    <li>
+                        <a id="aBatchImport" href="javascript:openTab('BatchImport', '/OrgBatchImport')" style="background-position: 10px 8px; background-image: url('/img/hand-3.png'); background-repeat: no-repeat;"><span>BatchImport</span> </a>
+                    </li>
+                    <li>
+                        <a id="aOrg" href="javascript:openTab('Org', '/Org')" style="background-position: 10px 8px; background-image: url('/img/hand-3.png'); background-repeat: no-repeat;"><span>Org</span> </a>
+                    </li>
+                    <li>
+                        <a id="aGroup" href="javascript:openTab('Group', '/Group')" style="background-position: 10px 8px; background-image: url('/img/hand-3.png'); background-repeat: no-repeat;"><span>Group</span> </a>
+                    </li>
+                    <li>
+                        <a id="aProject" href="javascript:openTab('GasStation', '/Project')" style="background-position: 10px 8px; background-image: url('/img/hand-3.png'); background-repeat: no-repeat;"><span>GasStation</span> </a>
+                    </li>
+                    <li>
+                        <a id="aDev" href="javascript:openTab('GasCardMgr', '/PriceControl?nodeid=org_@ViewBag.MgrOrgId')" style="background-position: 10px 8px; background-image: url('/img/hand-3.png'); background-repeat: no-repeat;"><span>GasCardMgr</span> </a>
+                    </li>
+                    <li>
+                        <a id="aGasCarValues" href="javascript:openTab('GasCarValues', '/PriceManage')" style="background-position: 10px 8px; background-image: url('/img/hand-3.png'); background-repeat: no-repeat;"><span>GasCarValues</span> </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div title="Logs" class="submenu" data-options="selected:false,iconCls:'icon-menu-analysis'">
+                <ul>
+                    <li>
+                        <a id="aLogs" href="javascript:openTab('Logs', '/OperationLog')" style="background-position: 10px 8px; background-image: url('/img/hand-3.png'); background-repeat: no-repeat;"><span>Logs</span> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'south',border:false" style="height: 50px; background: #635c4e; padding: 10px;">
+        <div id="CopyRight" style="text-align: center;">
+            Copyright © 2018
+        </div>
+    </div>
+    <div data-options="region:'center',title:''">
+        <div id="tabs" class="easyui-tabs" data-options="border:false,fit:'true'">
+            @*<div title="首页" data-options="closable:true">
+
+                </div>*@
+        </div>
+    </div>
+
+    @*右键菜单*@
+    <div id="menu" class="easyui-menu" style="width: 150px;">
+        <div id="m-refresh" data-options="iconCls:'icon-reload'">
+            refresh
+        </div>
+        <div class="menu-sep" data-options="iconCls:''">
+        </div>
+        <div id="m-closeall" data-options="iconCls:''">
+            Close All
+        </div>
+        <div id="m-closeother" data-options="iconCls:''">
+            Close Other
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="m-close" data-options="iconCls:'icon-no'">
+            Close
+        </div>
+    </div>
+</html>

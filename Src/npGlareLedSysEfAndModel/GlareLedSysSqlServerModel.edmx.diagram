@@ -27,6 +27,7 @@
         <EntityTypeShape EntityType="GLedDbModel.RoadCardStatusLog" Width="1.5" PointX="12.75" PointY="0.75" />
         <EntityTypeShape EntityType="GLedDbModel.RoadTipCardInfo" Width="1.5" PointX="12.75" PointY="3.75" />
         <EntityTypeShape EntityType="GLedDbModel.SuperUser" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="GLedDbModel.CfgVersion" Width="1.5" PointX="13.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="GLedDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="GLedDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="CfgVersion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Version" Type="int" />
+    <Property Name="UpdateDt" Type="datetime" />
+  </EntityType>
   <EntityType Name="CityTable_NotDone_todo">
     <Key>
       <PropertyRef Name="Id" />
@@ -11,7 +19,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CmdType" Type="nvarchar" MaxLength="50" />
     <Property Name="CommDevId" Type="int" />
     <Property Name="CardInfoId" Type="int" />
@@ -319,6 +327,7 @@
     <Property Name="UpdateDt" Type="datetime" />
   </EntityType>
   <EntityContainer Name="GLedDbModelStoreContainer">
+    <EntitySet Name="CfgVersion" EntityType="Self.CfgVersion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CityTable_NotDone_todo" EntityType="Self.CityTable_NotDone_todo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CmdLogs" EntityType="Self.CmdLogs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ddCommDevInfo" EntityType="Self.ddCommDevInfo" Schema="dbo" store:Type="Tables" />

@@ -1,5 +1,7 @@
-﻿using GlareSysEfDbAndModels;
+﻿using GlareLedSysBll;
+using GlareSysEfDbAndModels;
 using GlareSysEfDbAndModels.Models;
+using GLLedPublic;
 using PiPublic;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,7 +26,7 @@ namespace GlareSysDataCenter
         private void button1_Click(object sender, EventArgs e)
         {
             string strParmaInfo = "";
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             SuperUser userMod = new SuperUser()
             {
@@ -63,7 +66,7 @@ namespace GlareSysDataCenter
 
             string strParmaInfo = JsonStrObjConver.Obj2JsonStr(obj, typeof(RequestModelString));
 
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
           
             string strResult = cl.SuperLogin(strParmaInfo);
             MessageBox.Show(strResult);
@@ -73,7 +76,7 @@ namespace GlareSysDataCenter
         {
             // add org user
             string strParmaInfo = "";
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             OrgUser userMod = new OrgUser()
             {
@@ -113,7 +116,7 @@ namespace GlareSysDataCenter
 
             string strParmaInfo = JsonStrObjConver.Obj2JsonStr(obj, typeof(RequestModelString));
 
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             string strResult = cl.OrgLogin(strParmaInfo);
             MessageBox.Show(strResult);
@@ -123,7 +126,7 @@ namespace GlareSysDataCenter
         {
             // add group user
             string strParmaInfo = "";
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             GroupUser userMod = new GroupUser()
             {
@@ -164,7 +167,7 @@ namespace GlareSysDataCenter
 
             string strParmaInfo = JsonStrObjConver.Obj2JsonStr(obj, typeof(RequestModelString));
 
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             string strResult = cl.GroupLogin(strParmaInfo);
             MessageBox.Show(strResult);
@@ -174,7 +177,7 @@ namespace GlareSysDataCenter
         {
             // add group user
             string strParmaInfo = "";
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             ProjectUser userMod = new ProjectUser()
             {
@@ -216,7 +219,7 @@ namespace GlareSysDataCenter
 
             string strParmaInfo = JsonStrObjConver.Obj2JsonStr(obj, typeof(RequestModelString));
 
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             string strResult = cl.Projectlogin(strParmaInfo);
             MessageBox.Show(strResult);
@@ -244,7 +247,7 @@ namespace GlareSysDataCenter
 
             string strParmaInfo = JsonStrObjConver.Obj2JsonStr(obj, typeof(RequestModelString));
 
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             string strResult = cl.AddNewOrg(strParmaInfo);
             MessageBox.Show(strResult);
@@ -272,7 +275,7 @@ namespace GlareSysDataCenter
 
             string strParmaInfo = JsonStrObjConver.Obj2JsonStr(obj, typeof(RequestModelString));
 
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             string strResult = cl.AddGroup(strParmaInfo);
             MessageBox.Show(strResult);
@@ -301,7 +304,7 @@ namespace GlareSysDataCenter
 
             string strParmaInfo = JsonStrObjConver.Obj2JsonStr(obj, typeof(RequestModelString));
 
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             string strResult = cl.AddProject(strParmaInfo);
             MessageBox.Show(strResult);
@@ -370,7 +373,7 @@ namespace GlareSysDataCenter
 
             string strParmaInfo = JsonStrObjConver.Obj2JsonStr(obj, typeof(RequestModelString));
 
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             string strResult = cl.AddCard(strParmaInfo);
             MessageBox.Show(strResult);
@@ -394,10 +397,299 @@ namespace GlareSysDataCenter
 
             string strParmaInfo = JsonStrObjConver.Obj2JsonStr(obj, typeof(RequestModelString));
 
-            GlareLedServices.GLSysMgrSoapClient cl = new GlareLedServices.GLSysMgrSoapClient();
+            GlareLedServices2.GLSysMgrSoapClient cl = new GlareLedServices2.GLSysMgrSoapClient();
 
             string strResult = cl.CommDevLogin(strParmaInfo);
             MessageBox.Show(strResult);
+        }
+
+        private void buttonMdyCfg_Click(object sender, EventArgs e)
+        {
+
+            //1  			//双面显示（单面为0x00）
+            //3  			//一面三个牌
+            //5  			//每个牌5个8（包含小8）
+            //0  			//是否显示9/10
+            //8  			//亮度等级
+
+            CmdLogs cmd = new CmdLogs()
+            {
+                CardInfoId = 1,
+                CmdInfo = "1-3-5-0-8",
+                CmdType = GlareLedSysDefPub.CmdDefSetOilCfg,
+                CommDevId = 1,
+                CreateTime = DateTime.Now,
+                Id = 0,
+                IsDetele = 0,
+                Result = 0,
+                ResultInfo = "",
+                UpdateTime = DateTime.Now
+            };
+            string strError = "";
+            CmdLogsBll.AddCommDevInfo(ref cmd, out strError);
+
+            bool bSend = InsertCmdToMemcached(cmd.Id);
+            PiPublic.Log.LogMgr.WriteDebugDefSys("Insert To db，memdb id is:" + cmd.Id + " result is:" + bSend);
+            bool bRecived = false;
+            if (bSend)
+            {
+                for (int i = 1; i < 20; i++)
+                {
+                    Thread.Sleep(1000);
+                    if (RemoveCmdHandledInMemcached(cmd.Id))
+                    {
+                        bRecived = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+
+
+        private bool InsertCmdToMemcached(int id)
+        {
+            string strIds = PiPublic.MemcachedMgr.GetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyNewCmd);
+            if (strIds.Length == 0)
+            {
+                if(PiPublic.MemcachedMgr.SetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyNewCmd, id.ToString()))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+
+            strIds += id.ToString();
+            if (strIds.Length > 0)
+            {
+                strIds += ",";
+            }
+
+            return PiPublic.MemcachedMgr.SetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyNewCmd, strIds);
+        }
+
+        private bool RemoveCmdHandledInMemcached(int id)
+        {
+            bool bFind = false;
+
+            // 从处理结果中找是有该ID，有就把新命令到队列把id删除
+            string strIds = PiPublic.MemcachedMgr.GetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyCmdResult);
+            if (strIds.Length == 0)
+            {
+                return false;
+            }
+
+
+            string[] arrIds = strIds.Split(new char[] { '-', ',' });
+            string strNewIds = "";
+            foreach (var str in arrIds)
+            {
+                if (str == id.ToString())
+                {
+                    bFind = true;
+                    continue;
+                }
+
+                strNewIds += str;
+                if (strNewIds.Length > 0)
+                {
+                    strNewIds += ",";
+                }
+            }
+            PiPublic.MemcachedMgr.SetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyNewCmd, strNewIds);
+            return bFind;
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+
+            CmdLogs cmd = new CmdLogs()
+            {
+                CardInfoId = 1,
+                CmdInfo = "11111-22222-33333-44444-55555-66666-77777",
+                CmdType = GlareLedSysDefPub.CmdDefSetOilValue,
+                CommDevId = 1,
+                CreateTime = DateTime.Now,
+                Id = 0,
+                IsDetele = 0,
+                Result = 0,
+                ResultInfo = "",
+                UpdateTime = DateTime.Now
+            };
+            string strError = "";
+            CmdLogsBll.AddCommDevInfo(ref cmd, out strError);
+
+            bool bSend = InsertCmdToMemcached(cmd.Id);
+            bool bRecived = false;
+            if (bSend)
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    Thread.Sleep(1000);
+                    if (RemoveCmdHandledInMemcached(cmd.Id))
+                    {
+                        bRecived = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        // 读取配置
+        private void button25_Click(object sender, EventArgs e)
+        {
+            CmdLogs cmd = new CmdLogs()
+            {
+                CardInfoId = 1,
+                CmdInfo = "",
+                CmdType = GlareLedSysDefPub.CmdDefGetOilCfg,
+                CommDevId = 1,
+                CreateTime = DateTime.Now,
+                Id = 0,
+                IsDetele = 0,
+                Result = 0,
+                ResultInfo = "",
+                UpdateTime = DateTime.Now
+            };
+            string strError = "";
+            CmdLogsBll.AddCommDevInfo(ref cmd, out strError);
+
+            bool bSend = InsertCmdToMemcached(cmd.Id);
+            bool bRecived = false;
+            if (bSend)
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    Thread.Sleep(1000);
+                    if (RemoveCmdHandledInMemcached(cmd.Id))
+                    {
+                        MessageBox.Show("处理成功，查询数据库获取结果");
+                        bRecived = true;
+                        break;
+                    }
+                }
+            }
+
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            // 读取价格
+            CmdLogs cmd = new CmdLogs()
+            {
+                CardInfoId = 1,
+                CmdInfo = "",
+                CmdType = GlareLedSysDefPub.CmdDefGetOilValue,
+                CommDevId = 1,
+                CreateTime = DateTime.Now,
+                Id = 0,
+                IsDetele = 0,
+                Result = 0,
+                ResultInfo = "",
+                UpdateTime = DateTime.Now
+            };
+            string strError = "";
+            CmdLogsBll.AddCommDevInfo(ref cmd, out strError);
+
+            bool bSend = InsertCmdToMemcached(cmd.Id);
+            bool bRecived = false;
+            if (bSend)
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    Thread.Sleep(1000);
+                    if (RemoveCmdHandledInMemcached(cmd.Id))
+                    {
+                        MessageBox.Show("处理成功，查询数据库获取结果");
+                        bRecived = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            // 设置小数点位数
+            CmdLogs cmd = new CmdLogs()
+            {
+                CardInfoId = 1,
+                CmdInfo = "1-1-1-1-1-1-1",
+                CmdType = GlareLedSysDefPub.CmdDefSetOilDigiCfg,
+                CommDevId = 1,
+                CreateTime = DateTime.Now,
+                Id = 0,
+                IsDetele = 0,
+                Result = 0,
+                ResultInfo = "",
+                UpdateTime = DateTime.Now
+            };
+            string strError = "";
+            CmdLogsBll.AddCommDevInfo(ref cmd, out strError);
+
+            bool bSend = InsertCmdToMemcached(cmd.Id);
+            bool bRecived = false;
+            if (bSend)
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    Thread.Sleep(1000);
+                    if (RemoveCmdHandledInMemcached(cmd.Id))
+                    {
+                        bRecived = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            // 读取小数点位数
+            CmdLogs cmd = new CmdLogs()
+            {
+                CardInfoId = 1,
+                CmdInfo = "",
+                CmdType = GlareLedSysDefPub.CmdDefGetOilDigiCfg,
+                CommDevId = 1,
+                CreateTime = DateTime.Now,
+                Id = 0,
+                IsDetele = 0,
+                Result = 0,
+                ResultInfo = "",
+                UpdateTime = DateTime.Now
+            };
+            string strError = "";
+            CmdLogsBll.AddCommDevInfo(ref cmd, out strError);
+
+            bool bSend = InsertCmdToMemcached(cmd.Id);
+            bool bRecived = false;
+            if (bSend)
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    Thread.Sleep(1000);
+                    if (RemoveCmdHandledInMemcached(cmd.Id))
+                    {
+                        MessageBox.Show("处理成功，查询数据库获取结果");
+                        bRecived = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            //"CardStatus1"
+            string strStatus = PiPublic.MemcachedMgr.GetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyCardStatus + "1");
+            MessageBox.Show(strStatus);
+            strStatus = PiPublic.MemcachedMgr.GetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyCardStatus + "2");
+            MessageBox.Show(strStatus);
         }
     }
 }

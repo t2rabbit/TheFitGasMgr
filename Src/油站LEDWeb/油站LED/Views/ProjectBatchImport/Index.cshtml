@@ -1,0 +1,194 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Scripts.Render("~/bundles/easyui")
+    @Styles.Render("~/Content/easyui")
+    <style type="text/css">
+        .line {
+            height: auto;
+            width: 100%;
+            float: left;
+            margin-bottom: 5px;
+        }
+
+        .lineText {
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            float: left;
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+
+        fieldset {
+            float: left;
+            width: auto;
+            padding: 5px 5px 10px 5px;
+            margin: 0 5px 0 5px;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            border-radius: 5px;
+            border: 1px solid #d0e5f6;
+            padding-left: 15px;
+            font-weight: bold;
+            font-family: "微软雅黑";
+        }
+
+        .legen {
+            border: 1px solid #d0e5f6;
+            color: #d0e5f6;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .btn {
+            width: 70px;
+            height: 23px;
+            border: none;
+            color: white;
+            background-color: #a1d5fc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #fm {
+            margin: 0;
+            padding: 10px 30px;
+            font-family: 微软雅黑;
+            font-size: 14px;
+        }
+
+        .ftitle {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .fitem {
+            margin-bottom: 5px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0;
+        }
+
+            .fitem label {
+                display: inline-block;
+                width: 100px;
+                font-weight: bold;
+                font-family: '微软雅黑';
+            }
+    </style>
+</head>
+<body class="easyui-layout">
+    <div>
+        <div class="line" style="margin:50px;">
+            <form id="uploadForm" style="float:left;">
+                <input id="file" name="file" type="text" style="width:300px;float:left;">
+            </form>
+
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-ok" onclick="fSaveBathData()" style=" float:left; margin-left:50px;">
+                Upload File
+            </a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#file').filebox({
+                buttonText: 'Chooese file',
+                accept: 'application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            });
+        });
+        //SaveBatch 题库
+        function fSaveBathData() {
+            var vFile = $("#file").filebox("getValue");
+            if (vFile == "" || vFile == null) {
+                $.messager.alert("Tips", "请Chooese file。");
+                return;
+            }
+            $.messager.progress({
+                title: SystemTitle,
+                msg: "importing,please wait。",
+                text: "wait for a minute。"
+            });
+            var formData = new FormData($("#uploadForm")[0]);
+            $.ajax({
+                url: 'ProjectBatchImport/UploadFile',
+                type: 'POST',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+                success: function (data) {
+                    if (data != null) {
+                        if (data.Status) {
+                            fInserToDB(data.Obj)
+                        }
+                        else {
+                            $.messager.alert(SystemTitle, data.Msg, 'warning');
+                        }
+                    }
+                    else {
+                        $.messager.alert(SystemTitle, 'Faile,please try again', 'error');
+                    }
+                },
+                error: function (data) {
+                    $.messager.show({
+                        title: 'Error',
+                        msg: data.Msg ? data.Msg : 'Faile,please try again！'
+                    });
+                    $.messager.progress('close');//记得Close
+                }
+            });
+        };
+        //开始导入
+        function fInserToDB(filepath) {
+            $.ajax({
+                type: "post",
+                url: 'ProjectBatchImport/BathImport',
+                data: {
+                    path: filepath
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $.messager.progress('close');//记得Close
+                    if (data != null) {
+                        if (data.Status) {
+                            $('#tt').datagrid('reload'); // reload the user data
+                            $.messager.alert(SystemTitle, data.Msg, 'info');
+                            $('#dlgBathImport').dialog('close')
+                        }
+                        else {
+                            $.messager.alert(SystemTitle, data.Msg, 'warning');
+                        }
+                    }
+                    else {
+                        $.messager.alert(SystemTitle, 'Faile,please try again', 'error');
+                    }
+                },
+                error: function (data) {
+                    //alert(vData);
+                    $.messager.show({
+                        title: 'Error',
+                        msg: data.Msg ? data.Msg : 'Faile,please try again！'
+                    });
+                    $.messager.progress('close');//记得Close
+                }
+            });
+        };
+    </script>
+</body>
+</html>

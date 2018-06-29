@@ -321,13 +321,12 @@ namespace GlareSysDataCenter.CommRW
             if (pBufRec != null)
             {
                 String strRec = BitConverter.ToString(pBufRec);
-                //string strInfo = "gprs info " + strGprsInfo;
                 LogMgr.WriteInfoDefSys(strRec);
             }
             byte bCmdType = GlareLedSysDefPub.GasCardDef.BT_CmdGetID;
             if (pBufRec == null || pBufRec.Length != GlareLedSysDefPub.GasCardDef.BT_RecBytesLenSetID)
             {
-                LogMgr.WriteInfoDefSys("想要的长度不对");
+                LogMgr.WriteInfoDefSys("AnalyeseRecSetID");
                 return false;
             }
 
@@ -496,16 +495,12 @@ namespace GlareSysDataCenter.CommRW
         static public bool AnalyeseRecSetOilVal(byte[] pBufRec, int iAddr)
         {
             byte bCmdType = GlareLedSysDefPub.GasCardDef.BT_CmdSetGasVal;
-            int iRecWantLen = GlareLedSysDefPub.GasCardDef.BT_RecBytesLenSetGasVal;
-            if (pBufRec == null)
-            {
-                LogMgr.WriteInfoDefSys("想要的长度不对");
-                return false;
-            } 
+            int iRecWantLen = GlareLedSysDefPub.GasCardDef.BT_RecBytesLenSetGasVal;            
             if (pBufRec.Length != iRecWantLen)
             {
                 String strRec = BitConverter.ToString(pBufRec);
-                LogMgr.WriteInfoDefSys(strRec);
+                LogMgr.WriteInfoDefSys("AnalyeseRecSetOilVal RecData Len error:" + strRec);
+                return false;
             }
             
             if (pBufRec[0] != GlareLedSysDefPub.GasCardDef.BT_CmdStart
@@ -513,13 +508,14 @@ namespace GlareSysDataCenter.CommRW
             && pBufRec[GlareLedSysDefPub.GasCardDef.CmdOffsetOfTypeSection] != bCmdType
             && pBufRec[pBufRec.Length - 1] != GlareLedSysDefPub.GasCardDef.BT_CmdEnd)
             {
-                LogMgr.WriteInfoDefSys("命令码不对");
+                String strRec = BitConverter.ToString(pBufRec);
+                LogMgr.WriteInfoDefSys("AnalyeseRecSetOilVal CodeError" + strRec);
                 return false;
             }
 
             if (!IsCheckSumCorrect(pBufRec,  pBufRec[pBufRec.Length - 2]))
             {
-                LogMgr.WriteInfoDefSys("校验错了");
+                LogMgr.WriteInfoDefSys("AnalyeseRecSetOilVal Cyc error" + BitConverter.ToString(pBufRec));
                 return false;
             }
 
@@ -539,16 +535,11 @@ namespace GlareSysDataCenter.CommRW
             {
                 byte bCmdType = GlareLedSysDefPub.GasCardDef.BT_CmdGetGasVal;
                 int iRecWantLen = GlareLedSysDefPub.GasCardDef.BT_RecBytesLenGetGasVal;
-                if (pBufRec == null)
-                {
-                    LogMgr.WriteInfoDefSys("想要的长度不对get oil val:");
-                    return false;
-                }
 
                 if (pBufRec.Length != iRecWantLen)
                 {
                     string str = BitConverter.ToString(pBufRec);
-                    LogMgr.WriteInfoDefSys("想要的长度不对get oil val:" + str);
+                    LogMgr.WriteInfoDefSys("AnalyeseRecGetOilVal Length error:" + str);
                     return false;
                 }
 
@@ -557,13 +548,13 @@ namespace GlareSysDataCenter.CommRW
                 && pBufRec[GlareLedSysDefPub.GasCardDef.CmdOffsetOfTypeSection] != bCmdType
                 && pBufRec[pBufRec.Length - 1] != GlareLedSysDefPub.GasCardDef.BT_CmdEnd)
                 {
-                    LogMgr.WriteInfoDefSys("命令码不对");
+                    LogMgr.WriteInfoDefSys("AnalyeseRecGetOilVal Code Error");
                     return false;
                 }
 
                 if (!IsCheckSumCorrect(pBufRec, pBufRec[pBufRec.Length - 2]))
                 {
-                    LogMgr.WriteInfoDefSys("校验错了");
+                    LogMgr.WriteInfoDefSys("Crc Error");
                     return false;
                 }
 
@@ -572,12 +563,6 @@ namespace GlareSysDataCenter.CommRW
                 while (lstOilVals.Count < GlareLedSysDefPub.GasCardDef.MaxScreen)
                 {
                     GlareLedSysDefPub.CardGasValEachNumAByte aItem = new GlareLedSysDefPub.CardGasValEachNumAByte();
-                    //                 aItem.lstArr.Add(0);
-                    //                 aItem.lstArr.Add(0);
-                    //                 aItem.lstArr.Add(0);
-                    //                 aItem.lstArr.Add(0);
-                    //                 aItem.lstArr.Add(0);
-                    //                 aItem.lstArr.Add(0);
                     lstOilVals.Add(aItem);
                 }
 
@@ -601,7 +586,6 @@ namespace GlareSysDataCenter.CommRW
                     lstOilVals[i].lstArr.Add(bArrScreenVal[3]);
                     lstOilVals[i].lstArr.Add(bArrScreenVal[4]);
                     lstOilVals[i].lstArr.Add(bArrScreenVal[5]);
-
                 }
 
                 return true;
@@ -628,16 +612,11 @@ namespace GlareSysDataCenter.CommRW
         {
             byte bCmdType = GlareLedSysDefPub.GasCardDef.BT_CmdGetGasVal;
             int iRecWantLen = GlareLedSysDefPub.GasCardDef.BT_RecBytesLenGetGasVal;
-            if (pBufRec == null)
-            {
-                LogMgr.WriteInfoDefSys("想要的长度不对get oil val:");
-                return false;
-            }
 
             if (pBufRec.Length != iRecWantLen)
             {
                 string str = BitConverter.ToString(pBufRec);
-                LogMgr.WriteInfoDefSys("想要的长度不对get oil val:" + str);
+                LogMgr.WriteInfoDefSys("AnalyeseRecGetOilValString  Rec Length Error:" + str);
                 return false;
             }
 
@@ -646,13 +625,13 @@ namespace GlareSysDataCenter.CommRW
             && pBufRec[GlareLedSysDefPub.GasCardDef.CmdOffsetOfTypeSection] != bCmdType
             && pBufRec[pBufRec.Length - 1] != GlareLedSysDefPub.GasCardDef.BT_CmdEnd)
             {
-                LogMgr.WriteInfoDefSys("命令码不对");
+                LogMgr.WriteInfoDefSys("AnalyeseRecGetOilValString Code Error");
                 return false;
             }
 
             if (!IsCheckSumCorrect(pBufRec, pBufRec[pBufRec.Length - 2]))
             {
-                LogMgr.WriteInfoDefSys("校验错了");
+                LogMgr.WriteInfoDefSys("Cyc Error");
                 return false;
             }
 
@@ -698,16 +677,11 @@ namespace GlareSysDataCenter.CommRW
         {
             byte bCmdType = GlareLedSysDefPub.GasCardDef.BT_CmdSetPoint;
             int iRecWantLen = GlareLedSysDefPub.GasCardDef.BT_RecBytesLenSetPoint;
-            if (pBufRec == null)
-            {
-                LogMgr.WriteInfoDefSys("想要的长度不对get oil val:");
-                return false;
-            }
-
+            
             if (pBufRec.Length != iRecWantLen)
             {
                 string str = BitConverter.ToString(pBufRec);
-                LogMgr.WriteInfoDefSys("想要的长度不对get oil val:" + str);
+                LogMgr.WriteInfoDefSys("AnalyeseRecSetDecemil Rec Error:" + str);
                 return false;
             }
 
@@ -716,13 +690,13 @@ namespace GlareSysDataCenter.CommRW
             && pBufRec[GlareLedSysDefPub.GasCardDef.CmdOffsetOfTypeSection] != bCmdType
             && pBufRec[pBufRec.Length - 1] != GlareLedSysDefPub.GasCardDef.BT_CmdEnd)
             {
-                LogMgr.WriteInfoDefSys("命令码不对");
+                LogMgr.WriteInfoDefSys("AnalyeseRecSetDecemil Cmd Code Error");
                 return false;
             }
 
             if (!IsCheckSumCorrect(pBufRec,  pBufRec[pBufRec.Length - 2]))
             {
-                LogMgr.WriteInfoDefSys("校验错了");
+                LogMgr.WriteInfoDefSys("Crc Error");
                 return false;
             }
 
@@ -740,16 +714,11 @@ namespace GlareSysDataCenter.CommRW
         {
             byte bCmdType = GlareLedSysDefPub.GasCardDef.BT_CmdGetPoint;
             int iRecWantLen = GlareLedSysDefPub.GasCardDef.BT_RecBytesLenGetPoint;
-            if (pBufRec == null)
-            {
-                LogMgr.WriteInfoDefSys("想要的长度不对get oil val:");
-                return false;
-            }
-
+            
             if (pBufRec.Length != iRecWantLen)
             {
                 string str = BitConverter.ToString(pBufRec);
-                LogMgr.WriteInfoDefSys("想要的长度不对get oil val:" + str);
+                LogMgr.WriteInfoDefSys("AnalyeseRecGetDecmail  Length error:" + str);
                 return false;
             }
 
@@ -758,13 +727,13 @@ namespace GlareSysDataCenter.CommRW
             && pBufRec[GlareLedSysDefPub.GasCardDef.CmdOffsetOfTypeSection] != bCmdType
             && pBufRec[pBufRec.Length - 1] != GlareLedSysDefPub.GasCardDef.BT_CmdEnd)
             {
-                LogMgr.WriteInfoDefSys("命令码不对");
+                LogMgr.WriteInfoDefSys("AnalyeseRecGetDecmail cmd code error");
                 return false;
             }
 
             if (!IsCheckSumCorrect(pBufRec,  pBufRec[pBufRec.Length - 2]))
             {
-                LogMgr.WriteInfoDefSys("校验错了");
+                LogMgr.WriteInfoDefSys("AnalyeseRecGetDecmail crc error");
                 return false;
             }
 
@@ -797,14 +766,14 @@ namespace GlareSysDataCenter.CommRW
             int iRecWantLen = GlareLedSysDefPub.GasCardDef.BT_RecBytesLenGetPoint;
             if (pBufRec == null)
             {
-                LogMgr.WriteInfoDefSys("想要的长度不对get oil val:");
+                LogMgr.WriteInfoDefSys("AnalyeseRecGetDecmailString rec null");
                 return false;
             }
 
             if (pBufRec.Length != iRecWantLen)
             {
                 string str = BitConverter.ToString(pBufRec);
-                LogMgr.WriteInfoDefSys("想要的长度不对get oil val:" + str);
+                LogMgr.WriteInfoDefSys("AnalyeseRecGetDecmailString  rec len error:" + str);
                 return false;
             }
 
@@ -813,13 +782,13 @@ namespace GlareSysDataCenter.CommRW
             && pBufRec[GlareLedSysDefPub.GasCardDef.CmdOffsetOfTypeSection] != bCmdType
             && pBufRec[pBufRec.Length - 1] != GlareLedSysDefPub.GasCardDef.BT_CmdEnd)
             {
-                LogMgr.WriteInfoDefSys("命令码不对");
+                LogMgr.WriteInfoDefSys("AnalyeseRecGetDecmailString code error");
                 return false;
             }
 
             if (!IsCheckSumCorrect(pBufRec, pBufRec[pBufRec.Length - 2]))
             {
-                LogMgr.WriteInfoDefSys("校验错了");
+                LogMgr.WriteInfoDefSys("AnalyeseRecGetDecmailString crc error");
                 return false;
             }
 
@@ -838,12 +807,6 @@ namespace GlareSysDataCenter.CommRW
             return true;
         }
 #endregion
-
-
-
-
-
-
 
 
 #region 其他辅助函数段

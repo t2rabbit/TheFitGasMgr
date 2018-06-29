@@ -3,11 +3,11 @@ var vUrl = "https://www.lmx.ren/kankan";
 //var vUrl="http://192.168.31.175:807";
 //var vUrl = "http://192.168.2.241:829";
 
-var SystemTitle = '油站LED综合管理系统';
+var SystemTitle = 'Oil station LED management system';
 var isWeChat = true;
-var VIntervelTime = 6000; //定时刷新时间,组织:毫秒
+var VIntervelTime = 6000; //定时refresh时间,组织:毫秒
 var VPageIndex = 1; //页面
-var VPageSize = 20; //页面列表个数
+var VPageSize = 20; //页面List个数
 // 对Date的扩展，将 Date 转化为指定格式的String
 // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
 // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
@@ -30,7 +30,7 @@ var VPageSize = 20; //页面列表个数
 //	return fmt;
 //};
 
-//获取Url的参数
+// GetUrl的参数
 function getQueryString(name) {
 	if(fBrowserIsWeChat()) {
 		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -56,7 +56,7 @@ function getQueryString(name) {
 		return vValue;
 	}
 };
-//获取参数方法
+// Get参数方法
 function getChineseQueryString(name) {
 	if(fBrowserIsWeChat()) {
 		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -108,7 +108,7 @@ function fCheckIsNull(value) {
 	}
 	return vResult;
 };
-//获取浏览器信息
+// Get浏览器Information
 function fGetAgentInfo() {
 	var agent = navigator.userAgent.toLowerCase();
 	return agent;
@@ -128,7 +128,7 @@ function fBrowserIsWeChat() {
 	}
 	return bResult;
 };
-//以标签的name来获取Radio的Check的值
+//以标签的name来 GetRadio的Check的值
 function fGetRadioBoxValue(radioName) {
 	var obj = document.getElementsByName(radioName); //这个是以标签的name来取控件
 	for(i = 0; i < obj.length; i++) {
@@ -137,7 +137,7 @@ function fGetRadioBoxValue(radioName) {
 		}
 	}
 };
-//关闭除了入口页以及当前页以外的其他WebView
+//Close除了入口页以及当前页以外的其他WebView
 function fCloseOtherWebView() {
 	if(fBrowserIsWeChat() == false) {
 		//当前窗口
@@ -226,7 +226,7 @@ function GetSign(param) {
 	var queryString = queryArray.join("&");
 	return queryString
 }
-//打印信息输出
+//打印Information输出
 function WriteLog(type, msg) {
 	console.log("type：" + type + "；msg：" + msg + "；time：" + new Date());
 }

@@ -35,23 +35,23 @@ namespace GlareSysDataCenter
                 {
                     if (checkBoxAll.Checked)
                     {
-                        listBox1.Items.Add(log.LogSubSys + ":" +log.LogMsg);
+                        listBox1.Items.Add(DateTime.Now.ToString() + "-" + log.LogSubSys + ":" +log.LogMsg);
                     }
                     else if (log.LogType == LogType.LogTypeError && checkBoxError.Checked)
                     {
-                        listBox1.Items.Add(log.LogSubSys + ":" + log.LogMsg);
+                        listBox1.Items.Add(DateTime.Now.ToString() + "-" + log.LogSubSys + ":" + log.LogMsg);
                     }
                     else if (log.LogType == LogType.LogTypeWarring && checkBoxWarring.Checked)
                     {
-                        listBox1.Items.Add(log.LogSubSys + ":" + log.LogMsg);
+                        listBox1.Items.Add(DateTime.Now.ToString() + "-" + log.LogSubSys + ":" + log.LogMsg);
                     }
                     else if (log.LogType == LogType.LogTypeDebug && checkBoxDebug.Checked)
                     {
-                        listBox1.Items.Add(log.LogSubSys + ":" + log.LogMsg);
+                        listBox1.Items.Add(DateTime.Now.ToString() + "-" + log.LogSubSys + ":" + log.LogMsg);
                     }
                     else if (log.LogType == LogType.LogTypeInfo && checkBoxInfo.Checked)
                     {
-                        listBox1.Items.Add(log.LogSubSys + ":" + log.LogMsg);
+                        listBox1.Items.Add(DateTime.Now.ToString() +"-" +log.LogSubSys + ":" + log.LogMsg);
                     }
                     else
                     {

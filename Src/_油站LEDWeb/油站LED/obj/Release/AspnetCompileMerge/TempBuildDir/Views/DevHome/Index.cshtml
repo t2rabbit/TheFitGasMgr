@@ -1,0 +1,407 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "欢迎使用油站LED综合管理系统";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/easyui")
+    @Styles.Render("~/Content/easyui")
+    <style type="text/css">
+        /*  表格的样式*/
+        .tab {
+            border-collapse: collapse;
+            padding-top: 10px;
+            padding-left: 0px;
+            padding-right: 0px;
+            margin: 0px;
+            border: 1px solid #BDBCBC;
+            width: 100%;
+        }
+
+        .tr {
+            border-collapse: collapse;
+            height: 30px;
+            width: 100%;
+        }
+
+        .td {
+            background-color: #fff;
+            font-size: 14px;
+            font-family: "微软雅黑";
+            text-align: left;
+            border-right: none;
+            border-bottom: none;
+            width: 140px;
+        }
+
+        .line {
+            width: 100%;
+            height: auto;
+            float: left;
+            padding: 5px;
+        }
+
+        .ip {
+            border: 1px solid #808080;
+        }
+
+        .l-btn-text {
+            font-size: 14px;
+        }
+
+        .LED {
+            font-family: LcdD;
+            font-size: 60px;
+            font-weight: bold;
+            background-color: black;
+            color: red;
+        }
+
+        .tdScreen {
+            font-size: 20px;
+            border: 1px solid #BDBCBC;
+        }
+
+        .trScreen {
+            height: 70px;
+        }
+    </style>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',border:false" style="height: 100px; background: #B3DFDA; background: url(/img/BannerNone.png);">
+        <div id="idForLogo" style="height: 100px; margin-left: 70px; line-height: 100px; float: left; padding: 0;">
+
+        </div>
+        <div id="idForTitle" style="height: 100px; margin-left: 200px; line-height: 100px; float: left;">
+            <label class="TitleText" style="font-size: 42px; color: #ffffff;">
+                @ViewBag.Title
+            </label>
+        </div>
+        <div id="idForVoice">
+            <input type="hidden" name="audioBtn" id="audioBtn" value="1" />
+        </div>
+        <div id="NowTime" style="float: right;">
+            <label id="lbForTime" style="font-size: 12px;">
+            </label>
+            <div id="forUser" style="height: 100px; line-height: 100px; font-size: 16px; color:white;">
+                <form id="form111">
+                    欢迎您，【@ViewBag.Name】
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'south',border:false" style="height: 50px; background: #635c4e; padding: 10px;">
+        <div id="CopyRight" style="text-align: center;">
+            Copyright © 2018    led.lmx.ren
+        </div>
+    </div>
+    <div data-options="region:'center',title:''">
+        <div class="line">
+            <form id="DataForm">
+                <table class="tab">
+                    <tr class="tr">
+                        <td class="td">Name:</td>
+                        <td class="td"><input class="ip" name="Name" id="Name" type="text" /><input name="id" id="id" type="hidden" /></td>
+                        <td class="td">CommServerSn:</td>
+                        <td class="td"><input class="ip" name="CommServerSn" id="CommServerSn" type="text" /></td>
+                        <td class="td">CardModel:</td>
+                        <td class="td"><input class="ip" name="CardModel" id="CardModel" type="text" /></td>
+                    </tr>
+                    <tr class="tr">
+                        <td class="td">CardPointCount:</td>
+                        <td class="td"><input class="ip" name="CardPointCount" id="CardPointCount" type="text" /></td>
+                        <td class="td">CardIsDouble:</td>
+                        <td class="td"><input class="ip" name="CardIsDouble" id="CardIsDouble" type="text" /></td>
+                        <td class="td">CardScreenCount:</td>
+                        <td class="td"><input class="ip" name="CardScreenCount" id="CardScreenCount" type="text" /></td>
+                    </tr>
+                    <tr class="tr">
+                        <td class="td">CardContext:</td>
+                        <td class="td"><input class="ip" name="CardContext" id="CardContext" type="text" /></td>
+                        <td class="td">CardStatus:</td>
+                        <td class="td"><label id="lbForStatus">OnLine</label></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="line" style="padding:5px;">
+            <a id="btnRead" href="#" class="easyui-linkbutton">Read</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a id="btnLoadDB" href="#" class="easyui-linkbutton">Load DB</a>  &nbsp;&nbsp;&nbsp;&nbsp;
+            <a id="btnPreview" href="#" class="easyui-linkbutton">Preview</a>  &nbsp;&nbsp;&nbsp;&nbsp;
+            <a id="btnSend" href="#" class="easyui-linkbutton">SendOilValue</a>  &nbsp;&nbsp;&nbsp;&nbsp;
+            <a id="btnSetcfg" href="#" class="easyui-linkbutton">Setcfg</a>  &nbsp;&nbsp;&nbsp;&nbsp;
+            <a id="btnSave" href="#" class="easyui-linkbutton">Save</a>
+
+        </div>
+        <div class="line">
+            <form id="formForScreen">
+                <table id="tbForScreen" class="tab">
+                    <tr class="trScreen">
+                        <td class="tdScreen">Screen</td>
+                        <td class="tdScreen">Preview</td>
+                    </tr>
+                    <tr class="trScreen" id="tr">
+                        <td class="tdScreen">Screen1</td>
+                        <td class="tdScreen"><input type="text" class="LED" value="5.834" /></td>
+                    </tr>
+                    <tr class="trScreen" id="tr2" style="display:none">
+                        <td class="tdScreen">Screen2</td>
+                        <td class="tdScreen"><input type="text" class="LED" value="5.834" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            var GasCardId = '' +@ViewBag.DevID + '';
+            $("#id").val(GasCardId);
+            fGetGasCardInfoById(GasCardId);
+            $("#btnRead").click(function () {
+                fGetGasCardInfoById(GasCardId);
+            });
+            $("#btnLoadDB").click(function () {
+                fGetGasCardInfoById(GasCardId);
+            });
+            $("#btnSend").click(function () {
+                fSend(GasCardId);
+            });
+            $("#btnSetcfg").click(function () {
+                fSetcfg(GasCardId);
+            });
+            $("#btnSave").click(function () {
+                fSave(GasCardId);
+            });
+
+        });
+
+        //保存当前配置
+        function fSave(id) {
+            $.messager.progress({
+                title: "",
+                msg: "正在保存,请稍后..."
+            });
+            var vData = $("#DataForm").serialize();
+            $.ajax({
+                type: 'post',
+                url: 'Dev/Save',
+                data: vData,
+                dataType: 'json',
+                success: function (data) {
+                    $.messager.progress('close');//记得关闭
+                    if (data != null) {
+                        if (data.Status) {
+                            $.messager.alert('提示', data.Msg);
+                        }
+                    }
+                    else {
+                        $.messager.alert('警告', data.Msg);
+                    }
+                },
+                error: function (data) {
+                    $.messager.progress('close');//记得关闭
+                    $.messager.alert('警告', "出错,请重新保存");
+                }
+            })
+        }
+
+        //设置配置
+        function fSetcfg(id) {
+            $.messager.progress({
+                title: "",
+                msg: "正在下发命令,请稍后..."
+            });
+            var vIsDouble = $("#CardIsDouble").val();
+            var vScreenCount = $("#CardScreenCount").val();
+            var vCardModel = $("#CardModel").val();
+            var vCardPointCount = $("#CardPointCount").val();
+            $.ajax({
+                type: 'post',
+                url: 'Dev/Setcfg',
+                data: {
+                    id: id,
+                    IsDouble: vIsDouble,
+                    ScreenCount: vScreenCount,
+                    CardModel: vCardModel,
+                    CardPointCount: vCardPointCount
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $.messager.progress('close');//记得关闭
+                    if (data != null) {
+                        if (data.Status) {
+                            $.messager.alert('提示', data.Msg);
+                        }
+                    }
+                    else {
+                        $.messager.alert('警告', data.Msg);
+                    }
+                },
+                error: function (data) {
+                    $.messager.progress('close');//记得关闭
+                    $.messager.alert('警告', "出错,请重新发送命令");
+                }
+            })
+        }
+
+        //发送命令
+        function fSend(id) {
+            $.messager.progress({
+                title: "",
+                msg: "正在下发命令,请稍后..."
+            });
+            var vValues = '';
+
+            $(".LED").each(function () {
+                //alert($(this).val())
+                vValues = vValues + $(this).val().replace('.', '') + '-';
+            });
+            vValues = vValues.substr(0, vValues.length - 1);
+            $.ajax({
+                type: 'post',
+                url: 'Dev/SendCMD',
+                data: {
+                    id: id,
+                    value: vValues
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $.messager.progress('close');//记得关闭
+                    if (data != null) {
+                        if (data.Status) {
+                            $.messager.alert('提示', data.Msg);
+                        }
+                    }
+                    else {
+                        $.messager.alert('警告', data.Msg);
+                    }
+                },
+                error: function (data) {
+                    $.messager.progress('close');//记得关闭
+                    $.messager.alert('警告', "出错,请重新发送命令");
+                }
+            })
+        };
+
+        //获取
+        function fGetGasCardInfoById(id) {
+            $.messager.progress({
+                title: "",
+                msg: "正在读取,请稍后..."
+            });
+            $.ajax({
+                type: 'post',
+                url: 'Dev/GetGasCardInfo',
+                data: {
+                    id: id
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $.messager.progress('close');//记得关闭
+                    if (data != null) {
+                        if (data.Status) {
+                            $("#Name").val(data.Obj.Name);
+                            $("#CommServerSn").val(data.Obj.CommServerSn);
+                            $("#CardModel").val(data.Obj.CardModel);
+                            $("#CardPointCount").val(data.Obj.CardPointCount);
+                            $("#CardIsDouble").val(data.Obj.CardIsDouble);
+                            $("#CardContext").val(data.Obj.CardContext);
+                            $("#CardScreenCount").val(data.Obj.CardScreenCount);
+
+                            var ScreenContext = data.Obj.CardContext.split('-');
+
+                            if (data.Obj.CardScreenCount != null & data.Obj.CardScreenCount > 0) {
+                                var vScreenHtml = "<tr class=\"trScreen\">"
+                                 + "<td class=\"tdScreen\">Screen</td>"
+                                 + "<td class=\"tdScreen\">Preview</td>"
+                                 + "</tr>";
+                                for (var i = 0; i < data.Obj.CardScreenCount; i++) {
+                                    vScreenHtml += "<tr class=\"trScreen\" id=\"tr\">"
+                                    + "<td class=\"tdScreen\">Screen" + (i + 1) + "</td>"
+                                    + "<td class=\"tdScreen\"><input type=\"text\" class=\"LED\" value=\"" + fGetScreenContext(ScreenContext[i], data.Obj.CardPointCount, data.Obj.CardModel) + "\" /></td>"
+                                    + "</tr>";
+                                }
+                                $("#tbForScreen").html(vScreenHtml);
+                                $(".LED").keyup(function () {
+                                    var vValue = $(this).val();
+                                    //alert(vValue);
+                                    vValue = vValue.replace('.', '');
+                                    var vInsertNum = $("#CardPointCount").val();
+                                    vInsertNum = parseInt(vInsertNum);
+                                    vValue = fLimitInput(vValue, data.Obj.CardModel);
+                                    var vPre = vValue.substr(0, vInsertNum);
+                                    var vAfter = vValue.substr(vInsertNum, vValue.length - vInsertNum);
+                                    var vNewValue = '';
+                                    if ( vAfter == undefined || vAfter == '') {
+                                        vNewValue = vPre;
+                                    }
+                                    else if (vPre == undefined || vPre == '') {
+                                        vNewValue = '';
+                                    }
+                                    else {
+                                        vNewValue = vPre + '.' + vAfter;
+                                    }                                    
+                                    //alert(vNewValue);
+                                    $(this).val(vNewValue);
+                                });
+                            }
+
+                            if (data.Obj.CardIsDouble == 1 || data.Obj.CardIsDouble == "1") {
+                                //$("#tr2").show();
+                            }
+                            else {
+                                //$("#tr2").hide();
+                            }
+                        }
+                    }
+                    else {
+                        $.messager.alert('警告', data.Msg);
+                    }
+                },
+                error: function (data) {
+                    $.messager.progress('close');//记得关闭
+                    $.messager.alert('警告', "出错,请重新请求数据");
+                }
+            })
+        };
+        //控制输入长度
+        function fLimitInput(value, model) {
+            var vLength = model.split('-')[1].length;
+            value = value.replace(".", "");
+            value = value.substr(0, vLength);
+            return value;
+        }
+
+        //获取实际显示的LED数字
+        function fGetScreenContext(value, point, model) {
+            point = parseInt(point);
+            var vContext = '';
+            if (model.indexOf('910') > -1) {
+                var vLength = model.split('-')[1].length;
+                value = value.substr(0, vLength);
+                vContext = value.substr(0, point) + '.' + value.substr(point, value.length - point) + ' 9/10';
+            }
+            else {
+                var vLength = model.split('-')[1].length;
+                value = value.substr(0, vLength);
+                vContext = value.substr(0, point) + '.' + value.substr(point, value.length - point);
+            }
+            return vContext;
+        }
+
+        //获取Url的参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        };
+
+    </script>
+</html>

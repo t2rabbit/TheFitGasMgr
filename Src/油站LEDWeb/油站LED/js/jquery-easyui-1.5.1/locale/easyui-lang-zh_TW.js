@@ -11,7 +11,7 @@ if ($.fn.treegrid && $.fn.datagrid){
 }
 if ($.messager){
 	$.messager.defaults.ok = '確定';
-	$.messager.defaults.cancel = '取消';
+	$.messager.defaults.cancel = 'Cancel';
 }
 $.map(['validatebox','textbox','passwordbox','filebox','searchbox',
 		'combo','combobox','combogrid','combotree',

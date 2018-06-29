@@ -47,5 +47,6 @@ namespace GlareSysEfDbAndModels
         public DbSet<RoadCardStatusLog> RoadCardStatusLog { get; set; }
         public DbSet<RoadTipCardInfo> RoadTipCardInfo { get; set; }
         public DbSet<SuperUser> SuperUser { get; set; }
+        public DbSet<CfgVersion> CfgVersion { get; set; }
     }
 }

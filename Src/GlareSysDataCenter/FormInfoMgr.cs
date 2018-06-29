@@ -1,5 +1,6 @@
 ﻿using GlareLedSysBll;
 using GlareSysDataCenter.FromAddMdys;
+using PiEms.PublicV2.CommonLibs.Public;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -396,6 +397,256 @@ namespace GlareSysDataCenter
             }
 
             MemCfgInfo.MemDbMgr.Get().Load();
+        }
+
+        private void buttonMdyOrg_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormInfoMgr_Load(object sender, EventArgs e)
+        {
+            buttonReloadOrg_Click(null, null);
+            buttonReloadGroup_Click(null, null);
+            buttonRoladProject_Click(null, null);
+            buttonRoladProject_Click(null, null);
+            buttonReloadGasCard_Click(null, null);
+
+            SetCombobox(comboBoxOrgInGroupMgr);
+            SetCombobox(comboBoxOrgInProjectMgr);
+            SetCombobox(comboBoxOrgInCardMgr);            
+        }
+
+        private void SetCombobox(ComboBox comboxOrg)
+        {
+            List<DisplayStringValueInt> lstCommValues = new List<DisplayStringValueInt>();
+            lstCommValues.Add(new DisplayStringValueInt()
+            {
+                DisplayValue = "--All--",
+                MemberValue = 0
+            });
+
+            foreach (var item in MemCfgInfo.MemDbMgr.Get().dicMemOrgWithAllInfo)
+            {
+                lstCommValues.Add(new DisplayStringValueInt()
+                {
+                    MemberValue = item.Value.Org.Id,
+                    DisplayValue = item.Value.Org.Name,
+                });
+            }
+
+            comboxOrg.DisplayMember = "DisplayValue";
+            comboxOrg.ValueMember = "MemberValue";
+            comboxOrg.DataSource = lstCommValues;
+        }
+
+        private void buttonFilterGroup_Click(object sender, EventArgs e)
+        {
+            int iSelectOrgId = 0;
+            
+            if (comboBoxOrgInGroupMgr.SelectedIndex > 0)
+            {
+                iSelectOrgId = (int)comboBoxOrgInGroupMgr.SelectedValue;
+            }
+            listViewGroup.Items.Clear();
+            int i = 1;
+            foreach (var item in MemCfgInfo.MemDbMgr.Get().dicMemGroupWithAllInfo)
+            {
+                if (iSelectOrgId == 0 || item.Value.GroupInfo.OrgId == iSelectOrgId)
+                {
+                    ListViewItem lvitem = listViewGroup.Items.Add(new ListViewItem(
+                      new string[]{item.Value.GroupInfo.Id.ToString(),
+                    item.Value.GroupInfo.GroupName,
+                    item.Value.RefOrg.Org.Name,
+                    item.Value.GroupInfo.ManageName,
+                    item.Value.GroupInfo.ManageTel }
+                      ));
+                    lvitem.Tag = item.Value;
+                }                
+            }
+
+        }
+
+        private void comboBoxOrgInProjectMgr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxOrgInProjectMgr.SelectedIndex <= 0) return;
+
+            int orgid = (int)comboBoxOrgInProjectMgr.SelectedValue;
+            List<DisplayStringValueInt> lstCommValues = new List<DisplayStringValueInt>();
+            MemCfgInfo.MemOrgInfo memorg = MemCfgInfo.MemDbMgr.Get().dicMemOrgWithAllInfo[orgid];
+
+            lstCommValues.Add(new DisplayStringValueInt()
+            {
+                MemberValue = 0,
+                DisplayValue = "--All--",
+            });
+            foreach (var item in memorg.DicGroupOfOrg)
+            {
+                lstCommValues.Add(new DisplayStringValueInt()
+                {
+                    MemberValue = item.Value.GroupInfo.Id,
+                    DisplayValue = item.Value.GroupInfo.GroupName,
+                });
+            }
+            comboBoxGroupInProject.DisplayMember = "DisplayValue";
+            comboBoxGroupInProject.ValueMember = "MemberValue";
+            comboBoxGroupInProject.DataSource = lstCommValues;
+        }
+
+        private void comboBoxOrgInCardMgr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxOrgInCardMgr.SelectedIndex <= 0) return;
+
+            int orgid = (int)comboBoxOrgInCardMgr.SelectedValue;
+            List<DisplayStringValueInt> lstCommValues = new List<DisplayStringValueInt>();
+            MemCfgInfo.MemOrgInfo memorg = MemCfgInfo.MemDbMgr.Get().dicMemOrgWithAllInfo[orgid];
+
+            lstCommValues.Add(new DisplayStringValueInt()
+            {
+                MemberValue = 0,
+                DisplayValue = "--All--",
+            });
+            foreach (var item in memorg.DicGroupOfOrg)
+            {
+                lstCommValues.Add(new DisplayStringValueInt()
+                {
+                    MemberValue = item.Value.GroupInfo.Id,
+                    DisplayValue = item.Value.GroupInfo.GroupName,
+                });
+            }
+            comboBoxGroupInCardMgr.DisplayMember = "DisplayValue";
+            comboBoxGroupInCardMgr.ValueMember = "MemberValue";
+            comboBoxGroupInCardMgr.DataSource = lstCommValues;
+
+            comboBoxProjectInCardMgr.SelectedIndex = -1;
+        }
+
+        private void comboBoxGroupInCardMgr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxGroupInCardMgr.SelectedIndex <= 0) return;
+
+            int groupId = (int)comboBoxGroupInCardMgr.SelectedValue;
+            List<DisplayStringValueInt> lstCommValues = new List<DisplayStringValueInt>();
+            MemCfgInfo.MemGroupInfo memGroup = MemCfgInfo.MemDbMgr.Get().dicMemGroupWithAllInfo[groupId];
+
+            lstCommValues.Add(new DisplayStringValueInt()
+            {
+                MemberValue = 0,
+                DisplayValue = "--All--",
+            });
+            foreach (var item in memGroup.DicProject)
+            {
+                lstCommValues.Add(new DisplayStringValueInt()
+                {
+                    MemberValue = item.Value.Project.Id,
+                    DisplayValue = item.Value.Project.ProjectName,
+                });
+            }
+            comboBoxProjectInCardMgr.DisplayMember = "DisplayValue";
+            comboBoxProjectInCardMgr.ValueMember = "MemberValue";
+            comboBoxProjectInCardMgr.DataSource = lstCommValues;
+        }
+
+        private void buttonFilterProject_Click(object sender, EventArgs e)
+        {
+            int iSelectOrgId = 0;
+            int iSelGroupId = 0;
+            if (comboBoxOrgInProjectMgr.SelectedIndex > 0)
+            {
+                iSelectOrgId = (int)comboBoxOrgInGroupMgr.SelectedValue;
+            }
+            if (comboBoxGroupInProject.SelectedIndex>0)
+            {
+                iSelGroupId = (int)comboBoxGroupInProject.SelectedValue;
+            }
+            listViewProject.Items.Clear();
+            foreach (var item in MemCfgInfo.MemDbMgr.Get().dicMemPrjWithAllInfo)
+            {
+                bool bInsert = false;
+                if (iSelGroupId > 0)
+                {
+                    bInsert = item.Value.Project.GroupId == iSelGroupId;
+
+                }
+                else if (iSelectOrgId > 0)
+                {
+                    bInsert = item.Value.Project.OrgId == iSelectOrgId;
+                }
+                else
+                {
+                    bInsert = true;
+                }
+                if (bInsert)
+                {
+                    ListViewItem lvt = listViewProject.Items.Add(new ListViewItem(new string[] {
+                    item.Value.Project.Id.ToString(),
+                    item.Value.Project.ProjectName,
+                     item.Value.RefToMemGroup.RefOrg.Org.Name,
+                     item.Value.RefToMemGroup.GroupInfo.GroupName,
+                     item.Value.Project.ManagerName,
+                     item.Value.Project.ManagerTel
+                    }));
+                    lvt.Tag = item.Value;
+                }                
+            }
+        }
+
+        private void buttonFilter_Click(object sender, EventArgs e)
+        {
+            int iSelectOrgId = 0;
+            int iSelGroupId = 0;
+            int iSelProjectId = 0;
+            if (comboBoxOrgInCardMgr.SelectedIndex > 0)
+            {
+                iSelectOrgId = (int)comboBoxOrgInCardMgr.SelectedValue;
+            }
+            if (comboBoxGroupInCardMgr.SelectedIndex > 0)
+            {
+                iSelGroupId = (int)comboBoxGroupInCardMgr.SelectedValue;
+            }
+            if (comboBoxProjectInCardMgr.SelectedIndex>0)
+            {
+                iSelProjectId = (int)comboBoxProjectInCardMgr.SelectedValue;
+            }
+
+            listViewCard.Items.Clear();
+            foreach (var item in MemCfgInfo.MemDbMgr.Get().dicMemCardWithAllInfo)
+            {
+                bool bInsert = false;
+                if (iSelProjectId>0)
+                {
+                    bInsert = item.Value.cardInfo.ProjectId == iSelProjectId;
+                }
+                else if (iSelGroupId > 0)
+                {
+                    bInsert = item.Value.RefProject.Project.GroupId == iSelGroupId;
+
+                }
+                else if (iSelectOrgId > 0)
+                {
+                    bInsert = item.Value.RefProject.Project.OrgId == iSelectOrgId;
+                }
+                else
+                {
+                    bInsert = true;
+                }
+                if (bInsert)
+                {
+                    ListViewItem lvt = listViewCard.Items.Add(new ListViewItem(new string[] {
+                    item.Value.cardInfo.Id.ToString(),
+                    item.Value.cardInfo.Name,
+                     item.Value.RefProject.RefToMemGroup.RefOrg.Org.Name,
+                     item.Value.RefProject.RefToMemGroup.GroupInfo.GroupName,
+                     item.Value.RefProject.Project.ProjectName,
+                     item.Value.cardInfo.CommServerSn,
+                     item.Value.cardInfo.Name,
+                     item.Value.cardInfo.CardScreenCount.ToString(),
+                     item.Value.cardInfo.ScreenNams
+                }));
+
+                    lvt.Tag = item.Value;
+                }
+            }
         }
     }
 }

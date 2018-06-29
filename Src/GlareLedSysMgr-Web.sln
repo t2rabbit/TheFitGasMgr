@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SevenSegDll", "npSevenSegme
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "油站LED", "油站LEDWeb\油站LED\油站LED.csproj", "{74C9A3F3-1927-471D-B8EC-CDA45A1B94E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LmxPublic", "LmxPublic\LmxPublic.csproj", "{E3979D22-4451-44FC-9AE2-E25381EBD055}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +132,18 @@ Global
 		{74C9A3F3-1927-471D-B8EC-CDA45A1B94E7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{74C9A3F3-1927-471D-B8EC-CDA45A1B94E7}.Release|x86.ActiveCfg = Release|Any CPU
 		{74C9A3F3-1927-471D-B8EC-CDA45A1B94E7}.Release|x86.Build.0 = Release|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Debug|x86.Build.0 = Debug|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Release|x86.ActiveCfg = Release|Any CPU
+		{E3979D22-4451-44FC-9AE2-E25381EBD055}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,6 +152,7 @@ Global
 		{2BB28F8D-38C8-420E-911F-D79A120648CF} = {22F379BD-0ED4-486D-91CA-03EE02E1C3EA}
 		{9C0D9BAD-C3FC-4DE0-9BB0-A571B3D36248} = {22F379BD-0ED4-486D-91CA-03EE02E1C3EA}
 		{F619AEED-0AF6-4757-AC05-FBE94BF0FBAE} = {22F379BD-0ED4-486D-91CA-03EE02E1C3EA}
+		{E3979D22-4451-44FC-9AE2-E25381EBD055} = {22F379BD-0ED4-486D-91CA-03EE02E1C3EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5457E6AD-475C-4B3E-A633-40D809B939FE}

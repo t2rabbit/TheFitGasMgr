@@ -120,7 +120,25 @@ namespace GlareLedSysBll
         }
 
 
+        public static bool UpdateOilLastValue(int id, string strContext)
+        {
+            try
+            {
+                using (GLedDbEntities ent = new GLedDbEntities())
+                {
+                    string strSql = string.Format("UPDATE GasCardWithCommInfo SET CardContext ='{0}' WHERE Id ={1}",strContext, id );
+                    ent.Database.ExecuteSqlCommand(strSql);                    
+                }
 
+                return true;
+
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
+
+        }
         public static bool UpdateDev(GasCardWithCommInfo model, out string strError)
         {
             strError = "";

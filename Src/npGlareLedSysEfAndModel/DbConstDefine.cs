@@ -53,6 +53,22 @@ namespace GlareSysEfDbAndModels
             ValueOld = 2
         }
 
+        public static string GetStringByStatus(ValueFlag valFlag)
+        {
+            if (valFlag  == ValueFlag.ValueNotInit)
+            {
+                return "Unknown";
+            }
+            else if (valFlag == ValueFlag.ValueOk)
+            {
+                return "OnLine";
+            }
+            else
+            {
+                return "OffLine";
+            }
+        }
+
         // GPRS== GPRSTCPCLIENT == TCPCLIENT 三个完全相等的
         public const string GateInfo_CommType_GPRS_TCPCLIENT = "GRPS_TCPCLIENT";
         public const string GateInfo_CommType_GPRS = "GPRS";

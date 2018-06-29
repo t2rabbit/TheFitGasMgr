@@ -95,9 +95,14 @@ namespace GLLedPublic
         public const string CmdDefSetOilValue = "SetOilValue";
         public const string CmdDefGetOilValue = "GetOilValue";
         public const string CmdDefSetOilCfg = "SetOilCfg";
+        public const string CmdDefGetOilCfg = "GetOilCfg";
+        public const string CmdDefSetOilDigiCfg = "SetOilDigiCfg";
+        public const string CmdDefGetOilDigiCfg = "GetOilDigiCfg";
 
         public const string MemcachedKeyNewCmd = "NewCmdIds";
         public const string MemcachedKeyCmdResult = "ResultIds";
+        public const string MemcachedKeyCfgVersion = "CfgVersion";
+        public const string MemcachedKeyCardStatus = "CardStatus";
 
 
         /// <summary>

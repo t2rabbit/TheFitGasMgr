@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>GlareSysDataCenter</RootNamespace>
     <AssemblyName>GlareSysDataCenter</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,7 +45,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -52,11 +52,11 @@
     <Compile Include="CmdOp.cs" />
     <Compile Include="CommRW\IPort.cs" />
     <Compile Include="CommRW\Rs485Port.cs" />
-    <Compile Include="CommRW\TCPLisenterPort.cs" />
+    <Compile Include="CommRW\TCPLisentedPort.cs" />
     <Compile Include="CommRW\TCPPort.cs" />
     <Compile Include="CommRW\TcpServerForGPRSDev.cs" />
     <Compile Include="CommRW\TimeTempProtocol.cs" />
-    <Compile Include="Connected Services\GlareLedServices\Reference.cs">
+    <Compile Include="Connected Services\GlareLedServices2\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -171,6 +171,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FormInfoMgr.resx">
       <DependentUpon>FormInfoMgr.cs</DependentUpon>
@@ -178,79 +179,7 @@
     <EmbeddedResource Include="ViewForOrg.resx">
       <DependentUpon>ViewForOrg.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.AddCardResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.AddGroupResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.AddGroupUserResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.AddNewOrgResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.AddOrgUserResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.AddProjectResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.AddProjectUserResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.AddSuperUserResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.CommDevLoginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.DelADevByIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.GetAllCardsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.GetAllProjectResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.GetCardListByCondAndSetOrderResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.GetCardsListByOrgIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.GetDevListByGroupIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.GetDevListByProjectIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.GroupLoginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.LogoutResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.OrgLoginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.ProjectloginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.SetCmdToDbResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.SuperLoginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.UpdateADevResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GlareSysDataCenter.GlareLedServices.UpdateLoginTimeByUuidResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\GlareLedServices\GLSysMgr.wsdl" />
+    <None Include="Connected Services\GlareLedServices2\GLSysMgr.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -286,19 +215,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\GlareLedServices\" />
+    <WCFMetadataStorage Include="Connected Services\GlareLedServices2\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\GlareLedServices\GLSysMgr.disco" />
+    <None Include="Connected Services\GlareLedServices2\GLSysMgr.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\GlareLedServices\configuration91.svcinfo" />
+    <None Include="Connected Services\GlareLedServices2\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\GlareLedServices\configuration.svcinfo" />
+    <None Include="Connected Services\GlareLedServices2\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\GlareLedServices\Reference.svcmap">
+    <None Include="Connected Services\GlareLedServices2\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

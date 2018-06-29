@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CfgVersionBll.cs" />
     <Compile Include="CmdLogsBll.cs" />
     <Compile Include="CardWithCommDevBll.cs" />
     <Compile Include="ConstDef.zh.cs" />

@@ -1,0 +1,428 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Scripts.Render("~/bundles/easyui")
+    @Styles.Render("~/Content/easyui")
+    <style type="text/css">
+        .line {
+            height: auto;
+            width: 100%;
+            float: left;
+            margin-bottom: 5px;
+        }
+
+        .lineText {
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            float: left;
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+
+        fieldset {
+            float: left;
+            width: auto;
+            padding: 5px 5px 10px 5px;
+            margin: 0 5px 0 5px;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            border-radius: 5px;
+            border: 1px solid #d0e5f6;
+            padding-left: 15px;
+            font-weight: bold;
+            font-family: "微软雅黑";
+        }
+
+        .legen {
+            border: 1px solid #d0e5f6;
+            color: #d0e5f6;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .btn {
+            width: 70px;
+            height: 23px;
+            border: none;
+            color: white;
+            background-color: #a1d5fc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #fm {
+            margin: 0;
+            padding: 10px 30px;
+            font-family: 微软雅黑;
+            font-size: 14px;
+        }
+
+        .ftitle {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .fitem {
+            margin-bottom: 5px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0;
+        }
+
+            .fitem label {
+                display: inline-block;
+                width: 100px;
+                font-weight: bold;
+                font-family: '微软雅黑';
+            }
+    </style>
+</head>
+<body>
+    <div class="line">
+        <fieldset style="width: 99%;">
+            <legend>
+                Search
+            </legend>
+            <div class="lineText">
+                <input id="ss" style="width: 280px;"></input>
+                <div id="mm" style="width: 120px">
+                    <div data-options="name:'key',iconCls:'icon-ok'">Keywords</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="divForTable">
+        <table id="tt" style="width: 99%; height: 660px;"></table>
+    </div>
+    <div id="dlg" class="easyui-dialog" style="width: 590px; height: 250px; padding: 5px 10px"
+         data-options="closed:true,buttons:'#dlg-buttons',modal:true">
+        <form id="dlg_form" method="post">
+            <div class="fitem">
+                <label>Name:</label>
+                <input name="Name" id="Name" class="easyui-textbox" data-options="required:true" style="width:400px;" />
+            </div>
+            <div class="fitem">
+                <label>Address:</label>
+                <input name="Address" id="Address" class="easyui-textbox" style="width: 400px;">
+            </div>
+            <div class="fitem">
+                <label>Password:</label>
+                <input name="Password" id="Password" class="easyui-textbox" style="width: 400px;">
+            </div>
+            <div class="fitem">
+                <label>MgrGroup:</label>
+                <input name="MgrGroupId" id="MgrGroupId" class="easyui-combobox" style="width:400px;" data-options="valueField:'ID',textField:'Name',editable:false,required:true" />
+            </div>
+            <div class="fitem">
+                <label>RefOrg:</label>
+                <input name="RefOrgId" id="RefOrgId" class="easyui-combobox" style="width:400px;" data-options="valueField:'ID',textField:'Name',editable:false,required:true" />
+            </div>
+            @*<div class="fitem">
+                    <label>UserType:</label>
+                    <input name="UserType" id="UserType" class="easyui-textbox" style="width: 400px;">
+                </div>*@
+        </form>
+    </div>
+    <div id="dlg-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-ok" onclick="fSaveData()">
+            Save
+        </a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel"
+           onclick="javascript:$('#dlg').dialog('close')">
+            Cancel
+        </a>
+    </div>
+    <div id="dlgBathImport" class="easyui-dialog" style="width: 350px; height: 120px; padding: 5px 10px"
+         data-options="closed:true,buttons:'#dlg-buttonsBathImport',modal:true">
+        <form id="uploadForm">
+            <input id="file" name="file" type="text" style="width:300px">
+        </form>
+    </div>
+    <div id="dlg-buttonsBathImport">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-ok" onclick="fSaveBathData()">
+            Confirm
+        </a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel"
+           onclick="javascript: $('#dlgBathImport').dialog('close')">
+            Close
+        </a>
+    </div>
+    <script type="text/javascript" language="javascript">
+        var vUrl;
+        var vOrgUserUrl;
+        $(document).ready(function () {
+            $('#file').filebox({
+                buttonText: 'Chooese file',
+                accept: 'application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            });
+            fLoadTable();//加载参数
+            $('#ss').searchbox({
+                searcher: function (value, name) {
+                    $('#tt').datagrid('reload', {
+                        Method: 'SearchLoad',
+                        Key: value
+                    });
+                },
+                menu: '#mm',
+                prompt: 'Please input Keywords'
+            });
+        });
+        function fLoadTable() {
+            $('#tt').datagrid({
+                title: 'OrgUserList',
+                url: 'OrgUser/List',
+                pagination: true,
+                pageSize: 20,
+                pagePosition: 'both',
+                striped: true,
+                //nowrap:false,
+                //singleSelect: true,
+                ctrlSelect: true,//在启用多行选择的时候允许使用Ctrl键+鼠标点击的方式进行多选Operation。
+                rownumbers: true,
+                queryParams: {
+                    Method: 'FirstLoad'
+                },
+                columns: [[
+                    { field: 'Id', checkbox: true, title: 'Id', align: 'center' },
+                    {
+                        field: 'Id2', title: 'Id', align: 'left', width: 150, formatter: function (value, row, index) {
+                            return row.Id;
+                        }
+                    },
+                    { field: 'Name', title: 'Name', align: 'left', width: 150 },
+                    { field: 'Password', title: 'Password', align: 'center', width: 150 },
+                    { field: 'RefOrgId', title: 'RefOrgId', align: 'left', width: 150 },
+                    { field: 'RefOrgName', title: 'RefOrgName', align: 'left', width: 150 },
+                    {
+                        field: 'CreateDt', title: 'CreateDt', align: 'center', width: 150, formatter: function (val) {
+                            var vDt = timeStamp2String(val);
+                            return vDt;
+                        }
+                    },
+                    {
+                        field: 'UpdateDt', title: 'UpdateDt', align: 'center', width: 150, formatter: function (val) {
+                            var vDt = timeStamp2String(val);
+                            return vDt;
+                        }
+                    }
+                ]],
+                toolbar: [{
+                    text: 'Add',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        $('#dlg').dialog('open').dialog('setTitle', 'Add OrgUser');
+                        $('#dlg_form').form('clear');
+                        $('#RefOrgId').combobox('reload', 'Org/List?Method=FirstLoad');
+                        vUrl = 'OrgUser/Add';
+                    }
+                }, {
+                    text: 'Edit',
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        var row = $('#tt').datagrid('getSelected');
+                        if (row) {
+                            $('#dlg').dialog('open').dialog('setTitle', 'Edit OrgUser Information');
+                            $('#RefOrgId').combobox('reload', 'Org/List?Method=FirstLoad');
+                            $('#dlg_form').form('load', row);
+                            vUrl = 'OrgUser/Modify?Id=' + row.Id;
+                        } else {
+                            $.messager.alert('Tips', 'At lease chooese one.')
+                        }
+                    }
+                }, '-', {
+                    text: 'Delete',
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        var ids = [];
+                        var rows = $('#tt').datagrid('getChecked');
+                        for (var i = 0; i < rows.length; i++) {
+                            ids.push(rows[i].Id);
+                        }
+                        //alert(ids);
+                        if (ids.length > 0) {
+                            $.messager.confirm('Tips', 'Are you sure to Delete this OrgUser Information?', function (r) {
+                                if (r) {
+                                    vUrl = 'OrgUser/Delete?SubjectIDs=' + ids;
+                                    $.ajax({
+                                        type: "POST",
+                                        url: vUrl,
+                                        dataType: 'json',
+                                        success: function (json) {
+                                            if (json.Status == true) {
+                                                $.messager.show({
+                                                    title: 'Success',
+                                                    msg: 'Delete Success！'
+                                                });
+                                                $('#dlg').dialog('close');
+                                                // close the dialog
+                                                $('#tt').datagrid('reload'); // reload the user data
+                                            } else {
+                                                $.messager.show({
+                                                    title: 'Error',
+                                                    msg: 'Delete Faile,please try again！'
+                                                });
+                                                $('#dlg').dialog('close');
+                                                // close the dialog
+                                                $('#tt').datagrid('reload'); // reload the user data
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                        else {
+                            $.messager.alert('Tips', 'At lease chooese one.');
+                        }
+                    }
+                }, '-', {
+                    text: 'Batch import',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        $('#dlgBathImport').dialog('open').dialog('setTitle', 'Batch import Information');
+                        vUrl = 'OrgUser/BathImport';
+                    }
+                }]
+            });
+        };
+        //SaveBatch 题库
+        function fSaveBathData() {
+            var vFile = $("#file").filebox("getValue");
+            if (vFile == "" || vFile == null) {
+                $.messager.alert("Tips", "Please Chooese file。");
+                return;
+            }
+            $.messager.progress({
+                title: SystemTitle,
+                msg: "importing,please wait。",
+                text: "wait for a minute。"
+            });
+            var formData = new FormData($("#uploadForm")[0]);
+            $.ajax({
+                url: 'OrgUser/UploadFile',
+                type: 'POST',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+                success: function (data) {
+                    if (data != null) {
+                        if (data.Status) {
+                            fInserToDB(data.Obj)
+                        }
+                        else {
+                            $.messager.alert(SystemTitle, data.Msg, 'warning');
+                        }
+                    }
+                    else {
+                        $.messager.alert(SystemTitle, 'Faile,please try again', 'error');
+                    }
+                },
+                error: function (data) {
+                    $.messager.show({
+                        title: 'Error',
+                        msg: data.Msg ? data.Msg : 'Faile,please try again！'
+                    });
+                    $.messager.progress('close');//记得Close
+                }
+            });
+        };
+        //开始导入
+        function fInserToDB(filepath) {
+            $.ajax({
+                type: "post",
+                url: 'OrgUser/BathImport',
+                data: {
+                    path: filepath
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $.messager.progress('close');//记得Close
+                    if (data != null) {
+                        if (data.Status) {
+                            $('#tt').datagrid('reload'); // reload the user data
+                            $.messager.alert(SystemTitle, data.Msg, 'info');
+                            $('#dlgBathImport').dialog('close')
+                        }
+                        else {
+                            $.messager.alert(SystemTitle, data.Msg, 'warning');
+                        }
+                    }
+                    else {
+                        $.messager.alert(SystemTitle, 'Faile,please try again', 'error');
+                    }
+                },
+                error: function (data) {
+                    //alert(vData);
+                    $.messager.show({
+                        title: 'Error',
+                        msg: data.Msg ? data.Msg : 'Faile,please try again！'
+                    });
+                    $.messager.progress('close');//记得Close
+                }
+            });
+        };
+        function fSaveData() {
+            $('#dlg_form').form('submit', {
+                url: vUrl,
+                onSubmit: function () {
+                    return $(this).form('validate');
+                },
+                success: function (sjson) {
+                    var json = eval('(' + sjson + ')');
+                    if (json.Status == true) {
+                        $.messager.show({
+                            title: 'Success',
+                            msg: json.Msg ? json.Msg : 'Operation Success！'
+                        });
+                        $('#dlg').dialog('close');     // close the dialog
+                        $('#tt').datagrid('reload'); // reload the user data
+                    } else {
+                        $.messager.show({
+                            title: 'Error',
+                            msg: json.Msg ? json.Msg : 'Failed,please try again！'
+                        });
+                        $('#dlg').dialog('close');     // close the dialog
+                    }
+                },
+                error: function () {
+                    $.messager.show({
+                        title: 'Error',
+                        msg: json.Msg ? json.Msg : 'Failed,please try again！'
+                    });
+                    $('#dlg').dialog('close');     // close the dialog
+                }
+            });
+        };
+        function timeStamp2String(time) {
+            time = time.replace(/\//g, '');
+            time = time.substring(5, time.length - 1);
+            var datetime = new Date();
+            datetime.setTime(time);
+            var year = datetime.getFullYear();
+            var month = datetime.getMonth() + 1;
+            var date = datetime.getDate();
+            var hour = datetime.getHours();
+            var minute = datetime.getMinutes();
+            var second = datetime.getSeconds();
+            var mseconds = datetime.getMilliseconds();
+            return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+        };
+    </script>
+</body>
+</html>

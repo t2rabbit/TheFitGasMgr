@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CfgVersion.cs">
+      <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CityTable_NotDone_todo.cs">
       <DependentUpon>GlareLedSysSqlServerModel.tt</DependentUpon>
     </Compile>

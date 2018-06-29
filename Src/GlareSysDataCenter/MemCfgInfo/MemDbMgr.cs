@@ -27,14 +27,7 @@ namespace GlareSysDataCenter.MemCfgInfo
         {
             return RunTest++;
         }
-
-
-        //private List<MemOrgInfo> lstMemOrgWithAllInfo = new List<MemOrgInfo>();
-        //private List<MemGroupInfo> lstMemGroupWithAllInfo = new List<MemGroupInfo>();
-        //private List<MemProjectInfo> lstMemPrjWithAllInfo = new List<MemProjectInfo>();
-        //private List<MemCommDev> lstMemCommWithAllInfo = new List<MemCommDev>();
-        //private List<MemCardInfo> lstMemCardWithAllInfo = new List<MemCardInfo>();
-
+        
         public Dictionary<int, MemOrgInfo> dicMemOrgWithAllInfo = new Dictionary<int, MemOrgInfo>();
         public Dictionary<int, MemGroupInfo> dicMemGroupWithAllInfo = new Dictionary<int, MemGroupInfo>();
         public Dictionary<int, MemProjectInfo> dicMemPrjWithAllInfo = new Dictionary<int, MemProjectInfo>();
@@ -45,11 +38,45 @@ namespace GlareSysDataCenter.MemCfgInfo
         private List<OrgInfo> lstOrgsByDb;
         private List<GroupInfo> lstGroupsByDb;
         private List<ProjectInfo> lstProjectsByDb;
-        private List<GasCardWithCommInfo> lstCardsByDb;        
+        private List<GasCardWithCommInfo> lstCardsByDb;
 
+        private int _verInDb = 0;
         private int _loadFlag = 0;
+
+        public bool IsNeedReLoadByMemcached()
+        {
+            string strVerInMem = PiPublic.MemcachedMgr.GetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyCfgVersion);
+            if (strVerInMem == "")
+                return false;
+            if (strVerInMem!= _verInDb.ToString())
+            {                
+                return true;
+            }
+            return false;
+        }
+
+        public bool IsNeedReLoadByDb()
+        {
+            CfgVersion verDb = CfgVersionBll.GetFirstCfg();
+            if (verDb == null)
+                return false;
+
+            if (verDb.Version != _verInDb)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         public void Load()
         {
+            CfgVersion ver = CfgVersionBll.GetFirstCfg();
+            if (ver !=null)
+            {
+                _verInDb = ver.Version.Value;
+            }
+
             lstOrgsByDb = OrgBll.GetAllOrgInfo();
             lstGroupsByDb = GroupBll.GetAllGroupInfo();
             lstProjectsByDb = ProjectBll.GetAllProject();
@@ -127,6 +154,8 @@ namespace GlareSysDataCenter.MemCfgInfo
                         dicMemCardWithAllInfoByClientSn.Add(item.Value.cardInfo.CommServerSn, item.Value);
                     }
                 }
+
+                PiPublic.MemcachedMgr.SetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyCardStatus + item.Value.cardInfo.Id, item.Value.CurStatus.ToString());
             }
         }
 

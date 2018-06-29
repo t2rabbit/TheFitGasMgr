@@ -1,5 +1,8 @@
-﻿using GlareSysDataCenter.CommRW;
+﻿using GlareLedSysBll;
+using GlareSysDataCenter.CommRW;
+using GlareSysEfDbAndModels;
 using PiEms.PublicV2.CommonLibs.Public;
+using PiPublic.Log;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +20,8 @@ namespace GlareSysDataCenter
     {
         FormLog formLog;
 
+        int _iListenPort = 7806;
+
         public FormMain()
         {
             InitializeComponent();
@@ -25,16 +30,20 @@ namespace GlareSysDataCenter
         
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            TcpServerForGPRSDev.Get().Stop();
             if (!TcpServerForGPRSDev.Get().Start())
             {
-                timerRestartTcpServer.Enabled = true;            
+                timerRestartTcpServer.Enabled = true;
+                buttonStart.Enabled = false;
+                buttonStop.Enabled = true;
             }
-
             CmdOp.Get().Start();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
-        {            
+        {
+            PiPublic.ConfigHlper.GetConfig_Int("ListenPort", 7806, out _iListenPort);
+            textBoxPort.Text = _iListenPort.ToString();
             this.backgroundWorkerLoading.RunWorkerAsync();
             FormStartLoader form = new FormStartLoader(this.backgroundWorkerLoading);
             form.ShowDialog(this);
@@ -59,18 +68,34 @@ namespace GlareSysDataCenter
             comboBoxSelOrg.DisplayMember = "DisplayValue";
             comboBoxSelOrg.ValueMember = "MemberValue";
             comboBoxSelOrg.DataSource = lstCommValues;
+
+            buttonFilter_Click(null, null);
+            buttonStart_Click(null, null);
         }
 
         private void backgroundWorkerLoading_DoWork(object sender, DoWorkEventArgs e)
         {
-            TcpServerForGPRSDev.Get().Port = 7804;
-            MemCfgInfo.MemDbMgr.Get().Load();            
+            TcpServerForGPRSDev.Get().Port = _iListenPort;
+            MemCfgInfo.MemDbMgr.Get().Load();
+
+            CfgVersion cfg= CfgVersionBll.GetFirstCfg();
+            if(cfg ==null)
+            {
+                CfgVersion ver = new CfgVersion()
+                {
+                    Id = 0,
+                    UpdateDt = DateTime.Now,
+                    Version = 1
+                };
+                string strErr;
+                CfgVersionBll.AddVersion(ref ver, out strErr);
+            }
         }
 
         private void buttonFunTest_Click(object sender, EventArgs e)
         {
             FormTest form = new FormTest();
-            form.ShowDialog();
+            form.Show();
         }
 
         private void buttonShowLog_Click(object sender, EventArgs e)
@@ -95,7 +120,10 @@ namespace GlareSysDataCenter
 
         private void buttonRefreshDbData_Click(object sender, EventArgs e)
         {
+            DateTime dt = DateTime.Now;
             MemCfgInfo.MemDbMgr.Get().Load();
+            double secs = (DateTime.Now - dt).TotalSeconds;
+            MessageBox.Show("总共耗时(秒）:" + secs.ToString());
         }        
 
         private void rbCommCardViewForTree_CheckedChanged(object sender, EventArgs e)
@@ -117,7 +145,7 @@ namespace GlareSysDataCenter
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TCPLisenterPort port= TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(1);
+            TCPLisentedPort port= TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(1);
             string strVal="";
             port.ReadOilValString(1, ref strVal);
 
@@ -127,7 +155,7 @@ namespace GlareSysDataCenter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TCPLisenterPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(1);
+            TCPLisentedPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(1);
             string strVal = "";
             List<string> lstVals = new List<string>();
             lstVals.Add("222222");
@@ -179,7 +207,7 @@ namespace GlareSysDataCenter
                 {
                     ListViewItem lv = listViewCardList.Items.Add(new ListViewItem(new string[] {
                     id.ToString(),
-                    item.Value.cardInfo.Id.ToString(),
+                    "unknown",
                     item.Value.cardInfo.Name,
                     item.Value.cardInfo.CommServerSn,
                     item.Value.RefProject.Project.ProjectName,
@@ -189,7 +217,8 @@ namespace GlareSysDataCenter
                     item.Value.cardInfo.CardScreenCount.ToString(),
                     item.Value.cardInfo.CardPointCount.ToString(),
                     item.Value.cardInfo.ScreenNams,
-                    item.Value.cardInfo.CardContext
+                    item.Value.cardInfo.CardContext,
+                    ""
                     }));
 
                     lv.Tag = item.Value;
@@ -232,6 +261,62 @@ namespace GlareSysDataCenter
                 });
             }
             comboBoxSelGroup.DataSource = lstCommValues;
+        }
+
+        private void timerGetStatus_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (ListViewItem item in listViewCardList.Items)
+                {
+                    MemCfgInfo.MemCardWithCommDev dev = item.Tag as MemCfgInfo.MemCardWithCommDev;
+
+                    item.SubItems[1].Text = DbConstDefine.GetStringByStatus((DbConstDefine.ValueFlag)dev.CurStatus);
+                    item.SubItems[11].Text = dev.strGettedValues;
+                    item.SubItems[12].Text = dev.dtGetted.ToString();
+                }
+
+                buttonStart.Enabled = !TcpServerForGPRSDev.Get().GetStatus();
+                buttonStop.Enabled = TcpServerForGPRSDev.Get().GetStatus();
+            }
+            catch(Exception ex)
+            {
+                LogMgr.WriteErrorDefSys("timer get status error:");
+                LogMgr.WriteErrorDefSys(ex.Message);
+            }
+            
+        }
+
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+            CmdOp.Get().Stop();
+
+            TcpServerForGPRSDev.Get().Stop();
+        }
+
+        int iRtyCheckDb = 0;
+        private void timerReloadCfg_Tick(object sender, EventArgs e)
+        {
+            if (MemCfgInfo.MemDbMgr.Get().IsNeedReLoadByMemcached())
+            {
+                MemCfgInfo.MemDbMgr.Get().Load();
+            }
+
+            iRtyCheckDb++;
+            if(iRtyCheckDb==30)
+            {
+                iRtyCheckDb = 0;
+                if(MemCfgInfo.MemDbMgr.Get().IsNeedReLoadByDb())
+                {
+                    MemCfgInfo.MemDbMgr.Get().Load();
+                }
+            }
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CmdOp.Get().Stop();
+            TcpServerForGPRSDev.Get().Stop();
         }
     }
 }

@@ -146,3 +146,4 @@ E:\Work\TheFit\TheFitGasMgr\Src\GlareLedSysWs\obj\Debug\03-GlareLedSysWs.csproj.
 E:\Work\TheFit\TheFitGasMgr\Src\GlareLedSysWs\obj\Debug\03-GlareLedSysWs.csproj.CopyComplete
 E:\Work\TheFit\TheFitGasMgr\Src\GlareLedSysWs\obj\Debug\GlareLedSysWs.dll
 E:\Work\TheFit\TheFitGasMgr\Src\GlareLedSysWs\obj\Debug\GlareLedSysWs.pdb
+E:\Work\TheFit\TheFitGasMgr\Src\GlareLedSysWs\bin\roslyn\Microsoft.Build.Utilities.Core.dll

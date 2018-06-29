@@ -3,6 +3,7 @@ using GlareSysDataCenter.CommRW;
 using GlareSysEfDbAndModels;
 using GLLedPublic;
 using PiPublic;
+using PiPublic.Log;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,11 @@ namespace GlareSysDataCenter
 
         public void Start()
         {
+            Stop();
             _run = true;
-            Thread t = new Thread(new ThreadStart(Run));
-            t.Start();
+            _thread = new Thread(new ThreadStart(Run));
+            _thread.IsBackground = true;
+            _thread.Start();
         }
         public void Stop()
         {
@@ -45,7 +48,6 @@ namespace GlareSysDataCenter
                 _thread = null;
             }
         }
-
 
         private bool RemoveNewCmdInMemcached(int id)
         {
@@ -117,61 +119,101 @@ namespace GlareSysDataCenter
 
         public void Run()
         {
+            int iTestNoCmdTickCount = 0;
             while(_run)
             {
-                Thread.Sleep(100);
-
-
-                RemoveHendResultInMemcached();
-
-                string strIds = PiPublic.MemcachedMgr.GetVal("NewCmdIds");
-                if (strIds.Length == 0)
+                try
                 {
-                    continue;
+                    Thread.Sleep(100);
+                    RemoveHendResultInMemcached();
+
+                    string strIds = PiPublic.MemcachedMgr.GetVal("NewCmdIds");
+
+                    PiPublic.MemcachedMgr.SetVal("NewCmdIds", "");
+                    if (strIds.Length == 0)
+                    {
+                        iTestNoCmdTickCount++;
+                        if (iTestNoCmdTickCount > 1000)
+                        {
+                            iTestNoCmdTickCount = 0;
+                            PiPublic.MemcachedMgr.SetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyCmdResult, "");
+                        }
+                        continue;
+                    }
+
+
+                    PiPublic.Log.LogMgr.WriteDebugDefSys("memcached cmd id is" + strIds);
+
+                    iTestNoCmdTickCount = 0;
+                    List<CmdLogs> lstCmd = CmdLogsBll.GetNewCmdsByMinutes(3);
+                    if (lstCmd.Count == 0)
+                    {
+                        // 时间过期到命令
+                        PiPublic.Log.LogMgr.WriteDebugDefSys("memcached cmd timeouted....");
+                        PiPublic.MemcachedMgr.SetVal(GLLedPublic.GlareLedSysDefPub.MemcachedKeyNewCmd, "");
+                        continue;
+                    }
+
+                    bool bResult = false;
+                    string strResult = "";
+                    foreach (var item in lstCmd)
+                    {
+                        LogMgr.WriteDebugDefSys("handleing cmd id is" + item.Id + "create dt is" + item.CreateTime);
+                        if (item.CreateTime.Value.AddMinutes(1) < DateTime.Now)
+                        {
+                            RemoveNewCmdInMemcached(item.Id);
+                            CmdLogsBll.UpdateACmdResult(item.Id, 99, "timeoutcmd");
+                            continue;
+                        }
+
+                        if (item.CmdType == GlareLedSysDefPub.CmdDefSetOilValue)
+                        {
+                            bResult = SetOilValue(item.CommDevId.Value, item.CmdInfo);
+                            CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 99, bResult ? "Success" : "Failed");
+                            InsertNewHanedMemcached(item.Id);
+                        }
+                        else if (item.CmdType == GlareLedSysDefPub.CmdDefSetOilCfg)
+                        {
+                            bResult = SetOilCfg(item.CommDevId.Value, item.CmdInfo);
+                            CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 99, bResult ? "Success" : "Failed");
+                            InsertNewHanedMemcached(item.Id);
+                        }
+                        else if (item.CmdType == GlareLedSysDefPub.CmdDefGetOilCfg)
+                        {
+                            bResult = GetOilCfgBySpilits(item.CommDevId.Value, out strResult);
+                            CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 99, strResult);
+                            InsertNewHanedMemcached(item.Id);
+                        }
+                        else if (item.CmdType == GlareLedSysDefPub.CmdDefGetOilValue)
+                        {
+                            bResult = GetOilValue(item.CommDevId.Value, out strResult);
+                            CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 99, strResult);
+                            InsertNewHanedMemcached(item.Id);
+                        }
+                        else if (item.CmdType == GlareLedSysDefPub.CmdDefSetOilDigiCfg)
+                        {
+                            bResult = SetOilDigi(item.CommDevId.Value, item.CmdInfo);
+                            CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 99, bResult ? "Success" : "Failed");
+                            InsertNewHanedMemcached(item.Id);
+                        }
+                        else if (item.CmdType == GlareLedSysDefPub.CmdDefGetOilDigiCfg)
+                        {
+                            bResult = GetOilDigiCfgBySpilits(item.CommDevId.Value, out strResult);
+                            CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 99, strResult);
+                            InsertNewHanedMemcached(item.Id);
+                        }
+                        else
+                        {
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogMgr.WriteErrorDefSys("cmd op thread ex:");
+                    LogMgr.WriteErrorDefSys(ex.Message);
                 }
 
-                List<CmdLogs> lstCmd = CmdLogsBll.GetNewCmdsByMinutes(1);
-                if (lstCmd.Count ==0)
-                {
-                    continue;
-                }
 
-                bool bResult = false;
-                string strResult = "";
-                foreach (var item in lstCmd)
-                {
-                    if (item.CreateTime.Value.AddMinutes(1) < DateTime.Now)
-                    {
-                        RemoveNewCmdInMemcached(item.Id);
-                    }
-
-                    if (item.CmdType== GlareLedSysDefPub.CmdDefSetOilValue)
-                    {
-                        bResult = SetOilValue(item.CommDevId.Value, item.CmdInfo);
-                        CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 0, bResult ? "Success" : "Failed");
-                        InsertNewHanedMemcached(item.Id);
-                    }
-
-                    else if(item.CmdType== GlareLedSysDefPub.CmdDefSetOilCfg)
-                    {
-                        bResult = SetOilCfg(item.CommDevId.Value, strResult);
-                        CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 0, bResult ? "Success" : "Failed");
-                        InsertNewHanedMemcached(item.Id);
-                    }
-                    else if(item.CmdType == GlareLedSysDefPub.CmdDefGetOilValue)
-                    {
-                        bResult = GetOilValue(item.CommDevId.Value, out strResult);
-                        CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 0, bResult ? "Success" : "Failed");
-                        InsertNewHanedMemcached(item.Id);
-                    }
-                    else
-                    {
-                    }
-
-                    CmdLogsBll.UpdateACmdResult(item.Id, bResult ? 1 : 2, strResult);
-                    InsertNewHanedMemcached(item.Id);
-                }
-                
             }
         }
 
@@ -196,20 +238,37 @@ namespace GlareSysDataCenter
 
         public bool SetOilValue(int commID, string strValues)
         {
-            TCPLisenterPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(commID);
+            TCPLisentedPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(commID);
 
             if (port == null)
-            { return false; }
+            {
+                LogMgr.WriteDebugDefSys("commdev dnot connect...");
+                return false;
+            }
 
             string[] values = strValues.Split(new char[] { '-', ',' });
             List<string> lstVals = new List<string>(values);
             return port.SendOilContext(1, lstVals);
         }
 
+
+        public bool SetOilDigi(int commID, string strValues)
+        {
+            TCPLisentedPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(commID);
+
+            if (port == null)
+            { return false; }
+
+            string[] values = strValues.Split(new char[] { '-', ',' });
+            List<string> lstVals = new List<string>(values);
+            return port.SendOilDot(1, strValues);
+        }
+
+
         public bool GetOilValue(int commID, out string strValues)
         {
             strValues = "";
-            TCPLisenterPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(commID);
+            TCPLisentedPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(commID);
             if (port == null)
             { return false; }
             List<GlareLedSysDefPub.CardGasValEachNumAByte> lstVals = new List<GlareLedSysDefPub.CardGasValEachNumAByte>();
@@ -218,18 +277,75 @@ namespace GlareSysDataCenter
             strValues = strValuesTmp;
             return bRt;
         }
-
-        public bool SetOilCfg(int commId, string strCfgJson)
+        
+        public bool GetOilCfgBySpilits(int commID, out string strValues)
         {
-            CardCfgByJson cfg = JsonStrObjConver.JsonStr2Obj(strCfgJson,typeof(CardCfgByJson)) as CardCfgByJson;
-            if (cfg == null)
+            strValues = "";
+            TCPLisentedPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(commID);
+            if (port == null)
+            { return false; }
+            List<GlareLedSysDefPub.CardGasValEachNumAByte> lstVals = new List<GlareLedSysDefPub.CardGasValEachNumAByte>();            
+            CardCfgByJson cfg = new CardCfgByJson();
+            bool bRt = port.GetLedCfg(1,  ref cfg);
+            string strOut = (cfg.bDobule ? "1" : "0");
+            strOut += "-" + cfg.iScreenCount.ToString();
+            strOut += "-" + cfg.iCardDigCount;
+            strOut += "-";
+            strOut += cfg.bShowAppend ? "1" : "0";
+            strOut +="-" + cfg.iLight;
+
+            strValues = strOut;
+            return bRt;
+        }
+
+
+        public bool GetOilDigiCfgBySpilits(int commID, out string strValues)
+        {
+            strValues = "";
+            TCPLisentedPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(commID);
+            if (port == null)
+            { return false; }
+            List<GlareLedSysDefPub.CardGasValEachNumAByte> lstVals = new List<GlareLedSysDefPub.CardGasValEachNumAByte>();
+            string strOut="";
+            bool bRt = port.ReadLedDotValString(1, ref strOut);
+            
+            strValues = strOut;
+            return bRt;
+        }
+
+        public bool SetOilCfg(int commId, string strStringBySpilt)
+        {
+            LogMgr.WriteDebugDefSys("handleing cmd SetOilCfg");
+            string[] strArr = strStringBySpilt.Split(new char[] {',','-' });
+            if (strArr.Length != 5 )
+            { return false; }
+            int[] iArr = new int[5];
+            for (int i = 0; i < 5; i++)
             {
+                iArr[i] = int.Parse(strArr[i]);
+            }
+
+
+            CardCfgByJson cfg = new CardCfgByJson()
+            {
+                iCardType = 0,
+                iFirmVer = 0,
+                iHardVer = 0,
+                iID = 0,
+                bDobule = iArr[0] == 1,
+                iScreenCount = iArr[1],
+                iCardDigCount = iArr[2],
+                bShowAppend = iArr[3] == 1,
+                iLight = 8,
+            };
+
+            TCPLisentedPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(commId);
+            if (port == null)
+            {
+                LogMgr.WriteDebugDefSys("handing cmd SetOilCfg dev is not connected...");
                 return false;
             }
 
-            TCPLisenterPort port = TcpServerForGPRSDev.Get().GetDevConnectedTcpClient(commId);
-            if (port == null)
-            { return false; }
             return port.SetLedCfg(1, cfg);
         }
 

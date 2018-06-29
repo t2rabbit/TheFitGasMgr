@@ -52,6 +52,13 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
+            this.buttonMdyCfg = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -300,11 +307,82 @@
             this.button20.UseVisualStyleBackColor = true;
             this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
+            // buttonMdyCfg
+            // 
+            this.buttonMdyCfg.Location = new System.Drawing.Point(558, 12);
+            this.buttonMdyCfg.Name = "buttonMdyCfg";
+            this.buttonMdyCfg.Size = new System.Drawing.Size(119, 23);
+            this.buttonMdyCfg.TabIndex = 1;
+            this.buttonMdyCfg.Text = "修改配置";
+            this.buttonMdyCfg.UseVisualStyleBackColor = true;
+            this.buttonMdyCfg.Click += new System.EventHandler(this.buttonMdyCfg_Click);
+            // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(558, 41);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(119, 23);
+            this.button21.TabIndex = 1;
+            this.button21.Text = "修改价格";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(558, 70);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(119, 23);
+            this.button25.TabIndex = 1;
+            this.button25.Text = "修改读取配置";
+            this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
+            // button26
+            // 
+            this.button26.Location = new System.Drawing.Point(558, 99);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(119, 23);
+            this.button26.TabIndex = 1;
+            this.button26.Text = "读取价格";
+            this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
+            // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(558, 128);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(159, 23);
+            this.button27.TabIndex = 1;
+            this.button27.Text = "设置每个牌子到小数点位数";
+            this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
+            // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(558, 157);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(119, 23);
+            this.button28.TabIndex = 1;
+            this.button28.Text = "读取小数点位数";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
+            // 
+            // button29
+            // 
+            this.button29.Location = new System.Drawing.Point(558, 204);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(119, 23);
+            this.button29.TabIndex = 3;
+            this.button29.Text = "读取在线状态";
+            this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            // 
             // FormTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button29);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
@@ -320,6 +398,12 @@
             this.Controls.Add(this.button22);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button8);
+            this.Controls.Add(this.button28);
+            this.Controls.Add(this.button27);
+            this.Controls.Add(this.button26);
+            this.Controls.Add(this.button25);
+            this.Controls.Add(this.button21);
+            this.Controls.Add(this.buttonMdyCfg);
             this.Controls.Add(this.button20);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
@@ -361,6 +445,13 @@
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button buttonMdyCfg;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.Button button29;
     }
 }
 

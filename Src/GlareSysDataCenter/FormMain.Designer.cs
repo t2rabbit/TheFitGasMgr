@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxPort = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonCfgDbMgr = new System.Windows.Forms.Button();
             this.buttonRefreshDbData = new System.Windows.Forms.Button();
             this.buttonShowLog = new System.Windows.Forms.Button();
@@ -55,6 +57,7 @@
             this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel5 = new System.Windows.Forms.Panel();
             this.buttonFilter = new System.Windows.Forms.Button();
             this.comboBoxSelGroup = new System.Windows.Forms.ComboBox();
@@ -62,6 +65,7 @@
             this.comboBoxSelOrg = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.timerGetStatus = new System.Windows.Forms.Timer(this.components);
+            this.timerReloadCfg = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -71,6 +75,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBoxPort);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.buttonCfgDbMgr);
             this.panel1.Controls.Add(this.buttonRefreshDbData);
             this.panel1.Controls.Add(this.buttonShowLog);
@@ -83,19 +89,35 @@
             this.panel1.Size = new System.Drawing.Size(800, 56);
             this.panel1.TabIndex = 0;
             // 
+            // textBoxPort
+            // 
+            this.textBoxPort.Location = new System.Drawing.Point(462, 4);
+            this.textBoxPort.Name = "textBoxPort";
+            this.textBoxPort.Size = new System.Drawing.Size(100, 21);
+            this.textBoxPort.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(427, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Port";
+            // 
             // buttonCfgDbMgr
             // 
-            this.buttonCfgDbMgr.Location = new System.Drawing.Point(344, 4);
+            this.buttonCfgDbMgr.Location = new System.Drawing.Point(175, 4);
             this.buttonCfgDbMgr.Name = "buttonCfgDbMgr";
             this.buttonCfgDbMgr.Size = new System.Drawing.Size(75, 23);
             this.buttonCfgDbMgr.TabIndex = 4;
-            this.buttonCfgDbMgr.Text = "信息管理";
+            this.buttonCfgDbMgr.Text = "InfoMgr";
             this.buttonCfgDbMgr.UseVisualStyleBackColor = true;
             this.buttonCfgDbMgr.Click += new System.EventHandler(this.buttonCfgDbMgr_Click);
             // 
             // buttonRefreshDbData
             // 
-            this.buttonRefreshDbData.Location = new System.Drawing.Point(247, 4);
+            this.buttonRefreshDbData.Location = new System.Drawing.Point(686, 3);
             this.buttonRefreshDbData.Name = "buttonRefreshDbData";
             this.buttonRefreshDbData.Size = new System.Drawing.Size(75, 23);
             this.buttonRefreshDbData.TabIndex = 3;
@@ -105,11 +127,11 @@
             // 
             // buttonShowLog
             // 
-            this.buttonShowLog.Location = new System.Drawing.Point(496, 4);
+            this.buttonShowLog.Location = new System.Drawing.Point(256, 4);
             this.buttonShowLog.Name = "buttonShowLog";
             this.buttonShowLog.Size = new System.Drawing.Size(75, 23);
             this.buttonShowLog.TabIndex = 2;
-            this.buttonShowLog.Text = "显示日志";
+            this.buttonShowLog.Text = "ShowLog";
             this.buttonShowLog.UseVisualStyleBackColor = true;
             this.buttonShowLog.Click += new System.EventHandler(this.buttonShowLog_Click);
             // 
@@ -131,6 +153,7 @@
             this.buttonStop.TabIndex = 0;
             this.buttonStop.Text = "Stop";
             this.buttonStop.UseVisualStyleBackColor = true;
+            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
             // 
             // buttonStart
             // 
@@ -206,8 +229,10 @@
             this.columnHeader25,
             this.columnHeader26,
             this.columnHeader27,
-            this.columnHeader28});
+            this.columnHeader28,
+            this.columnHeader1});
             this.listViewCardList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewCardList.FullRowSelect = true;
             this.listViewCardList.Location = new System.Drawing.Point(3, 78);
             this.listViewCardList.Name = "listViewCardList";
             this.listViewCardList.Size = new System.Drawing.Size(786, 255);
@@ -217,15 +242,15 @@
             // 
             // columnHeader15
             // 
-            this.columnHeader15.Text = "序号";
+            this.columnHeader15.Text = "ID";
             // 
             // columnHeader16
             // 
-            this.columnHeader16.Text = "油卡ID";
+            this.columnHeader16.Text = "Status";
             // 
             // columnHeader17
             // 
-            this.columnHeader17.Text = "油卡名称";
+            this.columnHeader17.Text = "GasName";
             // 
             // columnHeader18
             // 
@@ -234,36 +259,40 @@
             // 
             // columnHeader20
             // 
-            this.columnHeader20.Text = "所属油站";
+            this.columnHeader20.Text = "Station";
             // 
             // columnHeader21
             // 
-            this.columnHeader21.Text = "所属区域";
+            this.columnHeader21.Text = "Group";
             // 
             // columnHeader22
             // 
-            this.columnHeader22.Text = "所属企业";
+            this.columnHeader22.Text = "Org";
             // 
             // columnHeader23
             // 
-            this.columnHeader23.Text = "型号";
+            this.columnHeader23.Text = "Model";
             // 
             // columnHeader25
             // 
-            this.columnHeader25.Text = "屏幕数量";
+            this.columnHeader25.Text = "ScreenCount";
             // 
             // columnHeader26
             // 
-            this.columnHeader26.Text = "小数点位置";
+            this.columnHeader26.Text = "Points";
             // 
             // columnHeader27
             // 
-            this.columnHeader27.Text = "各屏幕备注";
+            this.columnHeader27.Text = "ScreenAlias";
             this.columnHeader27.Width = 80;
             // 
             // columnHeader28
             // 
-            this.columnHeader28.Text = "屏幕当前内容";
+            this.columnHeader28.Text = "ScreenInfo";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "UpdateDt";
             // 
             // panel5
             // 
@@ -323,6 +352,18 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "公司";
             // 
+            // timerGetStatus
+            // 
+            this.timerGetStatus.Enabled = true;
+            this.timerGetStatus.Interval = 10000;
+            this.timerGetStatus.Tick += new System.EventHandler(this.timerGetStatus_Tick);
+            // 
+            // timerReloadCfg
+            // 
+            this.timerReloadCfg.Enabled = true;
+            this.timerReloadCfg.Interval = 10000;
+            this.timerReloadCfg.Tick += new System.EventHandler(this.timerReloadCfg_Tick);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -332,9 +373,11 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormMain";
-            this.Text = "DataCenter";
+            this.Text = "DataCenter0614";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -379,6 +422,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader27;
         private System.Windows.Forms.ColumnHeader columnHeader28;
         private System.Windows.Forms.Timer timerGetStatus;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Timer timerReloadCfg;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxPort;
     }
 }
 
